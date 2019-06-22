@@ -369,9 +369,10 @@ function (_FullscreenApplicatio) {
         var group,
             clear,
             pickable,
-            worldJson,
-            tilesetJson,
+            _ref,
+            data,
             _args = arguments;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -384,15 +385,18 @@ function (_FullscreenApplicatio) {
                 return get(world);
 
               case 6:
-                worldJson = _context.sent;
-                _context.next = 9;
-                return get(tileset);
-
-              case 9:
-                tilesetJson = _context.sent;
-                this.world = tiled.makeTiledWorld(worldJson.data, tilesetJson.data);
-                this.objects = this.createObjects(group, clear, pickable);
-                this.sprites = this.createSprites(clear, tilesize);
+                _ref = _context.sent;
+                data = _ref.data;
+                this.world = tiled.makeTiledWorld(data, tileset);
+                this.ground = this.world.children.filter(function (_ref2) {
+                  var type = _ref2.type;
+                  return type === 'tilelayer';
+                });
+                this.objects = this.createObjects(tilesize, group, clear, pickable);
+                this.sprites = this.createSprites(tilesize, clear);
+                this.ground.forEach(function (ground) {
+                  return _this.stage.addChild(ground);
+                });
                 this.sprites.forEach(function (sprite) {
                   return _this.stage.addChild(sprite);
                 });
@@ -413,12 +417,12 @@ function (_FullscreenApplicatio) {
     }()
   }, {
     key: "createObjects",
-    value: function createObjects() {
+    value: function createObjects(tilesize) {
       var _this2 = this;
 
-      var group = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      var pickable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      var group = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var clear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      var pickable = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
       var objects = [];
       var groups = utils.groupObjects(this.world.objects);
       var groupRegExp = group.map(function (string) {
@@ -448,7 +452,7 @@ function (_FullscreenApplicatio) {
         if (Array.isArray(next)) {
           next.forEach(function (object) {
             if (object.gid) {
-              var sprite = utils.createSprite(object.gid, _this2.tiles);
+              var sprite = utils.createSprite(object.gid, tilesize, _this2.tiles);
 
               if (sprite) {
                 utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name']);
@@ -469,8 +473,8 @@ function (_FullscreenApplicatio) {
   }, {
     key: "createSprites",
     value: function createSprites() {
-      var clear = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      var tilesize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
+      var tilesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;
+      var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
       return this.objects.filter(function (sprite) {
         return !utils.contains(clear, sprite.name);
       }).map(function (sprite) {
@@ -523,8 +527,8 @@ var utils = {
     return PIXI.Texture.EMPTY;
   },
   createSprite: function createSprite(frame) {
-    var tiles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    var tileSize = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 32;
+    var tilesize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
+    var tiles = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
     var sprite;
 
     if (tiles) {
@@ -538,8 +542,8 @@ var utils = {
     }
 
     if (sprite) {
-      sprite.width = tileSize;
-      sprite.height = tileSize;
+      sprite.width = tilesize;
+      sprite.height = tilesize;
 
       if (sprite.texture) {
         sprite.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;

@@ -1,5 +1,5 @@
+const PIXI = require('pixi-shim')
 const { TiledApplication } = require('..')
-
 const app = new TiledApplication()
 
 app.createWorld(

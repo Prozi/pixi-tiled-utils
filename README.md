@@ -10,7 +10,7 @@ and canvas of full width and height of window
 * TiledApplication
 
 ```javascript
-// const PIXI = require('pixi.js')
+const PIXI = require('pixi.js')
 const { TiledApplication } = require('pixi-tiled-utils')
 const app = new TiledApplication()
 

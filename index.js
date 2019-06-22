@@ -210,14 +210,6 @@ module.exports["default"] = tiled;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -264,80 +256,61 @@ function (_FullscreenApplicatio) {
   }
 
   _createClass(TiledApplication, [{
-    key: "makeTiledWorld",
-    value: function () {
-      var _makeTiledWorld = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(world, tileset) {
-        var worldJson, tilesetJson;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return get(world);
-
-              case 2:
-                worldJson = _context.sent;
-                _context.next = 5;
-                return get(tileset);
-
-              case 5:
-                tilesetJson = _context.sent;
-                return _context.abrupt("return", tiled.makeTiledWorld(worldJson.data, tilesetJson.data));
-
-              case 7:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function makeTiledWorld(_x, _x2) {
-        return _makeTiledWorld.apply(this, arguments);
-      }
-
-      return makeTiledWorld;
-    }()
-  }, {
     key: "createWorld",
     value: function () {
       var _createWorld = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(world, tileset) {
-        var group,
-            _args2 = arguments;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                group = _args2.length > 2 && _args2[2] !== undefined ? _args2[2] : [];
-                _context2.next = 3;
-                return this.makeTiledWorld(world, tileset);
+      regeneratorRuntime.mark(function _callee(world, tileset) {
+        var _this = this;
 
-              case 3:
-                this.world = _context2.sent;
-                this.objects = this.addObjects(group = []);
+        var group,
+            clear,
+            pickable,
+            worldJson,
+            tilesetJson,
+            _args = arguments;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                group = _args.length > 2 && _args[2] !== undefined ? _args[2] : [];
+                clear = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
+                pickable = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
+                _context.next = 5;
+                return get(world);
 
               case 5:
+                worldJson = _context.sent;
+                _context.next = 8;
+                return get(tileset);
+
+              case 8:
+                tilesetJson = _context.sent;
+                this.world = tiled.makeTiledWorld(worldJson.data, tilesetJson.data);
+                this.objects = this.createObjects(group, clear, pickable);
+                this.sprites = this.createSprites(clear);
+                this.sprites.forEach(function (sprite) {
+                  return _this.stage.addChild(sprite);
+                });
+
+              case 13:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee, this);
       }));
 
-      function createWorld(_x3, _x4) {
+      function createWorld(_x, _x2) {
         return _createWorld.apply(this, arguments);
       }
 
       return createWorld;
     }()
   }, {
-    key: "addObjects",
-    value: function addObjects() {
-      var _this = this;
+    key: "createObjects",
+    value: function createObjects() {
+      var _this2 = this;
 
       var group = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
       var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
@@ -347,83 +320,73 @@ function (_FullscreenApplicatio) {
       var groupRegExp = group.map(function (string) {
         return new RegExp(string);
       });
-      Object.keys(groups).forEach(function (name) {
+      Object.keys(groups).filter(function (name) {
         var markedForRemove = utils.contains(clear, name);
+        return !markedForRemove && !utils.contains(pickable, name);
+      }).forEach(function (name) {
+        console.log("\u2523\u2501 parse object: ".concat(name));
+        var next = groups[name];
+        var group = groupRegExp.find(function (regExp) {
+          return name.match(regExp);
+        });
+        var container;
 
-        if (!markedForRemove && !utils.contains(pickable, name)) {
-          console.log("\u2523\u2501 parse object: ".concat(name));
-          var next = groups[name];
-
-          var _group = groupRegExp.find(function (regExp) {
-            return name.match(regExp);
+        if (group) {
+          container = new PIXI.Container();
+          utils.pushObject(container, objects);
+          utils.nameObject(container, {
+            name: name,
+            type: 'layer'
           });
+          console.log("\u2523\u2501 add layer: ".concat(name));
+        }
 
-          var container;
+        if (Array.isArray(next)) {
+          next.forEach(function (object) {
+            if (object.gid) {
+              var sprite = utils.createSprite(object.gid, _this2.tiles);
 
-          if (_group) {
-            container = new PIXI.Container();
-            utils.pushObject(container, objects);
-            utils.nameObject(container, {
-              name: name,
-              type: 'layer'
-            });
-            console.log("\u2523\u2501 add layer: ".concat(name));
-          }
+              if (sprite) {
+                utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name']);
 
-          if (Array.isArray(next)) {
-            next.forEach(function (object) {
-              if (object.gid) {
-                var sprite = utils.createSprite(object.gid, _this.tiles);
-
-                if (sprite) {
-                  utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name']);
-
-                  if (_group) {
-                    console.log("\u2523\u2501 add object ".concat(object.name, " (").concat(~~sprite.x, "/").concat(~~sprite.y, ") to layer: ").concat(name));
-                    container.addChild(sprite);
-                  } else {
-                    utils.pushObject(sprite, objects);
-                  }
+                if (group) {
+                  console.log("\u2523\u2501 add object ".concat(object.name, " (").concat(~~sprite.x, "/").concat(~~sprite.y, ") to layer: ").concat(name));
+                  container.addChild(sprite);
+                } else {
+                  utils.pushObject(sprite, objects);
                 }
               }
-            });
-          }
+            }
+          });
         }
       });
       return objects;
     }
   }, {
-    key: "show",
-    value: function show() {
+    key: "createSprites",
+    value: function createSprites() {
       var clear = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
       var tileSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
-      var output = new PIXI.Container();
-
-      try {
-        var tempLayer = new PIXI.Container();
-        this.objects.forEach(function (sprite) {
-          if (!utils.contains(clear, sprite.name)) {
-            var x = Math.round((sprite.x || 0) + (sprite.offsetx || 0));
-            var y = Math.round((sprite.y || 0) + (sprite.offsety || 0));
-            var objects = sprite.children.length ? sprite.children : [sprite];
-            var bounds = utils.getBounds(objects);
-            sprite.x = sprite.basex = bounds.left + x;
-            sprite.y = sprite.basey = bounds.down + y - tileSize;
-            objects.forEach(function (child) {
-              child.x -= bounds.left - child.width * 0.5;
-              child.y -= bounds.down - tileSize;
-              child.anchor.set(0.5, 1);
-            });
-            tempLayer.addChild(sprite);
-          }
-        }); // fill with parsed object sprites
-
-        output.addChild.apply(output, _toConsumableArray(tempLayer.children));
-      } catch (err) {
-        console.error(err.message, err.stack);
-      }
-
-      return output;
+      return this.objects.filter(function (sprite) {
+        return !utils.contains(clear, sprite.name);
+      }).map(function (sprite) {
+        try {
+          var x = Math.round((sprite.x || 0) + (sprite.offsetx || 0));
+          var y = Math.round((sprite.y || 0) + (sprite.offsety || 0));
+          var objects = sprite.children.length ? sprite.children : [sprite];
+          var bounds = utils.getBounds(objects);
+          sprite.x = sprite.basex = bounds.left + x;
+          sprite.y = sprite.basey = bounds.down + y - tileSize;
+          objects.forEach(function (child) {
+            child.x -= bounds.left - child.width * 0.5;
+            child.y -= bounds.down - tileSize;
+            child.anchor.set(0.5, 1);
+          });
+          return sprite;
+        } catch (err) {
+          console.error(err.message, err.stack);
+        }
+      });
     }
   }]);
 
@@ -45666,7 +45629,7 @@ if (!global.window.PIXI) {
 /*!***********************************************************!*\
   !*** ./node_modules/pixi.js-legacy/lib/pixi-legacy.es.js ***!
   \***********************************************************/
-/*! exports provided: accessibility, extract, interaction, prepare, utils, VERSION, filters, useDeprecated, CanvasRenderer, CanvasTinter, CanvasMeshRenderer, CanvasGraphicsRenderer, CanvasSpriteRenderer, Application, AbstractRenderer, Attribute, BaseRenderTexture, BaseTexture, BatchDrawCall, BatchGeometry, BatchRenderer, Buffer, CubeTexture, Filter, Framebuffer, GLProgram, GLTexture, Geometry, ObjectRenderer, Program, Quad, QuadUv, RenderTexture, Renderer, Shader, SpriteMaskFilter, State, System, Texture, TextureMatrix, TextureUvs, UniformGroup, autoDetectRenderer, checkMaxIfStatementsInShader, defaultFilterVertex, defaultVertex, generateMultiTextureShader, resources, systems, AppLoaderPlugin, Loader, LoaderResource, TextureLoader, ParticleContainer, ParticleRenderer, Spritesheet, SpritesheetLoader, TilingSprite, TilingSpriteRenderer, BitmapFontLoader, BitmapText, Ticker, TickerPlugin, UPDATE_PRIORITY, BLEND_MODES, DRAW_MODES, ENV, FORMATS, GC_MODES, MIPMAP_MODES, PRECISION, RENDERER_TYPE, SCALE_MODES, TARGETS, TYPES, WRAP_MODES, Bounds, Container, DisplayObject, FillStyle, GRAPHICS_CURVES, Graphics, GraphicsData, GraphicsGeometry, LineStyle, Circle, DEG_TO_RAD, Ellipse, GroupD8, Matrix, ObservablePoint, PI_2, Point, Polygon, RAD_TO_DEG, Rectangle, RoundedRectangle, SHAPES, Transform, Mesh, MeshBatchUvs, MeshGeometry, MeshMaterial, NineSlicePlane, PlaneGeometry, RopeGeometry, SimpleMesh, SimplePlane, SimpleRope, Runner, Sprite, AnimatedSprite, TEXT_GRADIENT, Text, TextMetrics, TextStyle, isMobile, settings */
+/*! exports provided: CanvasRenderer, CanvasTinter, CanvasMeshRenderer, CanvasGraphicsRenderer, CanvasSpriteRenderer, accessibility, extract, interaction, prepare, utils, VERSION, filters, useDeprecated, Application, AbstractRenderer, Attribute, BaseRenderTexture, BaseTexture, BatchDrawCall, BatchGeometry, BatchRenderer, Buffer, CubeTexture, Filter, Framebuffer, GLProgram, GLTexture, Geometry, ObjectRenderer, Program, Quad, QuadUv, RenderTexture, Renderer, Shader, SpriteMaskFilter, State, System, Texture, TextureMatrix, TextureUvs, UniformGroup, autoDetectRenderer, checkMaxIfStatementsInShader, defaultFilterVertex, defaultVertex, generateMultiTextureShader, resources, systems, AppLoaderPlugin, Loader, LoaderResource, TextureLoader, ParticleContainer, ParticleRenderer, Spritesheet, SpritesheetLoader, TilingSprite, TilingSpriteRenderer, BitmapFontLoader, BitmapText, Ticker, TickerPlugin, UPDATE_PRIORITY, BLEND_MODES, DRAW_MODES, ENV, FORMATS, GC_MODES, MIPMAP_MODES, PRECISION, RENDERER_TYPE, SCALE_MODES, TARGETS, TYPES, WRAP_MODES, Bounds, Container, DisplayObject, FillStyle, GRAPHICS_CURVES, Graphics, GraphicsData, GraphicsGeometry, LineStyle, Circle, DEG_TO_RAD, Ellipse, GroupD8, Matrix, ObservablePoint, PI_2, Point, Polygon, RAD_TO_DEG, Rectangle, RoundedRectangle, SHAPES, Transform, Mesh, MeshBatchUvs, MeshGeometry, MeshMaterial, NineSlicePlane, PlaneGeometry, RopeGeometry, SimpleMesh, SimplePlane, SimpleRope, Runner, Sprite, AnimatedSprite, TEXT_GRADIENT, Text, TextMetrics, TextStyle, isMobile, settings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

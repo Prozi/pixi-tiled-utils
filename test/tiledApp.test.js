@@ -1,4 +1,4 @@
-const { TiledApplication } = require('..')
+const { TiledApplication, utils } = require('..')
 
 const app = new TiledApplication()
 
@@ -8,7 +8,8 @@ async function test() {
         "https://www.vikingsvillage.io/game/assets/img/Viking3.png"
     )
 
-    console.log(app.show())
+    console.log(`loaded ${app.objects.length} objects`)
+    console.log(`populated stage with ${app.stage.children.length} sprites`)
 
     process.exit(0)
 }

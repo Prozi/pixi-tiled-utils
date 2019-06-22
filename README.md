@@ -10,19 +10,24 @@ and canvas of full width and height of window
 * TiledApplication
 
 ```javascript
-const PIXI = require('pixi.js')
-const { TiledApplication } = require('pixi-tiled-utils')
-const app = new TiledApplication()
+    // window.PIXI = require('pixi.js')
+    const { TiledApplication } = window['pixi-tiled-utils']
+    window.app = new TiledApplication()
 
-app.createWorld(
-    "https://www.vikingsvillage.io/game/assets/json/island_small_21.json",
-    "https://www.vikingsvillage.io/game/assets/img/Viking3.png"
-).then(() => {
-    console.log(`loaded ${app.objects.length} objects`)
-    console.log(`populated stage with ${app.stage.children.length} sprites`)
+    const json = 'https://www.vikingsvillage.io/game/assets/json/island_small_21.json'
+    const tileset = 'https://www.vikingsvillage.io/game/assets/img/Viking3.png'
 
-    process.exit(0)
-})
+    PIXI.loader.add('resource', tileset).load((loader, { resource }) => {
+        window.app.createTiles({
+            tilewidth: 42,
+            tileheight: 42,
+            offset: 1,
+            texture: resource.texture
+        })
+        window.app.createWorld(json, tileset, 42).then(() => {
+            console.log(window.app.stage.children.length)
+        })
+    })
 ```
 
 * TextureExtractor

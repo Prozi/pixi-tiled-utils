@@ -1,4 +1,4 @@
-exports["pixi-tiled-utils"] =
+window["pixi-tiled-utils"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,12 +91,13 @@ exports["pixi-tiled-utils"] =
 /*!********************!*\
   !*** ./lib/app.js ***!
   \********************/
-/*! no exports provided */
+/*! exports provided: FullscreenApplication */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullscreenApplication", function() { return FullscreenApplication; });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
@@ -158,9 +159,7 @@ function (_PIXI$Application) {
   return FullscreenApplication;
 }(PIXI.Application);
 
-module.exports.FullscreenApplication = FullscreenApplication;
-module.exports["default"] = FullscreenApplication;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
 
 /***/ }),
 
@@ -168,12 +167,13 @@ module.exports["default"] = FullscreenApplication;
 /*!************************!*\
   !*** ./lib/extract.js ***!
   \************************/
-/*! no exports provided */
+/*! exports provided: TextureExtractor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextureExtractor", function() { return TextureExtractor; });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
@@ -185,30 +185,25 @@ var TextureExtractor =
 /*#__PURE__*/
 function () {
   function TextureExtractor(_ref) {
-    var width = _ref.width,
-        height = _ref.height,
-        tilewidth = _ref.tilewidth,
+    var tilewidth = _ref.tilewidth,
         tileheight = _ref.tileheight,
-        tileset = _ref.tileset,
+        texture = _ref.texture,
         offset = _ref.offset,
-        count = _ref.count,
+        limit = _ref.limit,
         scaleMode = _ref.scaleMode;
 
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, TextureExtractor);
 
     this.tilewidth = tilewidth;
     this.tileheight = tileheight;
-    this.tileset = typeof tileset === 'string' ? PIXI.Texture.from(tileset) : tileset;
-    this.width = width || this.tileset.width;
-    this.height = height || this.tileset.height;
     this.offset = offset || 0;
+    this.texture = texture;
     this.textureCache = {};
     this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST;
+    var count = limit || this.width / this.tilewidth * (this.height / this.tileheight);
 
-    if (count) {
-      for (var i = 0; i < count; i++) {
-        this.prepareTexture(i);
-      }
+    for (var i = 0; i < count; i++) {
+      this.prepareTexture(i);
     }
   }
 
@@ -219,7 +214,7 @@ function () {
       var x = (frame - this.offset) % width * this.tilewidth;
       var y = Math.floor((frame - this.offset) / width) * this.tileheight;
       var rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight);
-      this.textureCache[frame] = new PIXI.Texture(this.tileset, rect);
+      this.textureCache[frame] = new PIXI.Texture(this.texture, rect);
       this.textureCache[frame].baseTexture.scaleMode = this.scaleMode;
       this.textureCache[frame].cacheAsBitmap = true;
     }
@@ -232,14 +227,22 @@ function () {
 
       return this.textureCache[frame];
     }
+  }, {
+    key: "width",
+    get: function get() {
+      return this.texture.width;
+    }
+  }, {
+    key: "height",
+    get: function get() {
+      return this.texture.height;
+    }
   }]);
 
   return TextureExtractor;
 }();
 
-module.exports.TextureExtractor = TextureExtractor;
-module.exports["default"] = TextureExtractor;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
 
 /***/ }),
 
@@ -247,25 +250,28 @@ module.exports["default"] = TextureExtractor;
 /*!**********************!*\
   !*** ./lib/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: FullscreenApplication, TiledApplication, TextureExtractor, utils */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var _require = __webpack_require__(/*! ./app.js */ "./lib/app.js"),
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullscreenApplication", function() { return FullscreenApplication; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TiledApplication", function() { return TiledApplication; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextureExtractor", function() { return TextureExtractor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
+var _require = __webpack_require__(/*! ./app */ "./lib/app.js"),
     FullscreenApplication = _require.FullscreenApplication;
 
-var _require2 = __webpack_require__(/*! ./tiledApp.js */ "./lib/tiledApp.js"),
+var _require2 = __webpack_require__(/*! ./tiledApp */ "./lib/tiledApp.js"),
     TiledApplication = _require2.TiledApplication;
 
-var _require3 = __webpack_require__(/*! ./extract.js */ "./lib/extract.js"),
+var _require3 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
     TextureExtractor = _require3.TextureExtractor;
 
-var _require4 = __webpack_require__(/*! ./utils.js */ "./lib/utils.js"),
+var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
     utils = _require4.utils;
 
-module.exports.FullscreenApplication = FullscreenApplication;
-module.exports.TiledApplication = TiledApplication;
-module.exports.TextureExtractor = TextureExtractor;
-module.exports.utils = utils;
+
 
 /***/ }),
 
@@ -273,16 +279,18 @@ module.exports.utils = utils;
 /*!**********************!*\
   !*** ./lib/tiled.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: tiled */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tiled", function() { return tiled; });
 var PIXI = window.PIXI;
 
 var TiledUtils = __webpack_require__(/*! tiled-utils */ "./node_modules/tiled-utils/index.js");
 
 var tiled = new TiledUtils(PIXI);
-module.exports.tiled = tiled;
-module.exports["default"] = tiled;
+
 
 /***/ }),
 
@@ -290,12 +298,13 @@ module.exports["default"] = tiled;
 /*!*************************!*\
   !*** ./lib/tiledApp.js ***!
   \*************************/
-/*! no exports provided */
+/*! exports provided: TiledApplication */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TiledApplication", function() { return TiledApplication; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
@@ -324,11 +333,14 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 var _require2 = __webpack_require__(/*! ./app */ "./lib/app.js"),
     FullscreenApplication = _require2.FullscreenApplication;
 
-var _require3 = __webpack_require__(/*! ./tiled */ "./lib/tiled.js"),
-    tiled = _require3.tiled;
+var _require3 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
+    TextureExtractor = _require3.TextureExtractor;
 
-var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
-    utils = _require4.utils;
+var _require4 = __webpack_require__(/*! ./tiled */ "./lib/tiled.js"),
+    tiled = _require4.tiled;
+
+var _require5 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
+    utils = _require5.utils;
 
 var TiledApplication =
 /*#__PURE__*/
@@ -342,6 +354,11 @@ function (_FullscreenApplicatio) {
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(TiledApplication, [{
+    key: "createTiles",
+    value: function createTiles(config) {
+      this.tiles = new TextureExtractor(config);
+    }
+  }, {
     key: "createWorld",
     value: function () {
       var _createWorld = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(
@@ -362,15 +379,16 @@ function (_FullscreenApplicatio) {
                 group = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
                 clear = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
                 pickable = _args.length > 5 && _args[5] !== undefined ? _args[5] : [];
-                _context.next = 5;
+                if (!this.tiles) console.warn('Creating tile-less world. You should propably first call createTiles()');
+                _context.next = 6;
                 return get(world);
 
-              case 5:
+              case 6:
                 worldJson = _context.sent;
-                _context.next = 8;
+                _context.next = 9;
                 return get(tileset);
 
-              case 8:
+              case 9:
                 tilesetJson = _context.sent;
                 this.world = tiled.makeTiledWorld(worldJson.data, tilesetJson.data);
                 this.objects = this.createObjects(group, clear, pickable);
@@ -379,7 +397,7 @@ function (_FullscreenApplicatio) {
                   return _this.stage.addChild(sprite);
                 });
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
@@ -479,9 +497,7 @@ function (_FullscreenApplicatio) {
   return TiledApplication;
 }(FullscreenApplication);
 
-module.exports.TiledApplication = TiledApplication;
-module.exports["default"] = TiledApplication;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
 
 /***/ }),
 
@@ -489,9 +505,12 @@ module.exports["default"] = TiledApplication;
 /*!**********************!*\
   !*** ./lib/utils.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: utils */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
 var PIXI = window.PIXI;
 var utils = {
   getTexture: function getTexture(frame, tiles) {
@@ -509,7 +528,7 @@ var utils = {
     var sprite;
 
     if (tiles) {
-      if (isNumber(frame)) {
+      if (!isNaN(frame) && isFinite(frame)) {
         sprite = new PIXI.Sprite(utils.getTexture(~~frame, tiles));
       } else if (frame) {
         sprite = PIXI.Sprite.fromFrame(frame);
@@ -624,8 +643,7 @@ var utils = {
     };
   }
 };
-module.exports.utils = utils;
-module.exports["default"] = utils;
+
 
 /***/ }),
 
@@ -5449,41 +5467,6 @@ let shortestPath = tu.shortestPath(
     return 'down'
   }
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/harmony-module.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function(originalModule) {
-	if (!originalModule.webpackPolyfill) {
-		var module = Object.create(originalModule);
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		Object.defineProperty(module, "exports", {
-			enumerable: true
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
 
 
 /***/ })

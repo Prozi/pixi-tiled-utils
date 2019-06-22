@@ -5,7 +5,7 @@ module.exports = {
         path: require('path').resolve(__dirname),
         filename: 'index.js',
         library: 'pixi-tiled-utils',
-        libraryTarget: 'commonjs'
+        libraryTarget: 'window'
     },
     mode: 'development',
     devtool: 'source-map',
@@ -21,7 +21,9 @@ module.exports = {
                 query: {
                     presets: ['@babel/preset-env'],
                     plugins: [
-                        ['@babel/plugin-transform-runtime', { regenerator: true }]
+                        ['@babel/plugin-transform-runtime', {
+                            regenerator: true
+                        }]
                     ]
                 }
             }

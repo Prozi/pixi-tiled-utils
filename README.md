@@ -10,14 +10,16 @@ and canvas of full width and height of window
 * TiledApplication
 
 ```javascript
-    // window.PIXI = require('pixi.js')
-    const { TiledApplication } = window['pixi-tiled-utils']
-    window.app = new TiledApplication()
+    require('pixi.js') // or pixi-shim if compiling server code for node
+    require('pixi-tiled-utils')
+
+    window.app = new window['pixi-tiled-utils'].TiledApplication()
 
     const json = 'https://www.vikingsvillage.io/game/assets/json/island_small_21.json'
     const tileset = 'https://www.vikingsvillage.io/game/assets/img/Viking3.png'
+    const loader = new PIXI.Loader()
 
-    PIXI.loader.add('resource', tileset).load((loader, { resource }) => {
+    loader.add('resource', tileset).load((loader, { resource }) => {
         window.app.createTiles({
             tilewidth: 42,
             tileheight: 42,

@@ -260,7 +260,7 @@ function (_FullscreenApplicatio) {
     value: function () {
       var _createWorld = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(world, tileset) {
+      regeneratorRuntime.mark(function _callee(world, tileset, tilesize) {
         var _this = this;
 
         var group,
@@ -273,9 +273,9 @@ function (_FullscreenApplicatio) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                group = _args.length > 2 && _args[2] !== undefined ? _args[2] : [];
-                clear = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
-                pickable = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
+                group = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
+                clear = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
+                pickable = _args.length > 5 && _args[5] !== undefined ? _args[5] : [];
                 _context.next = 5;
                 return get(world);
 
@@ -288,7 +288,7 @@ function (_FullscreenApplicatio) {
                 tilesetJson = _context.sent;
                 this.world = tiled.makeTiledWorld(worldJson.data, tilesetJson.data);
                 this.objects = this.createObjects(group, clear, pickable);
-                this.sprites = this.createSprites(clear);
+                this.sprites = this.createSprites(clear, tilesize);
                 this.sprites.forEach(function (sprite) {
                   return _this.stage.addChild(sprite);
                 });
@@ -301,7 +301,7 @@ function (_FullscreenApplicatio) {
         }, _callee, this);
       }));
 
-      function createWorld(_x, _x2) {
+      function createWorld(_x, _x2, _x3) {
         return _createWorld.apply(this, arguments);
       }
 
@@ -366,7 +366,7 @@ function (_FullscreenApplicatio) {
     key: "createSprites",
     value: function createSprites() {
       var clear = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      var tileSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
+      var tilesize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
       return this.objects.filter(function (sprite) {
         return !utils.contains(clear, sprite.name);
       }).map(function (sprite) {
@@ -376,10 +376,10 @@ function (_FullscreenApplicatio) {
           var objects = sprite.children.length ? sprite.children : [sprite];
           var bounds = utils.getBounds(objects);
           sprite.x = sprite.basex = bounds.left + x;
-          sprite.y = sprite.basey = bounds.down + y - tileSize;
+          sprite.y = sprite.basey = bounds.down + y - tilesize;
           objects.forEach(function (child) {
             child.x -= bounds.left - child.width * 0.5;
-            child.y -= bounds.down - tileSize;
+            child.y -= bounds.down - tilesize;
             child.anchor.set(0.5, 1);
           });
           return sprite;
@@ -45629,7 +45629,7 @@ if (!global.window.PIXI) {
 /*!***********************************************************!*\
   !*** ./node_modules/pixi.js-legacy/lib/pixi-legacy.es.js ***!
   \***********************************************************/
-/*! exports provided: accessibility, extract, interaction, prepare, utils, VERSION, filters, useDeprecated, CanvasRenderer, CanvasTinter, CanvasMeshRenderer, CanvasGraphicsRenderer, CanvasSpriteRenderer, Application, AbstractRenderer, Attribute, BaseRenderTexture, BaseTexture, BatchDrawCall, BatchGeometry, BatchRenderer, Buffer, CubeTexture, Filter, Framebuffer, GLProgram, GLTexture, Geometry, ObjectRenderer, Program, Quad, QuadUv, RenderTexture, Renderer, Shader, SpriteMaskFilter, State, System, Texture, TextureMatrix, TextureUvs, UniformGroup, autoDetectRenderer, checkMaxIfStatementsInShader, defaultFilterVertex, defaultVertex, generateMultiTextureShader, resources, systems, AppLoaderPlugin, Loader, LoaderResource, TextureLoader, ParticleContainer, ParticleRenderer, Spritesheet, SpritesheetLoader, TilingSprite, TilingSpriteRenderer, BitmapFontLoader, BitmapText, Ticker, TickerPlugin, UPDATE_PRIORITY, BLEND_MODES, DRAW_MODES, ENV, FORMATS, GC_MODES, MIPMAP_MODES, PRECISION, RENDERER_TYPE, SCALE_MODES, TARGETS, TYPES, WRAP_MODES, Bounds, Container, DisplayObject, FillStyle, GRAPHICS_CURVES, Graphics, GraphicsData, GraphicsGeometry, LineStyle, Circle, DEG_TO_RAD, Ellipse, GroupD8, Matrix, ObservablePoint, PI_2, Point, Polygon, RAD_TO_DEG, Rectangle, RoundedRectangle, SHAPES, Transform, Mesh, MeshBatchUvs, MeshGeometry, MeshMaterial, NineSlicePlane, PlaneGeometry, RopeGeometry, SimpleMesh, SimplePlane, SimpleRope, Runner, Sprite, AnimatedSprite, TEXT_GRADIENT, Text, TextMetrics, TextStyle, isMobile, settings */
+/*! exports provided: CanvasRenderer, CanvasTinter, CanvasMeshRenderer, CanvasGraphicsRenderer, CanvasSpriteRenderer, accessibility, extract, interaction, prepare, utils, VERSION, filters, useDeprecated, Application, AbstractRenderer, Attribute, BaseRenderTexture, BaseTexture, BatchDrawCall, BatchGeometry, BatchRenderer, Buffer, CubeTexture, Filter, Framebuffer, GLProgram, GLTexture, Geometry, ObjectRenderer, Program, Quad, QuadUv, RenderTexture, Renderer, Shader, SpriteMaskFilter, State, System, Texture, TextureMatrix, TextureUvs, UniformGroup, autoDetectRenderer, checkMaxIfStatementsInShader, defaultFilterVertex, defaultVertex, generateMultiTextureShader, resources, systems, AppLoaderPlugin, Loader, LoaderResource, TextureLoader, ParticleContainer, ParticleRenderer, Spritesheet, SpritesheetLoader, TilingSprite, TilingSpriteRenderer, BitmapFontLoader, BitmapText, Ticker, TickerPlugin, UPDATE_PRIORITY, BLEND_MODES, DRAW_MODES, ENV, FORMATS, GC_MODES, MIPMAP_MODES, PRECISION, RENDERER_TYPE, SCALE_MODES, TARGETS, TYPES, WRAP_MODES, Bounds, Container, DisplayObject, FillStyle, GRAPHICS_CURVES, Graphics, GraphicsData, GraphicsGeometry, LineStyle, Circle, DEG_TO_RAD, Ellipse, GroupD8, Matrix, ObservablePoint, PI_2, Point, Polygon, RAD_TO_DEG, Rectangle, RoundedRectangle, SHAPES, Transform, Mesh, MeshBatchUvs, MeshGeometry, MeshMaterial, NineSlicePlane, PlaneGeometry, RopeGeometry, SimpleMesh, SimplePlane, SimpleRope, Runner, Sprite, AnimatedSprite, TEXT_GRADIENT, Text, TextMetrics, TextStyle, isMobile, settings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

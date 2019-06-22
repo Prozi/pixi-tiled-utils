@@ -20,6 +20,9 @@ module.exports = {
                 exclude: /node_modules/,
                 query: {
                     presets: ['@babel/preset-env'],
+                    plugins: [
+                        ['@babel/plugin-transform-runtime', { regenerator: true }]
+                    ]
                 }
             }
         ]

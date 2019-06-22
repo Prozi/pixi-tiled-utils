@@ -1,6 +1,6 @@
 {
   "name": "pixi-tiled-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "PIXI.js Tiled utilities",
   "main": "lib/index.js",
   "browser": "index.js",
@@ -11,6 +11,8 @@
   "author": "Jacek Pietal <prozi85@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/runtime": "^7.4.5",
     "axios": "^0.19.0",
     "tiled-utils": "^4.0.0"
   },

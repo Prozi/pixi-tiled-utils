@@ -25,6 +25,10 @@ app.createWorld(
 })
 ```
 
+* TextureExtractor
+
+Useful if you want to slice a spritesheet
+
 * utils
 
 Some internally used utils that might or not be useful (just exported them because of reasons)

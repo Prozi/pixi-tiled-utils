@@ -161,6 +161,82 @@ module.exports["default"] = FullscreenApplication;
 
 /***/ }),
 
+/***/ "./lib/extract.js":
+/*!************************!*\
+  !*** ./lib/extract.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var PIXI = window.PIXI;
+
+var TextureExtractor =
+/*#__PURE__*/
+function () {
+  function TextureExtractor(_ref) {
+    var width = _ref.width,
+        height = _ref.height,
+        tilewidth = _ref.tilewidth,
+        tileheight = _ref.tileheight,
+        tileset = _ref.tileset,
+        offset = _ref.offset,
+        count = _ref.count,
+        scaleMode = _ref.scaleMode;
+
+    _classCallCheck(this, TextureExtractor);
+
+    this.tilewidth = tilewidth;
+    this.tileheight = tileheight;
+    this.tileset = typeof tileset === 'string' ? PIXI.Texture.from(tileset) : tileset;
+    this.width = width || this.tileset.width;
+    this.height = height || this.tileset.height;
+    this.offset = offset || 0;
+    this.textureCache = {};
+    this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST;
+
+    if (count) {
+      for (var i = 0; i < count; i++) {
+        this.prepareTexture(i);
+      }
+    }
+  }
+
+  _createClass(TextureExtractor, [{
+    key: "prepareTexture",
+    value: function prepareTexture(frame) {
+      var width = this.width / this.tilewidth;
+      var x = (frame - this.offset) % width * this.tilewidth;
+      var y = Math.floor((frame - this.offset) / width) * this.tileheight;
+      var rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight);
+      this.textureCache[frame] = new PIXI.Texture(this.tileset, rect);
+      this.textureCache[frame].baseTexture.scaleMode = this.scaleMode;
+      this.textureCache[frame].cacheAsBitmap = true;
+    }
+  }, {
+    key: "getFrame",
+    value: function getFrame(frame) {
+      if (!this.textureCache[frame]) {
+        this.prepareTexture(frame);
+      }
+
+      return this.textureCache[frame];
+    }
+  }]);
+
+  return TextureExtractor;
+}();
+
+module.exports.TextureExtractor = TextureExtractor;
+module.exports["default"] = TextureExtractor;
+
+/***/ }),
+
 /***/ "./lib/index.js":
 /*!**********************!*\
   !*** ./lib/index.js ***!
@@ -174,11 +250,15 @@ var _require = __webpack_require__(/*! ./app.js */ "./lib/app.js"),
 var _require2 = __webpack_require__(/*! ./tiledApp.js */ "./lib/tiledApp.js"),
     TiledApplication = _require2.TiledApplication;
 
-var _require3 = __webpack_require__(/*! ./utils.js */ "./lib/utils.js"),
-    utils = _require3.utils;
+var _require3 = __webpack_require__(/*! ./extract.js */ "./lib/extract.js"),
+    TextureExtractor = _require3.TextureExtractor;
+
+var _require4 = __webpack_require__(/*! ./utils.js */ "./lib/utils.js"),
+    utils = _require4.utils;
 
 module.exports.FullscreenApplication = FullscreenApplication;
 module.exports.TiledApplication = TiledApplication;
+module.exports.TextureExtractor = TextureExtractor;
 module.exports.utils = utils;
 
 /***/ }),

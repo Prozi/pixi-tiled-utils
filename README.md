@@ -10,19 +10,19 @@ and canvas of full width and height of window
 * TiledApplication
 
 ```javascript
+// const PIXI = require('pixi.js')
 const { TiledApplication } = require('pixi-tiled-utils')
+const app = new TiledApplication()
 
-start()
+app.createWorld(
+    "https://www.vikingsvillage.io/game/assets/json/island_small_21.json",
+    "https://www.vikingsvillage.io/game/assets/img/Viking3.png"
+).then(() => {
+    console.log(`loaded ${app.objects.length} objects`)
+    console.log(`populated stage with ${app.stage.children.length} sprites`)
 
-async function start() {
-    const app = new TiledApplication()
-    await app.createWorld(
-        "https://www.vikingsvillage.io/game/assets/json/island_small_21.json",
-        "https://www.vikingsvillage.io/game/assets/img/Viking3.png"
-    )
-    app.show()
-    return app
-}
+    process.exit(0)
+})
 ```
 
 * utils

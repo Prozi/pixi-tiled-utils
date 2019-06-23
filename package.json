@@ -1,6 +1,6 @@
 {
   "name": "pixi-tiled-utils",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "PIXI.js Tiled utilities",
   "main": "index.js",
   "browser": "index.js",

@@ -8,20 +8,33 @@
 
 <body>
     <script type="text/javascript">
-        const app = new PIXI.Tiled.TiledApplication()
+        const app = new PIXI.Tiled.FullscreenApplication(tick, {
+            roundPixels: true
+        })
         const json = 'https://www.vikingsvillage.io/game/assets/json/island_small_21.json'
         const tileset = 'https://www.vikingsvillage.io/game/assets/img/Viking3.png'
+        const tilesize = 42
+        const group = ['Domek', 'Kibel', 'Bees', 'Thor', 'Meat']
+        const clear = ['Spawn']
+
         PIXI.loader.add('resource', tileset).load((loader, { resource }) => {
-            app.createTiles({
-                tilewidth: 42,
-                tileheight: 42,
+            app.world = new PIXI.Tiled.World({
+                tilewidth: tilesize,
+                tileheight: tilesize,
                 offset: 1,
                 texture: resource.texture
             })
-            app.createWorld(json, tileset, 42, ['Domek', 'Kibel', 'Bees', 'Thor', 'Meat'], ['Spawn']).then(() => {
-                console.log('game ready')
+            app.world.create(json, tileset, tilesize, group, clear).then((world) => {
+                app.stage.addChild(world)
             })
         })
+
+        function tick(time) {
+            this.stage.position.set(
+                -this.stage.width / 2 + innerWidth / 2,
+                -this.stage.height / 2 + innerHeight / 2
+            )
+        }
     </script>
 </body>
 

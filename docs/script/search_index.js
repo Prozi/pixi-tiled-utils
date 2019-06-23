@@ -12,9 +12,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "pixi-tiled-utils/lib/tiledapp.js~tiledapplication",
-    "class/lib/tiledApp.js~TiledApplication.html",
-    "<span>TiledApplication</span> <span class=\"search-result-import-path\">pixi-tiled-utils/lib/tiledApp.js</span>",
+    "pixi-tiled-utils/lib/world.js~world",
+    "class/lib/world.js~World.html",
+    "<span>World</span> <span class=\"search-result-import-path\">pixi-tiled-utils/lib/world.js</span>",
     "class"
   ],
   [
@@ -426,75 +426,69 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/tiledapp.js",
-    "file/lib/tiledApp.js.html",
-    "lib/tiledApp.js",
-    "file"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#constructor",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-constructor-constructor",
-    "lib/tiledApp.js~TiledApplication#constructor",
-    "method"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#createobjects",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-method-createObjects",
-    "lib/tiledApp.js~TiledApplication#createObjects",
-    "method"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#createsprites",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-method-createSprites",
-    "lib/tiledApp.js~TiledApplication#createSprites",
-    "method"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#createtiles",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-method-createTiles",
-    "lib/tiledApp.js~TiledApplication#createTiles",
-    "method"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#createworld",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-method-createWorld",
-    "lib/tiledApp.js~TiledApplication#createWorld",
-    "method"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#ground",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-member-ground",
-    "lib/tiledApp.js~TiledApplication#ground",
-    "member"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#objects",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-member-objects",
-    "lib/tiledApp.js~TiledApplication#objects",
-    "member"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#sprites",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-member-sprites",
-    "lib/tiledApp.js~TiledApplication#sprites",
-    "member"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#tiles",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-member-tiles",
-    "lib/tiledApp.js~TiledApplication#tiles",
-    "member"
-  ],
-  [
-    "lib/tiledapp.js~tiledapplication#world",
-    "class/lib/tiledApp.js~TiledApplication.html#instance-member-world",
-    "lib/tiledApp.js~TiledApplication#world",
-    "member"
-  ],
-  [
     "lib/utils.js",
     "file/lib/utils.js.html",
     "lib/utils.js",
     "file"
+  ],
+  [
+    "lib/world.js",
+    "file/lib/world.js.html",
+    "lib/world.js",
+    "file"
+  ],
+  [
+    "lib/world.js~world#constructor",
+    "class/lib/world.js~World.html#instance-constructor-constructor",
+    "lib/world.js~World#constructor",
+    "method"
+  ],
+  [
+    "lib/world.js~world#create",
+    "class/lib/world.js~World.html#instance-method-create",
+    "lib/world.js~World#create",
+    "method"
+  ],
+  [
+    "lib/world.js~world#createobjects",
+    "class/lib/world.js~World.html#instance-method-createObjects",
+    "lib/world.js~World#createObjects",
+    "method"
+  ],
+  [
+    "lib/world.js~world#createsprites",
+    "class/lib/world.js~World.html#instance-method-createSprites",
+    "lib/world.js~World#createSprites",
+    "method"
+  ],
+  [
+    "lib/world.js~world#ground",
+    "class/lib/world.js~World.html#instance-member-ground",
+    "lib/world.js~World#ground",
+    "member"
+  ],
+  [
+    "lib/world.js~world#objects",
+    "class/lib/world.js~World.html#instance-member-objects",
+    "lib/world.js~World#objects",
+    "member"
+  ],
+  [
+    "lib/world.js~world#sprites",
+    "class/lib/world.js~World.html#instance-member-sprites",
+    "lib/world.js~World#sprites",
+    "member"
+  ],
+  [
+    "lib/world.js~world#tiles",
+    "class/lib/world.js~World.html#instance-member-tiles",
+    "lib/world.js~World#tiles",
+    "member"
+  ],
+  [
+    "lib/world.js~world#world",
+    "class/lib/world.js~World.html#instance-member-world",
+    "lib/world.js~World#world",
+    "member"
   ]
 ]

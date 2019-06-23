@@ -31,7 +31,7 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/app.js~FullscreenApplication.html">FullscreenApplication</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/extract.js~TextureExtractor.html">TextureExtractor</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/tiledApp.js~TiledApplication.html">TiledApplication</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/world.js~World.html">World</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tiled">tiled</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-utils">utils</a></span></span></li>
 </ul>
@@ -52,41 +52,35 @@
 <p>which extends PIXI.Application and adds autoresize
 and canvas of full width and height of window</p>
 <ul>
-<li>TiledApplication</li>
+<li>World</li>
 </ul>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const vikings = &apos;https://www.vikingsvillage.io/game/assets&apos;
-const json = `${vikings}/json/island_small_21.json`
-const tileset = `${vikings}/img/Viking3.png`
+<pre><code class="lang-javascript"><code class="source-code prettyprint">  const app = new PIXI.Tiled.FullscreenApplication(tick, {
+      roundPixels: true
+  })
+  const json = &apos;https://www.vikingsvillage.io/game/assets/json/island_small_21.json&apos;
+  const tileset = &apos;https://www.vikingsvillage.io/game/assets/img/Viking3.png&apos;
+  const tilesize = 42
+  const group = [&apos;Domek&apos;, &apos;Kibel&apos;, &apos;Bees&apos;, &apos;Thor&apos;, &apos;Meat&apos;]
+  const clear = [&apos;Spawn&apos;]
 
-const app = new PIXI.Tiled.TiledApplication(tick, {
-  roundPixels: true
-})
-
-PIXI.loader.add(&apos;resource&apos;, tileset)
-  .load((loader, { resource }) =&gt; {
-    const tilesize = 42
-    const group = [&apos;Domek&apos;, &apos;Kibel&apos;, &apos;Bees&apos;, &apos;Thor&apos;, &apos;Meat&apos;]
-    const clear = [&apos;Spawn&apos;]
-
-    app.stage.scale.set(3)
-    app.createTiles({
-      tilewidth: tilesize,
-      tileheight: tilesize,
-      offset: 1,
-      texture: resource.texture
-    })
-    app.createWorld(json, tileset, tilesize, group, clear)
-      .then(() =&gt; {
-        console.log(&apos;tilemap converted into pixi primitives&apos;)
+  PIXI.loader.add(&apos;resource&apos;, tileset).load((loader, { resource }) =&gt; {
+      app.world = new PIXI.Tiled.World({
+          tilewidth: tilesize,
+          tileheight: tilesize,
+          offset: 1,
+          texture: resource.texture
+      })
+      app.world.create(json, tileset, tilesize, group, clear).then((world) =&gt; {
+          app.stage.addChild(world)
       })
   })
 
-function tick(time) {
-  this.stage.position.set(
-    -this.stage.width / 2 + innerWidth / 2,
-    -this.stage.height / 2 + innerHeight / 2
-  )
-}</code>
+  function tick(time) {
+      this.stage.position.set(
+          -this.stage.width / 2 + innerWidth / 2,
+          -this.stage.height / 2 + innerHeight / 2
+      )
+  }</code>
 </code></pre>
 <p>see live: <a href="https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35">https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35</a></p>
 <ul>

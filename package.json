@@ -1,13 +1,13 @@
 {
   "name": "pixi-tiled-utils",
-  "version": "1.0.15",
+  "version": "1.1.0",
   "description": "PIXI.js Tiled utilities",
   "main": "index.js",
   "browser": "index.js",
   "module": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "test": "yarn build && node -r esm test/tiledApp.test.js",
+    "test": "yarn build && node -r esm test/index.js",
     "test:web": "yarn build && http-server"
   },
   "repository": {

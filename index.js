@@ -249,20 +249,20 @@ function () {
 /*!**********************!*\
   !*** ./lib/index.js ***!
   \**********************/
-/*! exports provided: FullscreenApplication, TiledApplication, TextureExtractor, utils */
+/*! exports provided: FullscreenApplication, World, TextureExtractor, utils */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullscreenApplication", function() { return FullscreenApplication; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TiledApplication", function() { return TiledApplication; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "World", function() { return World; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextureExtractor", function() { return TextureExtractor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
 var _require = __webpack_require__(/*! ./app */ "./lib/app.js"),
     FullscreenApplication = _require.FullscreenApplication;
 
-var _require2 = __webpack_require__(/*! ./tiledApp */ "./lib/tiledApp.js"),
-    TiledApplication = _require2.TiledApplication;
+var _require2 = __webpack_require__(/*! ./world */ "./lib/world.js"),
+    World = _require2.World;
 
 var _require3 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
     TextureExtractor = _require3.TextureExtractor;
@@ -275,7 +275,7 @@ var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
 
 window.PIXI.Tiled = {
   FullscreenApplication: FullscreenApplication,
-  TiledApplication: TiledApplication,
+  World: World,
   TextureExtractor: TextureExtractor,
   utils: utils
 };
@@ -297,217 +297,6 @@ var PIXI = window.PIXI;
 var TiledUtils = __webpack_require__(/*! tiled-utils */ "./node_modules/tiled-utils/index.js");
 
 var tiled = new TiledUtils(PIXI);
-
-
-/***/ }),
-
-/***/ "./lib/tiledApp.js":
-/*!*************************!*\
-  !*** ./lib/tiledApp.js ***!
-  \*************************/
-/*! exports provided: TiledApplication */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TiledApplication", function() { return TiledApplication; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__);
-
-
-
-
-
-
-
-var PIXI = window.PIXI;
-
-var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
-    get = _require.get;
-
-var _require2 = __webpack_require__(/*! ./app */ "./lib/app.js"),
-    FullscreenApplication = _require2.FullscreenApplication;
-
-var _require3 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
-    TextureExtractor = _require3.TextureExtractor;
-
-var _require4 = __webpack_require__(/*! ./tiled */ "./lib/tiled.js"),
-    tiled = _require4.tiled;
-
-var _require5 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
-    utils = _require5.utils;
-
-var TiledApplication =
-/*#__PURE__*/
-function (_FullscreenApplicatio) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default()(TiledApplication, _FullscreenApplicatio);
-
-  function TiledApplication(everyTick, options) {
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, TiledApplication);
-
-    return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(TiledApplication).call(this, everyTick, options));
-  }
-
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(TiledApplication, [{
-    key: "createTiles",
-    value: function createTiles(config) {
-      this.tiles = new TextureExtractor(config);
-    }
-  }, {
-    key: "createWorld",
-    value: function () {
-      var _createWorld = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(world, tileset, tilesize) {
-        var _this = this;
-
-        var group,
-            clear,
-            pickable,
-            _ref,
-            data,
-            _args = arguments;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                group = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
-                clear = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
-                pickable = _args.length > 5 && _args[5] !== undefined ? _args[5] : [];
-                if (!this.tiles) console.warn('Creating tile-less world. You should propably first call createTiles()');
-                _context.next = 6;
-                return get(world);
-
-              case 6:
-                _ref = _context.sent;
-                data = _ref.data;
-                this.world = tiled.makeTiledWorld(data, tileset);
-                this.ground = this.world.children.filter(function (_ref2) {
-                  var type = _ref2.type;
-                  return type === 'tilelayer';
-                });
-                this.objects = this.createObjects(tilesize, group, clear, pickable);
-                this.sprites = this.createSprites(tilesize, clear);
-                this.ground.forEach(function (ground) {
-                  return _this.stage.addChild(ground);
-                });
-                this.sprites.forEach(function (sprite) {
-                  return _this.stage.addChild(sprite);
-                });
-
-              case 14:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function createWorld(_x, _x2, _x3) {
-        return _createWorld.apply(this, arguments);
-      }
-
-      return createWorld;
-    }()
-  }, {
-    key: "createObjects",
-    value: function createObjects(tilesize) {
-      var _this2 = this;
-
-      var group = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      var clear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-      var pickable = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
-      var objects = [];
-      var groups = utils.groupObjects(this.world.objects);
-      var groupRegExp = group.map(function (string) {
-        return new RegExp(string);
-      });
-      Object.keys(groups).filter(function (name) {
-        var markedForRemove = utils.contains(clear, name);
-        return !markedForRemove && !utils.contains(pickable, name);
-      }).forEach(function (name) {
-        console.log("\u2523\u2501 parse object: ".concat(name));
-        var next = groups[name];
-        var group = groupRegExp.find(function (regExp) {
-          return name.match(regExp);
-        });
-        var container;
-
-        if (group) {
-          container = new PIXI.Container();
-          utils.pushObject(container, objects);
-          utils.nameObject(container, {
-            name: name,
-            type: 'layer'
-          });
-          console.log("\u2523\u2501 add layer: ".concat(name));
-        }
-
-        if (Array.isArray(next)) {
-          next.forEach(function (object) {
-            if (object.gid) {
-              var sprite = utils.createSprite(object.gid, tilesize, _this2.tiles);
-
-              if (sprite) {
-                utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name']);
-
-                if (group) {
-                  console.log("\u2523\u2501 add object ".concat(object.name, " (").concat(~~sprite.x, "/").concat(~~sprite.y, ") to layer: ").concat(name));
-                  container.addChild(sprite);
-                } else {
-                  utils.pushObject(sprite, objects);
-                }
-              }
-            }
-          });
-        }
-      });
-      return objects;
-    }
-  }, {
-    key: "createSprites",
-    value: function createSprites() {
-      var tilesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;
-      var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      return this.objects.filter(function (sprite) {
-        return !utils.contains(clear, sprite.name);
-      }).map(function (sprite) {
-        try {
-          var x = Math.round((sprite.x || 0) + (sprite.offsetx || 0));
-          var y = Math.round((sprite.y || 0) + (sprite.offsety || 0));
-          var objects = sprite.children.length ? sprite.children : [sprite];
-          var bounds = utils.getBounds(objects);
-          sprite.x = sprite.basex = bounds.left + x;
-          sprite.y = sprite.basey = bounds.down + y - tilesize;
-          objects.forEach(function (child) {
-            child.x -= bounds.left - child.width * 0.5;
-            child.y -= bounds.down - tilesize;
-            child.anchor.set(0.5, 1);
-          });
-          return sprite;
-        } catch (err) {
-          console.error(err.message, err.stack);
-        }
-      });
-    }
-  }]);
-
-  return TiledApplication;
-}(FullscreenApplication);
-
 
 
 /***/ }),
@@ -655,6 +444,222 @@ var utils = {
   }
 };
 
+
+/***/ }),
+
+/***/ "./lib/world.js":
+/*!**********************!*\
+  !*** ./lib/world.js ***!
+  \**********************/
+/*! exports provided: World */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "World", function() { return World; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+var PIXI = window.PIXI;
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    get = _require.get;
+
+var _require2 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
+    TextureExtractor = _require2.TextureExtractor;
+
+var _require3 = __webpack_require__(/*! ./tiled */ "./lib/tiled.js"),
+    tiled = _require3.tiled;
+
+var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
+    utils = _require4.utils;
+
+var World =
+/*#__PURE__*/
+function () {
+  function World(config) {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, World);
+
+    if (config) {
+      this.tiles = new TextureExtractor(config);
+    } else {
+      console.warn('Creating tile-less world');
+    }
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default()(World, [{
+    key: "create",
+    value: function () {
+      var _create = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(json, tileset, tilesize) {
+        var group,
+            clear,
+            pickable,
+            _ref,
+            data,
+            world,
+            _args = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                group = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
+                clear = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
+                pickable = _args.length > 5 && _args[5] !== undefined ? _args[5] : [];
+                _context.next = 5;
+                return get(json);
+
+              case 5:
+                _ref = _context.sent;
+                data = _ref.data;
+                this.world = tiled.makeTiledWorld(data, tileset);
+                this.objects = this.createObjects(tilesize, group, clear, pickable);
+                this.ground = this.world.children.filter(function (_ref2) {
+                  var type = _ref2.type;
+                  return type === 'tilelayer';
+                });
+                this.sprites = this.createSprites(tilesize, clear);
+                world = new PIXI.Container();
+                world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.ground));
+                world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.sprites));
+                return _context.abrupt("return", world);
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function create(_x, _x2, _x3) {
+        return _create.apply(this, arguments);
+      }
+
+      return create;
+    }()
+  }, {
+    key: "createObjects",
+    value: function createObjects(tilesize) {
+      var _this = this;
+
+      var group = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var clear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      var pickable = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
+      var objects = [];
+      var groups = utils.groupObjects(this.world.objects);
+      var groupRegExp = group.map(function (string) {
+        return new RegExp(string);
+      });
+      Object.keys(groups).filter(function (name) {
+        var markedForRemove = utils.contains(clear, name);
+        return !markedForRemove && !utils.contains(pickable, name);
+      }).forEach(function (name) {
+        console.log("\u2523\u2501 parse object: ".concat(name));
+        var next = groups[name];
+        var group = groupRegExp.find(function (regExp) {
+          return name.match(regExp);
+        });
+        var container;
+
+        if (group) {
+          container = new PIXI.Container();
+          utils.pushObject(container, objects);
+          utils.nameObject(container, {
+            name: name,
+            type: 'layer'
+          });
+          console.log("\u2523\u2501 add layer: ".concat(name));
+        }
+
+        if (Array.isArray(next)) {
+          next.forEach(function (object) {
+            if (object.gid) {
+              var sprite = utils.createSprite(object.gid, tilesize, _this.tiles);
+
+              if (sprite) {
+                utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name']);
+
+                if (group) {
+                  console.log("\u2523\u2501 add object ".concat(object.name, " (").concat(~~sprite.x, "/").concat(~~sprite.y, ") to layer: ").concat(name));
+                  container.addChild(sprite);
+                } else {
+                  utils.pushObject(sprite, objects);
+                }
+              }
+            }
+          });
+        }
+      });
+      return objects;
+    }
+  }, {
+    key: "createSprites",
+    value: function createSprites() {
+      var tilesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;
+      var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      return this.objects.filter(function (sprite) {
+        return !utils.contains(clear, sprite.name);
+      }).map(function (sprite) {
+        try {
+          var x = Math.round((sprite.x || 0) + (sprite.offsetx || 0));
+          var y = Math.round((sprite.y || 0) + (sprite.offsety || 0));
+          var objects = sprite.children.length ? sprite.children : [sprite];
+          var bounds = utils.getBounds(objects);
+          sprite.x = sprite.basex = bounds.left + x;
+          sprite.y = sprite.basey = bounds.down + y - tilesize;
+          objects.forEach(function (child) {
+            child.x -= bounds.left - child.width * 0.5;
+            child.y -= bounds.down - tilesize;
+            child.anchor.set(0.5, 1);
+          });
+          return sprite;
+        } catch (err) {
+          console.error(err.message, err.stack);
+        }
+      });
+    }
+  }]);
+
+  return World;
+}();
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
+
+module.exports = _arrayWithoutHoles;
 
 /***/ }),
 
@@ -814,6 +819,36 @@ module.exports = _inherits;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+module.exports = _iterableToArray;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+module.exports = _nonIterableSpread;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
@@ -854,6 +889,27 @@ function _setPrototypeOf(o, p) {
 }
 
 module.exports = _setPrototypeOf;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/toConsumableArray.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js");
+
+var iterableToArray = __webpack_require__(/*! ./iterableToArray */ "./node_modules/@babel/runtime/helpers/iterableToArray.js");
+
+var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray;
 
 /***/ }),
 

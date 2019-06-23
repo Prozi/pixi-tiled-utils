@@ -940,7 +940,7 @@
     "__docId__": 69,
     "kind": "file",
     "name": "lib/index.js",
-    "content": "const { FullscreenApplication } = require('./app')\nconst { TiledApplication } = require('./tiledApp')\nconst { TextureExtractor } = require('./extract')\nconst { utils } = require('./utils')\n\nexport {\n    FullscreenApplication,\n    TiledApplication,\n    TextureExtractor,\n    utils\n}\n\n/* global window */\nwindow.PIXI.Tiled = { FullscreenApplication, TiledApplication, TextureExtractor, utils }\n",
+    "content": "const { FullscreenApplication } = require('./app')\nconst { World } = require('./world')\nconst { TextureExtractor } = require('./extract')\nconst { utils } = require('./utils')\n\nexport {\n    FullscreenApplication,\n    World,\n    TextureExtractor,\n    utils\n}\n\n/* global window */\nwindow.PIXI.Tiled = { FullscreenApplication, World, TextureExtractor, utils }\n",
     "static": true,
     "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/index.js",
     "access": "public",
@@ -971,10 +971,10 @@
   {
     "__docId__": 71,
     "kind": "variable",
-    "name": "TiledApplication",
+    "name": "World",
     "memberof": "lib/index.js",
     "static": true,
-    "longname": "lib/index.js~TiledApplication",
+    "longname": "lib/index.js~World",
     "access": "public",
     "export": false,
     "importPath": "pixi-tiled-utils/lib/index.js",
@@ -1107,10 +1107,10 @@
   {
     "__docId__": 78,
     "kind": "file",
-    "name": "lib/tiledApp.js",
-    "content": "const PIXI = window.PIXI\nconst { get } = require('axios')\nconst { FullscreenApplication } = require('./app')\nconst { TextureExtractor } = require('./extract')\nconst { tiled } = require('./tiled')\nconst { utils } = require('./utils')\n\nclass TiledApplication extends FullscreenApplication {\n    constructor(everyTick, options) {\n        super(everyTick, options)\n    }\n\n    createTiles(config) {\n        this.tiles = new TextureExtractor(config)\n    }\n\n    async createWorld(world, tileset, tilesize, group = [], clear = [], pickable = []) {\n        if (!this.tiles) console.warn('Creating tile-less world. You should propably first call createTiles()')\n        const { data } = await get(world)\n        this.world = tiled.makeTiledWorld(data, tileset)\n        this.ground = this.world.children.filter(({ type }) => type === 'tilelayer')\n        this.objects = this.createObjects(tilesize, group, clear, pickable)\n        this.sprites = this.createSprites(tilesize, clear)\n        this.ground.forEach((ground) => this.stage.addChild(ground))\n        this.sprites.forEach((sprite) => this.stage.addChild(sprite))\n    }\n\n    createObjects(tilesize, group = [], clear = [], pickable = []) {\n        const objects = []\n        const groups = utils.groupObjects(this.world.objects)\n        const groupRegExp = group.map((string) => new RegExp(string))\n        Object.keys(groups).filter((name) => {\n            const markedForRemove = utils.contains(clear, name)\n            return (!markedForRemove && !utils.contains(pickable, name))\n        }).forEach((name) => {\n            console.log(`┣━ parse object: ${name}`)\n            const next = groups[name]\n            const group = groupRegExp.find((regExp) => name.match(regExp))\n            let container\n            if (group) {\n                container = new PIXI.Container()\n                utils.pushObject(container, objects)\n                utils.nameObject(container, { name, type: 'layer' })\n                console.log(`┣━ add layer: ${name}`)\n            }\n            if (Array.isArray(next)) {\n                next.forEach((object) => {\n                    if (object.gid) {\n                        const sprite = utils.createSprite(object.gid, tilesize, this.tiles)\n                        if (sprite) {\n                            utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name'])\n                            if (group) {\n                                console.log(`┣━ add object ${object.name} (${~~sprite.x}/${~~sprite.y}) to layer: ${name}`)\n                                container.addChild(sprite)\n                            } else {\n                                utils.pushObject(sprite, objects)\n                            }\n                        }\n                    }\n                })\n            }\n        })\n        return objects\n    }\n\n    createSprites(tilesize = 32, clear = []) {\n        return this.objects\n            .filter((sprite) => !utils.contains(clear, sprite.name))\n            .map((sprite) => {\n                try {\n                    const x = Math.round((sprite.x || 0) + (sprite.offsetx || 0))\n                    const y = Math.round((sprite.y || 0) + (sprite.offsety || 0))\n                    const objects = sprite.children.length ? sprite.children : [sprite]\n                    const bounds = utils.getBounds(objects)\n                    sprite.x = sprite.basex = bounds.left + x\n                    sprite.y = sprite.basey = bounds.down + y - tilesize\n                    objects.forEach((child) => {\n                        child.x -= bounds.left - child.width * 0.5\n                        child.y -= bounds.down - tilesize\n                        child.anchor.set(0.5, 1)\n                    })\n                    return sprite\n                } catch (err) {\n                    console.error(err.message, err.stack)\n                }\n            })\n    }\n}\n\nexport { TiledApplication }\n",
+    "name": "lib/utils.js",
+    "content": "const PIXI = window.PIXI\n\nconst utils = {\n\n    getTexture(frame, tiles) {\n        if (tiles && (typeof tiles.getFrame === 'function')) {\n            return tiles.getFrame(frame)\n        } else {\n            console.warn('! tiles not set @ getTexture')\n        }\n        return PIXI.Texture.EMPTY\n    },\n\n    createSprite(frame, tilesize = 32, tiles = null) {\n        let sprite\n        if (tiles) {\n            if (!isNaN(frame) && isFinite(frame)) {\n                sprite = new PIXI.Sprite(utils.getTexture(~~frame, tiles))\n            } else if (frame) {\n                sprite = PIXI.Sprite.fromFrame(frame)\n            }\n        } else {\n            sprite = new PIXI.Sprite()\n        }\n        if (sprite) {\n            sprite.width = tilesize\n            sprite.height = tilesize\n            if (sprite.texture) {\n                sprite.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST\n            }\n            return sprite\n        }\n    },\n\n    getModel(source, url) {\n        let cursor = source\n        const propList = url.split('.')\n        while (cursor && propList.length) {\n            cursor = cursor[propList.shift()]\n        }\n        return cursor\n    },\n\n    contains(array, value) {\n        return value && array.some((string) => value.startsWith(string))\n    },\n\n    groupObjects(array, groupName = 'group.name') {\n        return array ? array.reduce((groups, item) => {\n            const cursor = utils.getModel(item, groupName)\n            if (cursor) {\n                if (!groups[cursor]) {\n                    groups[cursor] = []\n                }\n                groups[cursor].push(item)\n            }\n            return groups\n        }, {}) : {}\n    },\n\n    nameObject(target, source = {}, props = ['name', 'type']) {\n        if (!target) return\n        props.forEach((prop) => {\n            if (source[prop] && !target[prop]) {\n                target[prop] = source[prop]\n            }\n        })\n    },\n\n    pushObject(source, target, props) {\n        if (target.indexOf(source) !== -1) return\n        if (Array.isArray(source.objects)) {\n            source.objects.forEach((sprite) => {\n                utils.nameObject(sprite, source, props)\n            })\n        }\n        target.push(source)\n    },\n\n    getBounds(array) {\n        if (Array.isArray(array) && array.length) {\n            let up = Infinity\n            let left = Infinity\n            let right = -Infinity\n            let down = -Infinity\n            let temp\n            array.forEach((sprite) => {\n                const w = sprite.width\n                const h = sprite.height\n                if ((temp = sprite.x) < left) {\n                    left = temp\n                }\n                if ((temp = sprite.y) < up) {\n                    up = temp\n                }\n                if ((temp = sprite.x + w) > right) {\n                    right = temp\n                }\n                if ((temp = sprite.y + h) > down) {\n                    down = temp\n                }\n            })\n            return { up, down, left, right }\n        }\n        return { up: 0, down: 0, left: 0, right: 0 }\n    }\n}\n\nexport { utils }\n",
     "static": true,
-    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/tiledApp.js",
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/utils.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -1119,12 +1119,12 @@
     "__docId__": 79,
     "kind": "variable",
     "name": "PIXI",
-    "memberof": "lib/tiledApp.js",
+    "memberof": "lib/utils.js",
     "static": true,
-    "longname": "lib/tiledApp.js~PIXI",
+    "longname": "lib/utils.js~PIXI",
     "access": "public",
     "export": false,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importPath": "pixi-tiled-utils/lib/utils.js",
     "importStyle": null,
     "description": null,
     "lineNumber": 1,
@@ -1139,13 +1139,65 @@
   {
     "__docId__": 80,
     "kind": "variable",
-    "name": "get",
-    "memberof": "lib/tiledApp.js",
+    "name": "utils",
+    "memberof": "lib/utils.js",
     "static": true,
-    "longname": "lib/tiledApp.js~get",
+    "longname": "lib/utils.js~utils",
+    "access": "public",
+    "export": true,
+    "importPath": "pixi-tiled-utils/lib/utils.js",
+    "importStyle": "{utils}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"getTexture\": function, \"createSprite\": function, \"getModel\": function, \"contains\": function, \"groupObjects\": function, \"nameObject\": function, \"pushObject\": function, \"getBounds\": function}"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "file",
+    "name": "lib/world.js",
+    "content": "const PIXI = window.PIXI\nconst { get } = require('axios')\nconst { TextureExtractor } = require('./extract')\nconst { tiled } = require('./tiled')\nconst { utils } = require('./utils')\n\nclass World {\n    constructor(config) {\n        if (config) {\n            this.tiles = new TextureExtractor(config)\n        } else {\n            console.warn('Creating tile-less world')\n        }\n    }\n\n    async create(json, tileset, tilesize, group = [], clear = [], pickable = []) {\n        const { data } = await get(json)\n        this.world = tiled.makeTiledWorld(data, tileset)\n\n        this.objects = this.createObjects(tilesize, group, clear, pickable)\n        this.ground = this.world.children.filter(({ type }) => type === 'tilelayer')\n        this.sprites = this.createSprites(tilesize, clear)\n\n        const world = new PIXI.Container()\n        world.addChild(...this.ground)\n        world.addChild(...this.sprites)    \n        return world\n    }\n\n    createObjects(tilesize, group = [], clear = [], pickable = []) {\n        const objects = []\n        const groups = utils.groupObjects(this.world.objects)\n        const groupRegExp = group.map((string) => new RegExp(string))\n        Object.keys(groups).filter((name) => {\n            const markedForRemove = utils.contains(clear, name)\n            return (!markedForRemove && !utils.contains(pickable, name))\n        }).forEach((name) => {\n            console.log(`┣━ parse object: ${name}`)\n            const next = groups[name]\n            const group = groupRegExp.find((regExp) => name.match(regExp))\n            let container\n            if (group) {\n                container = new PIXI.Container()\n                utils.pushObject(container, objects)\n                utils.nameObject(container, { name, type: 'layer' })\n                console.log(`┣━ add layer: ${name}`)\n            }\n            if (Array.isArray(next)) {\n                next.forEach((object) => {\n                    if (object.gid) {\n                        const sprite = utils.createSprite(object.gid, tilesize, this.tiles)\n                        if (sprite) {\n                            utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name'])\n                            if (group) {\n                                console.log(`┣━ add object ${object.name} (${~~sprite.x}/${~~sprite.y}) to layer: ${name}`)\n                                container.addChild(sprite)\n                            } else {\n                                utils.pushObject(sprite, objects)\n                            }\n                        }\n                    }\n                })\n            }\n        })\n        return objects\n    }\n\n    createSprites(tilesize = 32, clear = []) {\n        return this.objects\n            .filter((sprite) => !utils.contains(clear, sprite.name))\n            .map((sprite) => {\n                try {\n                    const x = Math.round((sprite.x || 0) + (sprite.offsetx || 0))\n                    const y = Math.round((sprite.y || 0) + (sprite.offsety || 0))\n                    const objects = sprite.children.length ? sprite.children : [sprite]\n                    const bounds = utils.getBounds(objects)\n                    sprite.x = sprite.basex = bounds.left + x\n                    sprite.y = sprite.basey = bounds.down + y - tilesize\n                    objects.forEach((child) => {\n                        child.x -= bounds.left - child.width * 0.5\n                        child.y -= bounds.down - tilesize\n                        child.anchor.set(0.5, 1)\n                    })\n                    return sprite\n                } catch (err) {\n                    console.error(err.message, err.stack)\n                }\n            })\n    }\n}\n\nexport { World }\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/world.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 82,
+    "kind": "variable",
+    "name": "PIXI",
+    "memberof": "lib/world.js",
+    "static": true,
+    "longname": "lib/world.js~PIXI",
     "access": "public",
     "export": false,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importPath": "pixi-tiled-utils/lib/world.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "variable",
+    "name": "get",
+    "memberof": "lib/world.js",
+    "static": true,
+    "longname": "lib/world.js~get",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/world.js",
     "importStyle": null,
     "description": null,
     "lineNumber": 2,
@@ -1158,15 +1210,15 @@
     "ignore": true
   },
   {
-    "__docId__": 81,
+    "__docId__": 84,
     "kind": "variable",
-    "name": "FullscreenApplication",
-    "memberof": "lib/tiledApp.js",
+    "name": "TextureExtractor",
+    "memberof": "lib/world.js",
     "static": true,
-    "longname": "lib/tiledApp.js~FullscreenApplication",
+    "longname": "lib/world.js~TextureExtractor",
     "access": "public",
     "export": false,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importPath": "pixi-tiled-utils/lib/world.js",
     "importStyle": null,
     "description": null,
     "lineNumber": 3,
@@ -1179,15 +1231,15 @@
     "ignore": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 85,
     "kind": "variable",
-    "name": "TextureExtractor",
-    "memberof": "lib/tiledApp.js",
+    "name": "tiled",
+    "memberof": "lib/world.js",
     "static": true,
-    "longname": "lib/tiledApp.js~TextureExtractor",
+    "longname": "lib/world.js~tiled",
     "access": "public",
     "export": false,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importPath": "pixi-tiled-utils/lib/world.js",
     "importStyle": null,
     "description": null,
     "lineNumber": 4,
@@ -1200,15 +1252,15 @@
     "ignore": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 86,
     "kind": "variable",
-    "name": "tiled",
-    "memberof": "lib/tiledApp.js",
+    "name": "utils",
+    "memberof": "lib/world.js",
     "static": true,
-    "longname": "lib/tiledApp.js~tiled",
+    "longname": "lib/world.js~utils",
     "access": "public",
     "export": false,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importPath": "pixi-tiled-utils/lib/world.js",
     "importStyle": null,
     "description": null,
     "lineNumber": 5,
@@ -1221,92 +1273,45 @@
     "ignore": true
   },
   {
-    "__docId__": 84,
-    "kind": "variable",
-    "name": "utils",
-    "memberof": "lib/tiledApp.js",
-    "static": true,
-    "longname": "lib/tiledApp.js~utils",
-    "access": "public",
-    "export": false,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 85,
+    "__docId__": 87,
     "kind": "class",
-    "name": "TiledApplication",
-    "memberof": "lib/tiledApp.js",
+    "name": "World",
+    "memberof": "lib/world.js",
     "static": true,
-    "longname": "lib/tiledApp.js~TiledApplication",
+    "longname": "lib/world.js~World",
     "access": "public",
     "export": true,
-    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
-    "importStyle": "{TiledApplication}",
+    "importPath": "pixi-tiled-utils/lib/world.js",
+    "importStyle": "{World}",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 7,
     "undocument": true,
-    "interface": false,
-    "extends": [
-      "FullscreenApplication"
-    ]
-  },
-  {
-    "__docId__": 86,
-    "kind": "constructor",
-    "name": "constructor",
-    "memberof": "lib/tiledApp.js~TiledApplication",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#constructor",
-    "access": "public",
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true
-  },
-  {
-    "__docId__": 87,
-    "kind": "method",
-    "name": "createTiles",
-    "memberof": "lib/tiledApp.js~TiledApplication",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#createTiles",
-    "access": "public",
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
-    "params": [
-      {
-        "name": "config",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": null
+    "interface": false
   },
   {
     "__docId__": 88,
-    "kind": "member",
-    "name": "tiles",
-    "memberof": "lib/tiledApp.js~TiledApplication",
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/world.js~World",
+    "generator": false,
+    "async": false,
     "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#tiles",
+    "longname": "lib/world.js~World#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 14,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "member",
+    "name": "tiles",
+    "memberof": "lib/world.js~World",
+    "static": false,
+    "longname": "lib/world.js~World#tiles",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
     "undocument": true,
     "type": {
       "types": [
@@ -1315,21 +1320,21 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 90,
     "kind": "method",
-    "name": "createWorld",
-    "memberof": "lib/tiledApp.js~TiledApplication",
+    "name": "create",
+    "memberof": "lib/world.js~World",
     "generator": false,
     "async": true,
     "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#createWorld",
+    "longname": "lib/world.js~World#create",
     "access": "public",
     "description": null,
-    "lineNumber": 17,
+    "lineNumber": 16,
     "undocument": true,
     "params": [
       {
-        "name": "world",
+        "name": "json",
         "types": [
           "*"
         ]
@@ -1374,20 +1379,7 @@
         "defaultValue": "[]"
       }
     ],
-    "return": null
-  },
-  {
-    "__docId__": 90,
-    "kind": "member",
-    "name": "world",
-    "memberof": "lib/tiledApp.js~TiledApplication",
-    "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#world",
-    "access": "public",
-    "description": null,
-    "lineNumber": 20,
-    "undocument": true,
-    "type": {
+    "return": {
       "types": [
         "*"
       ]
@@ -1396,13 +1388,13 @@
   {
     "__docId__": 91,
     "kind": "member",
-    "name": "ground",
-    "memberof": "lib/tiledApp.js~TiledApplication",
+    "name": "world",
+    "memberof": "lib/world.js~World",
     "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#ground",
+    "longname": "lib/world.js~World#world",
     "access": "public",
     "description": null,
-    "lineNumber": 21,
+    "lineNumber": 18,
     "undocument": true,
     "type": {
       "types": [
@@ -1414,9 +1406,43 @@
     "__docId__": 92,
     "kind": "member",
     "name": "objects",
-    "memberof": "lib/tiledApp.js~TiledApplication",
+    "memberof": "lib/world.js~World",
     "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#objects",
+    "longname": "lib/world.js~World#objects",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "ground",
+    "memberof": "lib/world.js~World",
+    "static": false,
+    "longname": "lib/world.js~World#ground",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "name": "sprites",
+    "memberof": "lib/world.js~World",
+    "static": false,
+    "longname": "lib/world.js~World#sprites",
     "access": "public",
     "description": null,
     "lineNumber": 22,
@@ -1428,34 +1454,17 @@
     }
   },
   {
-    "__docId__": 93,
-    "kind": "member",
-    "name": "sprites",
-    "memberof": "lib/tiledApp.js~TiledApplication",
-    "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#sprites",
-    "access": "public",
-    "description": null,
-    "lineNumber": 23,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 94,
+    "__docId__": 95,
     "kind": "method",
     "name": "createObjects",
-    "memberof": "lib/tiledApp.js~TiledApplication",
+    "memberof": "lib/world.js~World",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#createObjects",
+    "longname": "lib/world.js~World#createObjects",
     "access": "public",
     "description": null,
-    "lineNumber": 28,
+    "lineNumber": 30,
     "undocument": true,
     "params": [
       {
@@ -1499,17 +1508,17 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 96,
     "kind": "method",
     "name": "createSprites",
-    "memberof": "lib/tiledApp.js~TiledApplication",
+    "memberof": "lib/world.js~World",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "lib/tiledApp.js~TiledApplication#createSprites",
+    "longname": "lib/world.js~World#createSprites",
     "access": "public",
     "description": null,
-    "lineNumber": 66,
+    "lineNumber": 68,
     "undocument": true,
     "params": [
       {
@@ -1538,60 +1547,8 @@
     }
   },
   {
-    "__docId__": 96,
-    "kind": "file",
-    "name": "lib/utils.js",
-    "content": "const PIXI = window.PIXI\n\nconst utils = {\n\n    getTexture(frame, tiles) {\n        if (tiles && (typeof tiles.getFrame === 'function')) {\n            return tiles.getFrame(frame)\n        } else {\n            console.warn('! tiles not set @ getTexture')\n        }\n        return PIXI.Texture.EMPTY\n    },\n\n    createSprite(frame, tilesize = 32, tiles = null) {\n        let sprite\n        if (tiles) {\n            if (!isNaN(frame) && isFinite(frame)) {\n                sprite = new PIXI.Sprite(utils.getTexture(~~frame, tiles))\n            } else if (frame) {\n                sprite = PIXI.Sprite.fromFrame(frame)\n            }\n        } else {\n            sprite = new PIXI.Sprite()\n        }\n        if (sprite) {\n            sprite.width = tilesize\n            sprite.height = tilesize\n            if (sprite.texture) {\n                sprite.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST\n            }\n            return sprite\n        }\n    },\n\n    getModel(source, url) {\n        let cursor = source\n        const propList = url.split('.')\n        while (cursor && propList.length) {\n            cursor = cursor[propList.shift()]\n        }\n        return cursor\n    },\n\n    contains(array, value) {\n        return value && array.some((string) => value.startsWith(string))\n    },\n\n    groupObjects(array, groupName = 'group.name') {\n        return array ? array.reduce((groups, item) => {\n            const cursor = utils.getModel(item, groupName)\n            if (cursor) {\n                if (!groups[cursor]) {\n                    groups[cursor] = []\n                }\n                groups[cursor].push(item)\n            }\n            return groups\n        }, {}) : {}\n    },\n\n    nameObject(target, source = {}, props = ['name', 'type']) {\n        if (!target) return\n        props.forEach((prop) => {\n            if (source[prop] && !target[prop]) {\n                target[prop] = source[prop]\n            }\n        })\n    },\n\n    pushObject(source, target, props) {\n        if (target.indexOf(source) !== -1) return\n        if (Array.isArray(source.objects)) {\n            source.objects.forEach((sprite) => {\n                utils.nameObject(sprite, source, props)\n            })\n        }\n        target.push(source)\n    },\n\n    getBounds(array) {\n        if (Array.isArray(array) && array.length) {\n            let up = Infinity\n            let left = Infinity\n            let right = -Infinity\n            let down = -Infinity\n            let temp\n            array.forEach((sprite) => {\n                const w = sprite.width\n                const h = sprite.height\n                if ((temp = sprite.x) < left) {\n                    left = temp\n                }\n                if ((temp = sprite.y) < up) {\n                    up = temp\n                }\n                if ((temp = sprite.x + w) > right) {\n                    right = temp\n                }\n                if ((temp = sprite.y + h) > down) {\n                    down = temp\n                }\n            })\n            return { up, down, left, right }\n        }\n        return { up: 0, down: 0, left: 0, right: 0 }\n    }\n}\n\nexport { utils }\n",
-    "static": true,
-    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/utils.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 97,
-    "kind": "variable",
-    "name": "PIXI",
-    "memberof": "lib/utils.js",
-    "static": true,
-    "longname": "lib/utils.js~PIXI",
-    "access": "public",
-    "export": false,
-    "importPath": "pixi-tiled-utils/lib/utils.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 98,
-    "kind": "variable",
-    "name": "utils",
-    "memberof": "lib/utils.js",
-    "static": true,
-    "longname": "lib/utils.js~utils",
-    "access": "public",
-    "export": true,
-    "importPath": "pixi-tiled-utils/lib/utils.js",
-    "importStyle": "{utils}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"getTexture\": function, \"createSprite\": function, \"getModel\": function, \"contains\": function, \"groupObjects\": function, \"nameObject\": function, \"pushObject\": function, \"getBounds\": function}"
-      ]
-    }
-  },
-  {
     "kind": "index",
-    "content": "# PIXI.js Tiled utilities\n\n## Documentation\n\nstate: poor but whole\n\n<https://prozi.github.io/pixi-tiled-utils>\n\n## Some information from author\n\n* Before you import you have to have window.PIXI defined\n\n* When you import this library you get PIXI.Tiled helper\n\n## Whats inside the helper\n\n* FullscreenApplication\n\nwhich extends PIXI.Application and adds autoresize\nand canvas of full width and height of window\n\n* TiledApplication\n\n```javascript\nconst vikings = 'https://www.vikingsvillage.io/game/assets'\nconst json = `${vikings}/json/island_small_21.json`\nconst tileset = `${vikings}/img/Viking3.png`\n\nconst app = new PIXI.Tiled.TiledApplication(tick, {\n  roundPixels: true\n})\n\nPIXI.loader.add('resource', tileset)\n  .load((loader, { resource }) => {\n    const tilesize = 42\n    const group = ['Domek', 'Kibel', 'Bees', 'Thor', 'Meat']\n    const clear = ['Spawn']\n\n    app.stage.scale.set(3)\n    app.createTiles({\n      tilewidth: tilesize,\n      tileheight: tilesize,\n      offset: 1,\n      texture: resource.texture\n    })\n    app.createWorld(json, tileset, tilesize, group, clear)\n      .then(() => {\n        console.log('tilemap converted into pixi primitives')\n      })\n  })\n\nfunction tick(time) {\n  this.stage.position.set(\n    -this.stage.width / 2 + innerWidth / 2,\n    -this.stage.height / 2 + innerHeight / 2\n  )\n}\n```\n\nsee live: <https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35>\n\n* TextureExtractor\n\nUseful if you want to slice a spritesheet\n\n* utils\n\nSome internally used utils that might or not be useful (just exported them because of reasons)\n\n---\n\n(c) 2019 Jacek Pietal, License: MIT\n\nby players for players\n",
+    "content": "# PIXI.js Tiled utilities\n\n## Documentation\n\nstate: poor but whole\n\n<https://prozi.github.io/pixi-tiled-utils>\n\n## Some information from author\n\n* Before you import you have to have window.PIXI defined\n\n* When you import this library you get PIXI.Tiled helper\n\n## Whats inside the helper\n\n* FullscreenApplication\n\nwhich extends PIXI.Application and adds autoresize\nand canvas of full width and height of window\n\n* World\n\n```javascript\n  const app = new PIXI.Tiled.FullscreenApplication(tick, {\n      roundPixels: true\n  })\n  const json = 'https://www.vikingsvillage.io/game/assets/json/island_small_21.json'\n  const tileset = 'https://www.vikingsvillage.io/game/assets/img/Viking3.png'\n  const tilesize = 42\n  const group = ['Domek', 'Kibel', 'Bees', 'Thor', 'Meat']\n  const clear = ['Spawn']\n\n  PIXI.loader.add('resource', tileset).load((loader, { resource }) => {\n      app.world = new PIXI.Tiled.World({\n          tilewidth: tilesize,\n          tileheight: tilesize,\n          offset: 1,\n          texture: resource.texture\n      })\n      app.world.create(json, tileset, tilesize, group, clear).then((world) => {\n          app.stage.addChild(world)\n      })\n  })\n\n  function tick(time) {\n      this.stage.position.set(\n          -this.stage.width / 2 + innerWidth / 2,\n          -this.stage.height / 2 + innerHeight / 2\n      )\n  }\n```\n\nsee live: <https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35>\n\n* TextureExtractor\n\nUseful if you want to slice a spritesheet\n\n* utils\n\nSome internally used utils that might or not be useful (just exported them because of reasons)\n\n---\n\n(c) 2019 Jacek Pietal, License: MIT\n\nby players for players\n",
     "longname": "/home/jpietal/projects/pixi-tiled-utils/README.md",
     "name": "./README.md",
     "static": true,
@@ -1599,7 +1556,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"pixi-tiled-utils\",\n  \"version\": \"1.0.14\",\n  \"description\": \"PIXI.js Tiled utilities\",\n  \"main\": \"index.js\",\n  \"browser\": \"index.js\",\n  \"module\": \"index.js\",\n  \"scripts\": {\n    \"build\": \"./node_modules/.bin/webpack\",\n    \"test\": \"yarn build && node -r esm test/tiledApp.test.js\",\n    \"test:web\": \"yarn build && http-server\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/Prozi/pixi-tiled-utils.git\"\n  },\n  \"author\": \"Jacek Pietal <prozi85@gmail.com>\",\n  \"license\": \"MIT\",\n  \"dependencies\": {\n    \"@babel/runtime\": \"^7.4.5\",\n    \"axios\": \"^0.19.0\",\n    \"esm\": \"^3.2.25\",\n    \"tiled-utils\": \"^4.0.0\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"^7.4.5\",\n    \"@babel/plugin-transform-runtime\": \"^7.4.4\",\n    \"@babel/preset-env\": \"^7.4.5\",\n    \"babel-loader\": \"^8.0.6\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"http-server\": \"^0.11.1\",\n    \"pixi-shim\": \"^1.6.0\",\n    \"pixi.js-legacy\": \"^5.0.4\",\n    \"webpack\": \"^4.35.0\",\n    \"webpack-cli\": \"^3.3.4\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"pixi-tiled-utils\",\n  \"version\": \"1.1.0\",\n  \"description\": \"PIXI.js Tiled utilities\",\n  \"main\": \"index.js\",\n  \"browser\": \"index.js\",\n  \"module\": \"index.js\",\n  \"scripts\": {\n    \"build\": \"./node_modules/.bin/webpack\",\n    \"test\": \"yarn build && node -r esm test/index.js\",\n    \"test:web\": \"yarn build && http-server\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/Prozi/pixi-tiled-utils.git\"\n  },\n  \"author\": \"Jacek Pietal <prozi85@gmail.com>\",\n  \"license\": \"MIT\",\n  \"dependencies\": {\n    \"@babel/runtime\": \"^7.4.5\",\n    \"axios\": \"^0.19.0\",\n    \"esm\": \"^3.2.25\",\n    \"tiled-utils\": \"^4.0.0\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"^7.4.5\",\n    \"@babel/plugin-transform-runtime\": \"^7.4.4\",\n    \"@babel/preset-env\": \"^7.4.5\",\n    \"babel-loader\": \"^8.0.6\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"http-server\": \"^0.11.1\",\n    \"pixi-shim\": \"^1.6.0\",\n    \"pixi.js-legacy\": \"^5.0.4\",\n    \"webpack\": \"^4.35.0\",\n    \"webpack-cli\": \"^3.3.4\"\n  }\n}\n",
     "longname": "/home/jpietal/projects/pixi-tiled-utils/package.json",
     "name": "package.json",
     "static": true,

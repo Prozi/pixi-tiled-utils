@@ -63,8 +63,8 @@ class World {
         this.sprites = this.createSprites(tilesize, clear)
 
         const world = new PIXI.Container()
-        world.addChild(...this.ground)
-        world.addChild(...this.sprites)    
+        this.ground.length &amp;&amp; world.addChild(...this.ground)
+        this.sprites.length &amp;&amp; world.addChild(...this.sprites)    
         return world
     }
 

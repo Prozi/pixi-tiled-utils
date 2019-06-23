@@ -1,4 +1,4 @@
-window["pixi-tiled-utils"] =
+var tiledUtils =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

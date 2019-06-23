@@ -4,8 +4,7 @@ module.exports = {
     output: {
         path: require('path').resolve(__dirname),
         filename: 'index.js',
-        library: 'pixi-tiled-utils',
-        libraryTarget: 'window'
+        library: 'tiledUtils'
     },
     mode: 'development',
     devtool: 'source-map',

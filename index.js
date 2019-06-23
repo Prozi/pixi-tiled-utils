@@ -534,8 +534,8 @@ function () {
                 });
                 this.sprites = this.createSprites(tilesize, clear);
                 world = new PIXI.Container();
-                world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.ground));
-                world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.sprites));
+                this.ground.length && world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.ground));
+                this.sprites.length && world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.sprites));
                 return _context.abrupt("return", world);
 
               case 15:

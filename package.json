@@ -2,7 +2,7 @@
   "name": "pixi-tiled-utils",
   "version": "1.0.14",
   "description": "PIXI.js Tiled utilities",
-  "main": "lib/index.js",
+  "main": "index.js",
   "browser": "index.js",
   "module": "index.js",
   "scripts": {

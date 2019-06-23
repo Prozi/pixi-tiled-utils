@@ -3,8 +3,7 @@ module.exports = {
     entry: './lib/index.js',
     output: {
         path: require('path').resolve(__dirname),
-        filename: 'index.js',
-        library: 'tiledUtils'
+        filename: 'index.js'
     },
     mode: 'development',
     devtool: 'source-map',
@@ -14,10 +13,10 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {
+                options: {
                     presets: ['@babel/preset-env'],
                     plugins: [
                         ['@babel/plugin-transform-runtime', {

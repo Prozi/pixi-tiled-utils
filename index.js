@@ -1,4 +1,3 @@
-var tiledUtils =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -272,6 +271,14 @@ var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
     utils = _require4.utils;
 
 
+/* global window */
+
+window.PIXI.Tiled = {
+  FullscreenApplication: FullscreenApplication,
+  TiledApplication: TiledApplication,
+  TextureExtractor: TextureExtractor,
+  utils: utils
+};
 
 /***/ }),
 

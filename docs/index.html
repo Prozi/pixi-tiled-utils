@@ -38,8 +38,15 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="pixi-js-tiled-utilities">PIXI.js Tiled utilities</h1><p>If you import this library you get</p>
-<ul>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="pixi-js-tiled-utilities">PIXI.js Tiled utilities</h1><h2 id="documentation">Documentation</h2><p>state: poor but whole</p>
+<p><a href="https://prozi.github.io/pixi-tiled-utils">https://prozi.github.io/pixi-tiled-utils</a></p>
+<h2 id="some-information-from-author">Some information from author</h2><ul>
+<li><p>Before you import you have to have window.PIXI defined</p>
+</li>
+<li><p>When you import this library you get PIXI.Tiled helper</p>
+</li>
+</ul>
+<h2 id="whats-inside-the-helper">Whats inside the helper</h2><ul>
 <li>FullscreenApplication</li>
 </ul>
 <p>which extends PIXI.Application and adds autoresize
@@ -51,7 +58,7 @@ and canvas of full width and height of window</p>
 const json = `${vikings}/json/island_small_21.json`
 const tileset = `${vikings}/img/Viking3.png`
 
-const app = new tiledUtils.TiledApplication(tick, {
+const app = new PIXI.Tiled.TiledApplication(tick, {
   roundPixels: true
 })
 

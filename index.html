@@ -8,7 +8,7 @@
 
 <body>
     <script type="text/javascript">
-        const app = new tiledUtils.TiledApplication()
+        const app = new PIXI.Tiled.TiledApplication()
         const json = 'https://www.vikingsvillage.io/game/assets/json/island_small_21.json'
         const tileset = 'https://www.vikingsvillage.io/game/assets/img/Viking3.png'
         PIXI.loader.add('resource', tileset).load((loader, { resource }) => {

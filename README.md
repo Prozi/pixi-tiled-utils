@@ -8,7 +8,11 @@ state: poor but whole
 
 ## Some information from author
 
-If you import this library you get
+* Before you import you have to have window.PIXI defined
+
+* When you import this library you get PIXI.Tiled helper
+
+## Whats inside the helper
 
 * FullscreenApplication
 
@@ -22,7 +26,7 @@ const vikings = 'https://www.vikingsvillage.io/game/assets'
 const json = `${vikings}/json/island_small_21.json`
 const tileset = `${vikings}/img/Viking3.png`
 
-const app = new tiledUtils.TiledApplication(tick, {
+const app = new PIXI.Tiled.TiledApplication(tick, {
   roundPixels: true
 })
 

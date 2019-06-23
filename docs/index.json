@@ -1,0 +1,1608 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "lib/.external-ecmascript.js",
+    "static": true,
+    "longname": "lib/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "lib/app.js",
+    "content": "const PIXI = window.PIXI\n\nclass FullscreenApplication extends PIXI.Application {\n  constructor(everyTick, pixiApplicationOptions) {\n    super(pixiApplicationOptions)\n\n    this.everyTick = (everyTick || function () { }).bind(this)\n\n    document.body.style.fontSize = 0\n    document.body.style.margin = 0\n    document.body.appendChild(this.renderer.view)\n\n    window.addEventListener('resize', this.requestResize.bind(this))\n\n    this.requestResize()\n    this.renderLoop(performance.now())\n  }\n  renderLoop(time) {\n    requestAnimationFrame(this.renderLoop.bind(this))\n    this.everyTick(time)\n  }\n  requestResize() {\n    this.renderer.resize(innerWidth, innerHeight)\n  }\n}\n\nexport { FullscreenApplication }\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/app.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "PIXI",
+    "memberof": "lib/app.js",
+    "static": true,
+    "longname": "lib/app.js~PIXI",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/app.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "class",
+    "name": "FullscreenApplication",
+    "memberof": "lib/app.js",
+    "static": true,
+    "longname": "lib/app.js~FullscreenApplication",
+    "access": "public",
+    "export": true,
+    "importPath": "pixi-tiled-utils/lib/app.js",
+    "importStyle": "{FullscreenApplication}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "PIXI~PIXI.Application"
+    ]
+  },
+  {
+    "__docId__": 51,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/app.js~FullscreenApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/app.js~FullscreenApplication#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "name": "everyTick",
+    "memberof": "lib/app.js~FullscreenApplication",
+    "static": false,
+    "longname": "lib/app.js~FullscreenApplication#everyTick",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
+    "name": "renderLoop",
+    "memberof": "lib/app.js~FullscreenApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/app.js~FullscreenApplication#renderLoop",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "time",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "name": "requestResize",
+    "memberof": "lib/app.js~FullscreenApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/app.js~FullscreenApplication#requestResize",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "name": "lib/extract.js",
+    "content": "const PIXI = window.PIXI\n\nclass TextureExtractor {\n    constructor({\n        tilewidth,\n        tileheight,\n        texture,\n        offset,\n        limit,\n        scaleMode\n    }) {\n        this.tilewidth = tilewidth\n        this.tileheight = tileheight\n        this.offset = offset || 0\n        this.texture = texture\n        this.textureCache = {}\n        this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST\n        const count = limit || (this.width / this.tilewidth) * (this.height / this.tileheight)\n        for (let i = 0; i < count; i++) {\n            this.prepareTexture(i)\n        }\n    }\n    get width() {\n        return this.texture.width\n    }\n    get height() {\n        return this.texture.height\n    }\n    prepareTexture(frame) {\n        const width = (this.width / this.tilewidth)\n        const x = ((frame - this.offset) % width) * this.tilewidth\n        const y = Math.floor((frame - this.offset) / width) * this.tileheight\n        const rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight)\n\n        this.textureCache[frame] = new PIXI.Texture(this.texture, rect)\n        this.textureCache[frame].baseTexture.scaleMode = this.scaleMode\n        this.textureCache[frame].cacheAsBitmap = true\n    }\n    getFrame(frame) {\n        if (!this.textureCache[frame]) {\n            this.prepareTexture(frame)\n        }\n        return this.textureCache[frame]\n    }\n}\n\nexport { TextureExtractor }\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/extract.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "PIXI",
+    "memberof": "lib/extract.js",
+    "static": true,
+    "longname": "lib/extract.js~PIXI",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/extract.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "class",
+    "name": "TextureExtractor",
+    "memberof": "lib/extract.js",
+    "static": true,
+    "longname": "lib/extract.js~TextureExtractor",
+    "access": "public",
+    "export": true,
+    "importPath": "pixi-tiled-utils/lib/extract.js",
+    "importStyle": "{TextureExtractor}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 58,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "tilewidth",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#tilewidth",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "tileheight",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#tileheight",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "member",
+    "name": "offset",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#offset",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "member",
+    "name": "texture",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#texture",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "member",
+    "name": "textureCache",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#textureCache",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "member",
+    "name": "scaleMode",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#scaleMode",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "get",
+    "name": "width",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#width",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "get",
+    "name": "height",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#height",
+    "access": "public",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "prepareTexture",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#prepareTexture",
+    "access": "public",
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "params": [
+      {
+        "name": "frame",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "getFrame",
+    "memberof": "lib/extract.js~TextureExtractor",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/extract.js~TextureExtractor#getFrame",
+    "access": "public",
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "params": [
+      {
+        "name": "frame",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "file",
+    "name": "lib/index.js",
+    "content": "const { FullscreenApplication } = require('./app')\nconst { TiledApplication } = require('./tiledApp')\nconst { TextureExtractor } = require('./extract')\nconst { utils } = require('./utils')\n\nexport {\n    FullscreenApplication,\n    TiledApplication,\n    TextureExtractor,\n    utils\n}\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 70,
+    "kind": "variable",
+    "name": "FullscreenApplication",
+    "memberof": "lib/index.js",
+    "static": true,
+    "longname": "lib/index.js~FullscreenApplication",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "variable",
+    "name": "TiledApplication",
+    "memberof": "lib/index.js",
+    "static": true,
+    "longname": "lib/index.js~TiledApplication",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "variable",
+    "name": "TextureExtractor",
+    "memberof": "lib/index.js",
+    "static": true,
+    "longname": "lib/index.js~TextureExtractor",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "variable",
+    "name": "utils",
+    "memberof": "lib/index.js",
+    "static": true,
+    "longname": "lib/index.js~utils",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "lib/tiled.js",
+    "content": "const PIXI = window.PIXI\nconst TiledUtils = require('tiled-utils')\nconst tiled = new TiledUtils(PIXI)\n\nexport { tiled }\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/tiled.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "variable",
+    "name": "PIXI",
+    "memberof": "lib/tiled.js",
+    "static": true,
+    "longname": "lib/tiled.js~PIXI",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiled.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "variable",
+    "name": "TiledUtils",
+    "memberof": "lib/tiled.js",
+    "static": true,
+    "longname": "lib/tiled.js~TiledUtils",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiled.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "variable",
+    "name": "tiled",
+    "memberof": "lib/tiled.js",
+    "static": true,
+    "longname": "lib/tiled.js~tiled",
+    "access": "public",
+    "export": true,
+    "importPath": "pixi-tiled-utils/lib/tiled.js",
+    "importStyle": "{tiled}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "file",
+    "name": "lib/tiledApp.js",
+    "content": "const PIXI = window.PIXI\nconst { get } = require('axios')\nconst { FullscreenApplication } = require('./app')\nconst { TextureExtractor } = require('./extract')\nconst { tiled } = require('./tiled')\nconst { utils } = require('./utils')\n\nclass TiledApplication extends FullscreenApplication {\n    constructor(everyTick, options) {\n        super(everyTick, options)\n    }\n\n    createTiles(config) {\n        this.tiles = new TextureExtractor(config)\n    }\n\n    async createWorld(world, tileset, tilesize, group = [], clear = [], pickable = []) {\n        if (!this.tiles) console.warn('Creating tile-less world. You should propably first call createTiles()')\n        const { data } = await get(world)\n        this.world = tiled.makeTiledWorld(data, tileset)\n        this.ground = this.world.children.filter(({ type }) => type === 'tilelayer')\n        this.objects = this.createObjects(tilesize, group, clear, pickable)\n        this.sprites = this.createSprites(tilesize, clear)\n        this.ground.forEach((ground) => this.stage.addChild(ground))\n        this.sprites.forEach((sprite) => this.stage.addChild(sprite))\n    }\n\n    createObjects(tilesize, group = [], clear = [], pickable = []) {\n        const objects = []\n        const groups = utils.groupObjects(this.world.objects)\n        const groupRegExp = group.map((string) => new RegExp(string))\n        Object.keys(groups).filter((name) => {\n            const markedForRemove = utils.contains(clear, name)\n            return (!markedForRemove && !utils.contains(pickable, name))\n        }).forEach((name) => {\n            console.log(`┣━ parse object: ${name}`)\n            const next = groups[name]\n            const group = groupRegExp.find((regExp) => name.match(regExp))\n            let container\n            if (group) {\n                container = new PIXI.Container()\n                utils.pushObject(container, objects)\n                utils.nameObject(container, { name, type: 'layer' })\n                console.log(`┣━ add layer: ${name}`)\n            }\n            if (Array.isArray(next)) {\n                next.forEach((object) => {\n                    if (object.gid) {\n                        const sprite = utils.createSprite(object.gid, tilesize, this.tiles)\n                        if (sprite) {\n                            utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name'])\n                            if (group) {\n                                console.log(`┣━ add object ${object.name} (${~~sprite.x}/${~~sprite.y}) to layer: ${name}`)\n                                container.addChild(sprite)\n                            } else {\n                                utils.pushObject(sprite, objects)\n                            }\n                        }\n                    }\n                })\n            }\n        })\n        return objects\n    }\n\n    createSprites(tilesize = 32, clear = []) {\n        return this.objects\n            .filter((sprite) => !utils.contains(clear, sprite.name))\n            .map((sprite) => {\n                try {\n                    const x = Math.round((sprite.x || 0) + (sprite.offsetx || 0))\n                    const y = Math.round((sprite.y || 0) + (sprite.offsety || 0))\n                    const objects = sprite.children.length ? sprite.children : [sprite]\n                    const bounds = utils.getBounds(objects)\n                    sprite.x = sprite.basex = bounds.left + x\n                    sprite.y = sprite.basey = bounds.down + y - tilesize\n                    objects.forEach((child) => {\n                        child.x -= bounds.left - child.width * 0.5\n                        child.y -= bounds.down - tilesize\n                        child.anchor.set(0.5, 1)\n                    })\n                    return sprite\n                } catch (err) {\n                    console.error(err.message, err.stack)\n                }\n            })\n    }\n}\n\nexport { TiledApplication }\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/tiledApp.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 79,
+    "kind": "variable",
+    "name": "PIXI",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~PIXI",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "variable",
+    "name": "get",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~get",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "variable",
+    "name": "FullscreenApplication",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~FullscreenApplication",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "variable",
+    "name": "TextureExtractor",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~TextureExtractor",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "variable",
+    "name": "tiled",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~tiled",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "variable",
+    "name": "utils",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~utils",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "class",
+    "name": "TiledApplication",
+    "memberof": "lib/tiledApp.js",
+    "static": true,
+    "longname": "lib/tiledApp.js~TiledApplication",
+    "access": "public",
+    "export": true,
+    "importPath": "pixi-tiled-utils/lib/tiledApp.js",
+    "importStyle": "{TiledApplication}",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "FullscreenApplication"
+    ]
+  },
+  {
+    "__docId__": 86,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "createTiles",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#createTiles",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "config",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 88,
+    "kind": "member",
+    "name": "tiles",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#tiles",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "method",
+    "name": "createWorld",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#createWorld",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "world",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "tileset",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "tilesize",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "group",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      },
+      {
+        "name": "clear",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      },
+      {
+        "name": "pickable",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 90,
+    "kind": "member",
+    "name": "world",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#world",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "member",
+    "name": "ground",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#ground",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "objects",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#objects",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "sprites",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#sprites",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "method",
+    "name": "createObjects",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#createObjects",
+    "access": "public",
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tilesize",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "group",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      },
+      {
+        "name": "clear",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      },
+      {
+        "name": "pickable",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "method",
+    "name": "createSprites",
+    "memberof": "lib/tiledApp.js~TiledApplication",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "lib/tiledApp.js~TiledApplication#createSprites",
+    "access": "public",
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tilesize",
+        "optional": true,
+        "types": [
+          "number"
+        ],
+        "defaultRaw": 32,
+        "defaultValue": "32"
+      },
+      {
+        "name": "clear",
+        "optional": true,
+        "types": [
+          "*[]"
+        ],
+        "defaultRaw": [],
+        "defaultValue": "[]"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "file",
+    "name": "lib/utils.js",
+    "content": "const PIXI = window.PIXI\n\nconst utils = {\n\n    getTexture(frame, tiles) {\n        if (tiles && (typeof tiles.getFrame === 'function')) {\n            return tiles.getFrame(frame)\n        } else {\n            console.warn('! tiles not set @ getTexture')\n        }\n        return PIXI.Texture.EMPTY\n    },\n\n    createSprite(frame, tilesize = 32, tiles = null) {\n        let sprite\n        if (tiles) {\n            if (!isNaN(frame) && isFinite(frame)) {\n                sprite = new PIXI.Sprite(utils.getTexture(~~frame, tiles))\n            } else if (frame) {\n                sprite = PIXI.Sprite.fromFrame(frame)\n            }\n        } else {\n            sprite = new PIXI.Sprite()\n        }\n        if (sprite) {\n            sprite.width = tilesize\n            sprite.height = tilesize\n            if (sprite.texture) {\n                sprite.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST\n            }\n            return sprite\n        }\n    },\n\n    getModel(source, url) {\n        let cursor = source\n        const propList = url.split('.')\n        while (cursor && propList.length) {\n            cursor = cursor[propList.shift()]\n        }\n        return cursor\n    },\n\n    contains(array, value) {\n        return value && array.some((string) => value.startsWith(string))\n    },\n\n    groupObjects(array, groupName = 'group.name') {\n        return array ? array.reduce((groups, item) => {\n            const cursor = utils.getModel(item, groupName)\n            if (cursor) {\n                if (!groups[cursor]) {\n                    groups[cursor] = []\n                }\n                groups[cursor].push(item)\n            }\n            return groups\n        }, {}) : {}\n    },\n\n    nameObject(target, source = {}, props = ['name', 'type']) {\n        if (!target) return\n        props.forEach((prop) => {\n            if (source[prop] && !target[prop]) {\n                target[prop] = source[prop]\n            }\n        })\n    },\n\n    pushObject(source, target, props) {\n        if (target.indexOf(source) !== -1) return\n        if (Array.isArray(source.objects)) {\n            source.objects.forEach((sprite) => {\n                utils.nameObject(sprite, source, props)\n            })\n        }\n        target.push(source)\n    },\n\n    getBounds(array) {\n        if (Array.isArray(array) && array.length) {\n            let up = Infinity\n            let left = Infinity\n            let right = -Infinity\n            let down = -Infinity\n            let temp\n            array.forEach((sprite) => {\n                const w = sprite.width\n                const h = sprite.height\n                if ((temp = sprite.x) < left) {\n                    left = temp\n                }\n                if ((temp = sprite.y) < up) {\n                    up = temp\n                }\n                if ((temp = sprite.x + w) > right) {\n                    right = temp\n                }\n                if ((temp = sprite.y + h) > down) {\n                    down = temp\n                }\n            })\n            return { up, down, left, right }\n        }\n        return { up: 0, down: 0, left: 0, right: 0 }\n    }\n}\n\nexport { utils }\n",
+    "static": true,
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/lib/utils.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 97,
+    "kind": "variable",
+    "name": "PIXI",
+    "memberof": "lib/utils.js",
+    "static": true,
+    "longname": "lib/utils.js~PIXI",
+    "access": "public",
+    "export": false,
+    "importPath": "pixi-tiled-utils/lib/utils.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "variable",
+    "name": "utils",
+    "memberof": "lib/utils.js",
+    "static": true,
+    "longname": "lib/utils.js~utils",
+    "access": "public",
+    "export": true,
+    "importPath": "pixi-tiled-utils/lib/utils.js",
+    "importStyle": "{utils}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"getTexture\": function, \"createSprite\": function, \"getModel\": function, \"contains\": function, \"groupObjects\": function, \"nameObject\": function, \"pushObject\": function, \"getBounds\": function}"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# PIXI.js Tiled utilities\n\nIf you import this library you get\n\n* FullscreenApplication\n\nwhich extends PIXI.Application and adds autoresize\nand canvas of full width and height of window\n\n* TiledApplication\n\n```javascript\nconst vikings = 'https://www.vikingsvillage.io/game/assets'\nconst json = `${vikings}/json/island_small_21.json`\nconst tileset = `${vikings}/img/Viking3.png`\n\nconst app = new tiledUtils.TiledApplication(tick, {\n  roundPixels: true\n})\n\nPIXI.loader.add('resource', tileset)\n  .load((loader, { resource }) => {\n    const tilesize = 42\n    const group = ['Domek', 'Kibel', 'Bees', 'Thor', 'Meat']\n    const clear = ['Spawn']\n\n    app.stage.scale.set(3)\n    app.createTiles({\n      tilewidth: tilesize,\n      tileheight: tilesize,\n      offset: 1,\n      texture: resource.texture\n    })\n    app.createWorld(json, tileset, tilesize, group, clear)\n      .then(() => {\n        console.log('tilemap converted into pixi primitives')\n      })\n  })\n\nfunction tick(time) {\n  this.stage.position.set(\n    -this.stage.width / 2 + innerWidth / 2,\n    -this.stage.height / 2 + innerHeight / 2\n  )\n}\n```\n\nsee live: <https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35>\n\n* TextureExtractor\n\nUseful if you want to slice a spritesheet\n\n* utils\n\nSome internally used utils that might or not be useful (just exported them because of reasons)\n\n---\n\n(c) 2019 Jacek Pietal, License: MIT\n\nby players for players\n",
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"pixi-tiled-utils\",\n  \"version\": \"1.0.13\",\n  \"description\": \"PIXI.js Tiled utilities\",\n  \"main\": \"lib/index.js\",\n  \"browser\": \"index.js\",\n  \"module\": \"index.js\",\n  \"scripts\": {\n    \"build\": \"./node_modules/.bin/webpack\",\n    \"test\": \"yarn build && node -r esm test/tiledApp.test.js\",\n    \"test:web\": \"yarn build && http-server\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com/Prozi/pixi-tiled-utils.git\"\n  },\n  \"author\": \"Jacek Pietal <prozi85@gmail.com>\",\n  \"license\": \"MIT\",\n  \"dependencies\": {\n    \"@babel/runtime\": \"^7.4.5\",\n    \"axios\": \"^0.19.0\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"esm\": \"^3.2.25\",\n    \"http-server\": \"^0.11.1\",\n    \"tiled-utils\": \"^4.0.0\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"^7.4.5\",\n    \"@babel/plugin-transform-runtime\": \"^7.4.4\",\n    \"@babel/preset-env\": \"^7.4.5\",\n    \"babel-loader\": \"^8.0.6\",\n    \"pixi-shim\": \"^1.6.0\",\n    \"pixi.js-legacy\": \"^5.0.4\",\n    \"webpack\": \"^4.35.0\",\n    \"webpack-cli\": \"^3.3.4\"\n  }\n}\n",
+    "longname": "/home/jpietal/projects/pixi-tiled-utils/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

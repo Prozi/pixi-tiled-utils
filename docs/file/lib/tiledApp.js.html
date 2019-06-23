@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/tiledApp.js | pixi-tiled-utils</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="PIXI.js Tiled utilities"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="pixi-tiled-utils"><meta property="twitter:description" content="PIXI.js Tiled utilities"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/app.js~FullscreenApplication.html">FullscreenApplication</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/extract.js~TextureExtractor.html">TextureExtractor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/tiledApp.js~TiledApplication.html">TiledApplication</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tiled">tiled</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-utils">utils</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/tiledApp.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const PIXI = window.PIXI
+const { get } = require(&apos;axios&apos;)
+const { FullscreenApplication } = require(&apos;./app&apos;)
+const { TextureExtractor } = require(&apos;./extract&apos;)
+const { tiled } = require(&apos;./tiled&apos;)
+const { utils } = require(&apos;./utils&apos;)
+
+class TiledApplication extends FullscreenApplication {
+    constructor(everyTick, options) {
+        super(everyTick, options)
+    }
+
+    createTiles(config) {
+        this.tiles = new TextureExtractor(config)
+    }
+
+    async createWorld(world, tileset, tilesize, group = [], clear = [], pickable = []) {
+        if (!this.tiles) console.warn(&apos;Creating tile-less world. You should propably first call createTiles()&apos;)
+        const { data } = await get(world)
+        this.world = tiled.makeTiledWorld(data, tileset)
+        this.ground = this.world.children.filter(({ type }) =&gt; type === &apos;tilelayer&apos;)
+        this.objects = this.createObjects(tilesize, group, clear, pickable)
+        this.sprites = this.createSprites(tilesize, clear)
+        this.ground.forEach((ground) =&gt; this.stage.addChild(ground))
+        this.sprites.forEach((sprite) =&gt; this.stage.addChild(sprite))
+    }
+
+    createObjects(tilesize, group = [], clear = [], pickable = []) {
+        const objects = []
+        const groups = utils.groupObjects(this.world.objects)
+        const groupRegExp = group.map((string) =&gt; new RegExp(string))
+        Object.keys(groups).filter((name) =&gt; {
+            const markedForRemove = utils.contains(clear, name)
+            return (!markedForRemove &amp;&amp; !utils.contains(pickable, name))
+        }).forEach((name) =&gt; {
+            console.log(`&#x2523;&#x2501; parse object: ${name}`)
+            const next = groups[name]
+            const group = groupRegExp.find((regExp) =&gt; name.match(regExp))
+            let container
+            if (group) {
+                container = new PIXI.Container()
+                utils.pushObject(container, objects)
+                utils.nameObject(container, { name, type: &apos;layer&apos; })
+                console.log(`&#x2523;&#x2501; add layer: ${name}`)
+            }
+            if (Array.isArray(next)) {
+                next.forEach((object) =&gt; {
+                    if (object.gid) {
+                        const sprite = utils.createSprite(object.gid, tilesize, this.tiles)
+                        if (sprite) {
+                            utils.nameObject(sprite, object, [&apos;x&apos;, &apos;y&apos;, &apos;gid&apos;, &apos;name&apos;])
+                            if (group) {
+                                console.log(`&#x2523;&#x2501; add object ${object.name} (${~~sprite.x}/${~~sprite.y}) to layer: ${name}`)
+                                container.addChild(sprite)
+                            } else {
+                                utils.pushObject(sprite, objects)
+                            }
+                        }
+                    }
+                })
+            }
+        })
+        return objects
+    }
+
+    createSprites(tilesize = 32, clear = []) {
+        return this.objects
+            .filter((sprite) =&gt; !utils.contains(clear, sprite.name))
+            .map((sprite) =&gt; {
+                try {
+                    const x = Math.round((sprite.x || 0) + (sprite.offsetx || 0))
+                    const y = Math.round((sprite.y || 0) + (sprite.offsety || 0))
+                    const objects = sprite.children.length ? sprite.children : [sprite]
+                    const bounds = utils.getBounds(objects)
+                    sprite.x = sprite.basex = bounds.left + x
+                    sprite.y = sprite.basey = bounds.down + y - tilesize
+                    objects.forEach((child) =&gt; {
+                        child.x -= bounds.left - child.width * 0.5
+                        child.y -= bounds.down - tilesize
+                        child.anchor.set(0.5, 1)
+                    })
+                    return sprite
+                } catch (err) {
+                    console.error(err.message, err.stack)
+                }
+            })
+    }
+}
+
+export { TiledApplication }
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

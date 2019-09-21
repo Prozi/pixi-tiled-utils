@@ -199,23 +199,29 @@ function () {
     this.texture = texture;
     this.textureCache = {};
     this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST;
-    var count = limit || this.width / this.tilewidth * (this.height / this.tileheight);
-
-    for (var i = 0; i < count; i++) {
-      this.prepareTexture(i);
-    }
+    this.prepareTextures(limit);
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(TextureExtractor, [{
+    key: "prepareTextures",
+    value: function prepareTextures(limit) {
+      var count = limit && limit + 1 || this.width / this.tilewidth * (this.height / this.tileheight);
+
+      for (var frame = 0; frame < count; frame++) {
+        this.textureCache[frame] = this.prepareTexture(frame);
+      }
+    }
+  }, {
     key: "prepareTexture",
     value: function prepareTexture(frame) {
       var width = this.width / this.tilewidth;
       var x = (frame - this.offset) % width * this.tilewidth;
       var y = Math.floor((frame - this.offset) / width) * this.tileheight;
       var rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight);
-      this.textureCache[frame] = new PIXI.Texture(this.texture, rect);
-      this.textureCache[frame].baseTexture.scaleMode = this.scaleMode;
-      this.textureCache[frame].cacheAsBitmap = true;
+      var texture = new PIXI.Texture(this.texture, rect);
+      texture.baseTexture.scaleMode = this.scaleMode;
+      texture.cacheAsBitmap = true;
+      return texture;
     }
   }, {
     key: "getFrame",

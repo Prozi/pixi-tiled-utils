@@ -188,7 +188,7 @@ function () {
         tileheight = _ref.tileheight,
         texture = _ref.texture,
         offset = _ref.offset,
-        limit = _ref.limit,
+        count = _ref.count,
         scaleMode = _ref.scaleMode;
 
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, TextureExtractor);
@@ -197,19 +197,20 @@ function () {
     this.tileheight = tileheight;
     this.offset = offset || 0;
     this.texture = texture;
-    this.textureCache = {};
+    this.textureCache = [];
     this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST;
-    this.prepareTextures(limit);
+    this.prepareTextures(count);
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(TextureExtractor, [{
     key: "prepareTextures",
-    value: function prepareTextures(limit) {
-      var count = limit && limit + 1 || this.width / this.tilewidth * (this.height / this.tileheight);
+    value: function prepareTextures(count) {
+      var _this = this;
 
-      for (var frame = 0; frame < count; frame++) {
-        this.textureCache[frame] = this.prepareTexture(frame);
-      }
+      var size = count && count + 1 || this.width / this.tilewidth * (this.height / this.tileheight);
+      this.textureCache = new Array(size).fill(0).map(function (_, frame) {
+        return _this.prepareTexture(frame);
+      });
     }
   }, {
     key: "prepareTexture",

@@ -215,9 +215,9 @@ function () {
   }, {
     key: "prepareTexture",
     value: function prepareTexture(frame) {
-      var width = this.width / this.tilewidth;
-      var x = (frame - this.offset) % width * this.tilewidth;
-      var y = Math.floor((frame - this.offset) / width) * this.tileheight;
+      var cols = Math.floor(this.width / this.tilewidth);
+      var x = (frame - this.offset) % cols * this.tilewidth;
+      var y = Math.floor((frame - this.offset) / cols) * this.tileheight;
       var rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight);
       var texture = new PIXI.Texture(this.texture, rect);
       texture.baseTexture.scaleMode = this.scaleMode;

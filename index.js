@@ -1,682 +1,59 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./lib/index.js");
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-/***/ "./lib/app.js":
-/*!********************!*\
-  !*** ./lib/app.js ***!
-  \********************/
-/*! exports provided: FullscreenApplication */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullscreenApplication", function() { return FullscreenApplication; });
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _arrayLikeToArray)
+/* harmony export */ });
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
 
-
-
-
-
-
-var PIXI = window.PIXI;
-
-var FullscreenApplication =
-/*#__PURE__*/
-function (_PIXI$Application) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5___default()(FullscreenApplication, _PIXI$Application);
-
-  function FullscreenApplication(everyTick, pixiApplicationOptions) {
-    var _this;
-
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, FullscreenApplication);
-
-    _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default()(FullscreenApplication).call(this, pixiApplicationOptions));
-
-    _this.everyTick = (everyTick || function () {}).bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
-
-    document.body.style.fontSize = 0;
-    document.body.style.margin = 0;
-    document.body.appendChild(_this.renderer.view);
-    window.addEventListener('resize', _this.requestResize.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this)));
-
-    _this.requestResize();
-
-    _this.renderLoop(performance.now());
-
-    return _this;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(FullscreenApplication, [{
-    key: "renderLoop",
-    value: function renderLoop(time) {
-      requestAnimationFrame(this.renderLoop.bind(this));
-      this.everyTick(time);
-    }
-  }, {
-    key: "requestResize",
-    value: function requestResize() {
-      this.renderer.resize(innerWidth, innerHeight);
-    }
-  }]);
-
-  return FullscreenApplication;
-}(PIXI.Application);
-
-
-
-/***/ }),
-
-/***/ "./lib/extract.js":
-/*!************************!*\
-  !*** ./lib/extract.js ***!
-  \************************/
-/*! exports provided: TextureExtractor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextureExtractor", function() { return TextureExtractor; });
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
-
-
-var PIXI = window.PIXI;
-
-var TextureExtractor =
-/*#__PURE__*/
-function () {
-  function TextureExtractor(_ref) {
-    var tilewidth = _ref.tilewidth,
-        tileheight = _ref.tileheight,
-        texture = _ref.texture,
-        offset = _ref.offset,
-        count = _ref.count,
-        scaleMode = _ref.scaleMode;
-
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, TextureExtractor);
-
-    this.tilewidth = tilewidth;
-    this.tileheight = tileheight;
-    this.offset = offset || 0;
-    this.texture = texture;
-    this.textureCache = [];
-    this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST;
-    this.prepareTextures(count);
-  }
-
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(TextureExtractor, [{
-    key: "prepareTextures",
-    value: function prepareTextures(count) {
-      var _this = this;
-
-      var size = count && count + 1 || this.width / this.tilewidth * (this.height / this.tileheight);
-      this.textureCache = new Array(size).fill(0).map(function (_, frame) {
-        return _this.prepareTexture(frame);
-      });
-    }
-  }, {
-    key: "prepareTexture",
-    value: function prepareTexture(frame) {
-      var cols = Math.floor(this.width / this.tilewidth);
-      var x = (frame - this.offset) % cols * this.tilewidth;
-      var y = Math.floor((frame - this.offset) / cols) * this.tileheight;
-      var rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight);
-      var texture = new PIXI.Texture(this.texture, rect);
-      texture.baseTexture.scaleMode = this.scaleMode;
-      texture.cacheAsBitmap = true;
-      return texture;
-    }
-  }, {
-    key: "getFrame",
-    value: function getFrame(frame) {
-      if (!this.textureCache[frame]) {
-        this.prepareTexture(frame);
-      }
-
-      return this.textureCache[frame];
-    }
-  }, {
-    key: "width",
-    get: function get() {
-      return this.texture.width;
-    }
-  }, {
-    key: "height",
-    get: function get() {
-      return this.texture.height;
-    }
-  }]);
-
-  return TextureExtractor;
-}();
-
-
-
-/***/ }),
-
-/***/ "./lib/index.js":
-/*!**********************!*\
-  !*** ./lib/index.js ***!
-  \**********************/
-/*! exports provided: FullscreenApplication, World, TextureExtractor, utils */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullscreenApplication", function() { return FullscreenApplication; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "World", function() { return World; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextureExtractor", function() { return TextureExtractor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
-var _require = __webpack_require__(/*! ./app */ "./lib/app.js"),
-    FullscreenApplication = _require.FullscreenApplication;
-
-var _require2 = __webpack_require__(/*! ./world */ "./lib/world.js"),
-    World = _require2.World;
-
-var _require3 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
-    TextureExtractor = _require3.TextureExtractor;
-
-var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
-    utils = _require4.utils;
-
-
-/* global window */
-
-window.PIXI.Tiled = {
-  FullscreenApplication: FullscreenApplication,
-  World: World,
-  TextureExtractor: TextureExtractor,
-  utils: utils
-};
-
-/***/ }),
-
-/***/ "./lib/tiled.js":
-/*!**********************!*\
-  !*** ./lib/tiled.js ***!
-  \**********************/
-/*! exports provided: tiled */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tiled", function() { return tiled; });
-var PIXI = window.PIXI;
-
-var TiledUtils = __webpack_require__(/*! tiled-utils */ "./node_modules/tiled-utils/index.js");
-
-var tiled = new TiledUtils(PIXI);
-
-
-/***/ }),
-
-/***/ "./lib/utils.js":
-/*!**********************!*\
-  !*** ./lib/utils.js ***!
-  \**********************/
-/*! exports provided: utils */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
-var PIXI = window.PIXI;
-var utils = {
-  getTexture: function getTexture(frame, tiles) {
-    if (tiles && typeof tiles.getFrame === 'function') {
-      return tiles.getFrame(frame);
-    } else {
-      console.warn('! tiles not set @ getTexture');
-    }
-
-    return PIXI.Texture.EMPTY;
-  },
-  createSprite: function createSprite(frame) {
-    var tilesize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
-    var tiles = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    var sprite;
-
-    if (tiles) {
-      if (!isNaN(frame) && isFinite(frame)) {
-        sprite = new PIXI.Sprite(utils.getTexture(~~frame, tiles));
-      } else if (frame) {
-        sprite = PIXI.Sprite.fromFrame(frame);
-      }
-    } else {
-      sprite = new PIXI.Sprite();
-    }
-
-    if (sprite) {
-      sprite.width = tilesize;
-      sprite.height = tilesize;
-
-      if (sprite.texture) {
-        sprite.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
-      }
-
-      return sprite;
-    }
-  },
-  getModel: function getModel(source, url) {
-    var cursor = source;
-    var propList = url.split('.');
-
-    while (cursor && propList.length) {
-      cursor = cursor[propList.shift()];
-    }
-
-    return cursor;
-  },
-  contains: function contains(array, value) {
-    return value && array.some(function (string) {
-      return value.startsWith(string);
-    });
-  },
-  groupObjects: function groupObjects(array) {
-    var groupName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'group.name';
-    return array ? array.reduce(function (groups, item) {
-      var cursor = utils.getModel(item, groupName);
-
-      if (cursor) {
-        if (!groups[cursor]) {
-          groups[cursor] = [];
-        }
-
-        groups[cursor].push(item);
-      }
-
-      return groups;
-    }, {}) : {};
-  },
-  nameObject: function nameObject(target) {
-    var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var props = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ['name', 'type'];
-    if (!target) return;
-    props.forEach(function (prop) {
-      if (source[prop] && !target[prop]) {
-        target[prop] = source[prop];
-      }
-    });
-  },
-  pushObject: function pushObject(source, target, props) {
-    if (target.indexOf(source) !== -1) return;
-
-    if (Array.isArray(source.objects)) {
-      source.objects.forEach(function (sprite) {
-        utils.nameObject(sprite, source, props);
-      });
-    }
-
-    target.push(source);
-  },
-  getBounds: function getBounds(array) {
-    if (Array.isArray(array) && array.length) {
-      var up = Infinity;
-      var left = Infinity;
-      var right = -Infinity;
-      var down = -Infinity;
-      var temp;
-      array.forEach(function (sprite) {
-        var w = sprite.width;
-        var h = sprite.height;
-
-        if ((temp = sprite.x) < left) {
-          left = temp;
-        }
-
-        if ((temp = sprite.y) < up) {
-          up = temp;
-        }
-
-        if ((temp = sprite.x + w) > right) {
-          right = temp;
-        }
-
-        if ((temp = sprite.y + h) > down) {
-          down = temp;
-        }
-      });
-      return {
-        up: up,
-        down: down,
-        left: left,
-        right: right
-      };
-    }
-
-    return {
-      up: 0,
-      down: 0,
-      left: 0,
-      right: 0
-    };
-  }
-};
-
-
-/***/ }),
-
-/***/ "./lib/world.js":
-/*!**********************!*\
-  !*** ./lib/world.js ***!
-  \**********************/
-/*! exports provided: World */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "World", function() { return World; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-var PIXI = window.PIXI;
-
-var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
-    get = _require.get;
-
-var _require2 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
-    TextureExtractor = _require2.TextureExtractor;
-
-var _require3 = __webpack_require__(/*! ./tiled */ "./lib/tiled.js"),
-    tiled = _require3.tiled;
-
-var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
-    utils = _require4.utils;
-
-var World =
-/*#__PURE__*/
-function () {
-  function World(config) {
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3___default()(this, World);
-
-    if (config) {
-      this.tiles = new TextureExtractor(config);
-    } else {
-      console.warn('Creating tile-less world');
-    }
-  }
-
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default()(World, [{
-    key: "create",
-    value: function () {
-      var _create = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(json, tileset, tilesize) {
-        var group,
-            clear,
-            pickable,
-            _ref,
-            data,
-            world,
-            _args = arguments;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                group = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
-                clear = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
-                pickable = _args.length > 5 && _args[5] !== undefined ? _args[5] : [];
-                _context.next = 5;
-                return get(json);
-
-              case 5:
-                _ref = _context.sent;
-                data = _ref.data;
-                this.world = tiled.makeTiledWorld(data, tileset);
-                this.objects = this.createObjects(tilesize, group, clear, pickable);
-                this.ground = this.world.children.filter(function (_ref2) {
-                  var type = _ref2.type;
-                  return type === 'tilelayer';
-                });
-                this.sprites = this.createSprites(tilesize, clear);
-                world = new PIXI.Container();
-                this.ground.length && world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.ground));
-                this.sprites.length && world.addChild.apply(world, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.sprites));
-                return _context.abrupt("return", world);
-
-              case 15:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function create(_x, _x2, _x3) {
-        return _create.apply(this, arguments);
-      }
-
-      return create;
-    }()
-  }, {
-    key: "createObjects",
-    value: function createObjects(tilesize) {
-      var _this = this;
-
-      var group = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      var clear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-      var pickable = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
-      var objects = [];
-      var groups = utils.groupObjects(this.world.objects);
-      var groupRegExp = group.map(function (string) {
-        return new RegExp(string);
-      });
-      Object.keys(groups).filter(function (name) {
-        var markedForRemove = utils.contains(clear, name);
-        return !markedForRemove && !utils.contains(pickable, name);
-      }).forEach(function (name) {
-        console.log("\u2523\u2501 parse object: ".concat(name));
-        var next = groups[name];
-        var group = groupRegExp.find(function (regExp) {
-          return name.match(regExp);
-        });
-        var container;
-
-        if (group) {
-          container = new PIXI.Container();
-          utils.pushObject(container, objects);
-          utils.nameObject(container, {
-            name: name,
-            type: 'layer'
-          });
-          console.log("\u2523\u2501 add layer: ".concat(name));
-        }
-
-        if (Array.isArray(next)) {
-          next.forEach(function (object) {
-            if (object.gid) {
-              var sprite = utils.createSprite(object.gid, tilesize, _this.tiles);
-
-              if (sprite) {
-                utils.nameObject(sprite, object, ['x', 'y', 'gid', 'name']);
-
-                if (group) {
-                  console.log("\u2523\u2501 add object ".concat(object.name, " (").concat(~~sprite.x, "/").concat(~~sprite.y, ") to layer: ").concat(name));
-                  container.addChild(sprite);
-                } else {
-                  utils.pushObject(sprite, objects);
-                }
-              }
-            }
-          });
-        }
-      });
-      return objects;
-    }
-  }, {
-    key: "createSprites",
-    value: function createSprites() {
-      var tilesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;
-      var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      return this.objects.filter(function (sprite) {
-        return !utils.contains(clear, sprite.name);
-      }).map(function (sprite) {
-        try {
-          var x = Math.round((sprite.x || 0) + (sprite.offsetx || 0));
-          var y = Math.round((sprite.y || 0) + (sprite.offsety || 0));
-          var objects = sprite.children.length ? sprite.children : [sprite];
-          var bounds = utils.getBounds(objects);
-          sprite.x = sprite.basex = bounds.left + x;
-          sprite.y = sprite.basey = bounds.down + y - tilesize;
-          objects.forEach(function (child) {
-            child.x -= bounds.left - child.width * 0.5;
-            child.y -= bounds.down - tilesize;
-            child.anchor.set(0.5, 1);
-          });
-          return sprite;
-        } catch (err) {
-          console.error(err.message, err.stack);
-        }
-      });
-    }
-  }]);
-
-  return World;
-}();
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
-    }
-
-    return arr2;
-  }
+  return arr2;
 }
 
-module.exports = _arrayWithoutHoles;
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _arrayWithoutHoles)
+/* harmony export */ });
+/* harmony import */ var _arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js");
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__.default)(arr);
+}
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _assertThisInitialized)
+/* harmony export */ });
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -685,17 +62,19 @@ function _assertThisInitialized(self) {
   return self;
 }
 
-module.exports = _assertThisInitialized;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _asyncToGenerator)
+/* harmony export */ });
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
     var info = gen[key](arg);
@@ -732,34 +111,38 @@ function _asyncToGenerator(fn) {
   };
 }
 
-module.exports = _asyncToGenerator;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _classCallCheck)
+/* harmony export */ });
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-module.exports = _classCallCheck;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/createClass.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createClass)
+/* harmony export */ });
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -776,36 +159,40 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-module.exports = _createClass;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _getPrototypeOf)
+/* harmony export */ });
 function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
     return o.__proto__ || Object.getPrototypeOf(o);
   };
   return _getPrototypeOf(o);
 }
 
-module.exports = _getPrototypeOf;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/inherits.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/inherits.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/inherits.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf */ "./node_modules/@babel/runtime/helpers/setPrototypeOf.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _inherits)
+/* harmony export */ });
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -819,75 +206,83 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
-  if (superClass) setPrototypeOf(subClass, superClass);
+  if (superClass) (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__.default)(subClass, superClass);
 }
-
-module.exports = _inherits;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/iterableToArray.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _iterableToArray)
+/* harmony export */ });
 function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
-
-module.exports = _iterableToArray;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _nonIterableSpread)
+/* harmony export */ });
 function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-
-module.exports = _nonIterableSpread;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-var _typeof = __webpack_require__(/*! ../helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _possibleConstructorReturn)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized.js */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
 
-var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
 
 function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+  if (call && ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__.default)(call) === "object" || typeof call === "function")) {
     return call;
   }
 
-  return assertThisInitialized(self);
+  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__.default)(self);
 }
-
-module.exports = _possibleConstructorReturn;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/setPrototypeOf.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
+/* harmony export */ });
 function _setPrototypeOf(o, p) {
-  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
@@ -895,55 +290,83 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
-module.exports = _setPrototypeOf;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/toConsumableArray.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _toConsumableArray)
+/* harmony export */ });
+/* harmony import */ var _arrayWithoutHoles_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithoutHoles.js */ "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js");
+/* harmony import */ var _iterableToArray_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArray.js */ "./node_modules/@babel/runtime/helpers/esm/iterableToArray.js");
+/* harmony import */ var _unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./unsupportedIterableToArray.js */ "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js");
+/* harmony import */ var _nonIterableSpread_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nonIterableSpread.js */ "./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js");
 
-var iterableToArray = __webpack_require__(/*! ./iterableToArray */ "./node_modules/@babel/runtime/helpers/iterableToArray.js");
 
-var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js");
+
 
 function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
+  return (0,_arrayWithoutHoles_js__WEBPACK_IMPORTED_MODULE_0__.default)(arr) || (0,_iterableToArray_js__WEBPACK_IMPORTED_MODULE_1__.default)(arr) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__.default)(arr) || (0,_nonIterableSpread_js__WEBPACK_IMPORTED_MODULE_3__.default)();
 }
-
-module.exports = _toConsumableArray;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/typeof.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _typeof)
+/* harmony export */ });
 function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return _typeof2(obj);
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
     };
   } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
 
   return _typeof(obj);
 }
 
-module.exports = _typeof;
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _unsupportedIterableToArray)
+/* harmony export */ });
+/* harmony import */ var _arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__.default)(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__.default)(o, minLen);
+}
 
 /***/ }),
 
@@ -951,8 +374,7 @@ module.exports = _typeof;
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 
@@ -963,8 +385,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
 
@@ -974,15 +395,16 @@ module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/li
 /*!************************************************!*\
   !*** ./node_modules/axios/lib/adapters/xhr.js ***!
   \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
 var settle = __webpack_require__(/*! ./../core/settle */ "./node_modules/axios/lib/core/settle.js");
+var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
 var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
+var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ "./node_modules/axios/lib/core/buildFullPath.js");
 var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_modules/axios/lib/helpers/parseHeaders.js");
 var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "./node_modules/axios/lib/helpers/isURLSameOrigin.js");
 var createError = __webpack_require__(/*! ../core/createError */ "./node_modules/axios/lib/core/createError.js");
@@ -1001,11 +423,12 @@ module.exports = function xhrAdapter(config) {
     // HTTP basic authentication
     if (config.auth) {
       var username = config.auth.username || '';
-      var password = config.auth.password || '';
+      var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';
       requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
     }
 
-    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+    var fullPath = buildFullPath(config.baseURL, config.url);
+    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
 
     // Set the request timeout in MS
     request.timeout = config.timeout;
@@ -1066,7 +489,11 @@ module.exports = function xhrAdapter(config) {
 
     // Handle timeout
     request.ontimeout = function handleTimeout() {
-      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
+      if (config.timeoutErrorMessage) {
+        timeoutErrorMessage = config.timeoutErrorMessage;
+      }
+      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
         request));
 
       // Clean up request
@@ -1077,10 +504,8 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
-
       // Add xsrf header
-      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
         cookies.read(config.xsrfCookieName) :
         undefined;
 
@@ -1103,8 +528,8 @@ module.exports = function xhrAdapter(config) {
     }
 
     // Add withCredentials to request if needed
-    if (config.withCredentials) {
-      request.withCredentials = true;
+    if (!utils.isUndefined(config.withCredentials)) {
+      request.withCredentials = !!config.withCredentials;
     }
 
     // Add responseType to request if needed
@@ -1144,7 +569,7 @@ module.exports = function xhrAdapter(config) {
       });
     }
 
-    if (requestData === undefined) {
+    if (!requestData) {
       requestData = null;
     }
 
@@ -1160,8 +585,7 @@ module.exports = function xhrAdapter(config) {
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/axios.js ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1213,6 +637,9 @@ axios.all = function all(promises) {
 };
 axios.spread = __webpack_require__(/*! ./helpers/spread */ "./node_modules/axios/lib/helpers/spread.js");
 
+// Expose isAxiosError
+axios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ "./node_modules/axios/lib/helpers/isAxiosError.js");
+
 module.exports = axios;
 
 // Allow use of default import syntax in TypeScript
@@ -1225,8 +652,7 @@ module.exports.default = axios;
 /*!*************************************************!*\
   !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
   \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -1256,8 +682,7 @@ module.exports = Cancel;
 /*!******************************************************!*\
   !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1325,8 +750,7 @@ module.exports = CancelToken;
 /*!***************************************************!*\
   !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -1342,8 +766,7 @@ module.exports = function isCancel(value) {
 /*!**********************************************!*\
   !*** ./node_modules/axios/lib/core/Axios.js ***!
   \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1383,7 +806,15 @@ Axios.prototype.request = function request(config) {
   }
 
   config = mergeConfig(this.defaults, config);
-  config.method = config.method ? config.method.toLowerCase() : 'get';
+
+  // Set config.method
+  if (config.method) {
+    config.method = config.method.toLowerCase();
+  } else if (this.defaults.method) {
+    config.method = this.defaults.method.toLowerCase();
+  } else {
+    config.method = 'get';
+  }
 
   // Hook up interceptors middleware
   var chain = [dispatchRequest, undefined];
@@ -1413,9 +844,10 @@ Axios.prototype.getUri = function getUri(config) {
 utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, config) {
-    return this.request(utils.merge(config || {}, {
+    return this.request(mergeConfig(config || {}, {
       method: method,
-      url: url
+      url: url,
+      data: (config || {}).data
     }));
   };
 });
@@ -1423,7 +855,7 @@ utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData
 utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, data, config) {
-    return this.request(utils.merge(config || {}, {
+    return this.request(mergeConfig(config || {}, {
       method: method,
       url: url,
       data: data
@@ -1440,8 +872,7 @@ module.exports = Axios;
 /*!***********************************************************!*\
   !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1500,12 +931,42 @@ module.exports = InterceptorManager;
 
 /***/ }),
 
+/***/ "./node_modules/axios/lib/core/buildFullPath.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ "./node_modules/axios/lib/helpers/isAbsoluteURL.js");
+var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
+
+/**
+ * Creates a new URL by combining the baseURL with the requestedURL,
+ * only when the requestedURL is not already an absolute URL.
+ * If the requestURL is absolute, this function returns the requestedURL untouched.
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} requestedURL Absolute or relative URL to combine
+ * @returns {string} The combined full path
+ */
+module.exports = function buildFullPath(baseURL, requestedURL) {
+  if (baseURL && !isAbsoluteURL(requestedURL)) {
+    return combineURLs(baseURL, requestedURL);
+  }
+  return requestedURL;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/lib/core/createError.js":
 /*!****************************************************!*\
   !*** ./node_modules/axios/lib/core/createError.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1534,8 +995,7 @@ module.exports = function createError(message, config, code, request, response) 
 /*!********************************************************!*\
   !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
   \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1544,8 +1004,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 var transformData = __webpack_require__(/*! ./transformData */ "./node_modules/axios/lib/core/transformData.js");
 var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
 var defaults = __webpack_require__(/*! ../defaults */ "./node_modules/axios/lib/defaults.js");
-var isAbsoluteURL = __webpack_require__(/*! ./../helpers/isAbsoluteURL */ "./node_modules/axios/lib/helpers/isAbsoluteURL.js");
-var combineURLs = __webpack_require__(/*! ./../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -1565,11 +1023,6 @@ function throwIfCancellationRequested(config) {
 module.exports = function dispatchRequest(config) {
   throwIfCancellationRequested(config);
 
-  // Support baseURL config
-  if (config.baseURL && !isAbsoluteURL(config.url)) {
-    config.url = combineURLs(config.baseURL, config.url);
-  }
-
   // Ensure headers exist
   config.headers = config.headers || {};
 
@@ -1584,7 +1037,7 @@ module.exports = function dispatchRequest(config) {
   config.headers = utils.merge(
     config.headers.common || {},
     config.headers[config.method] || {},
-    config.headers || {}
+    config.headers
   );
 
   utils.forEach(
@@ -1632,8 +1085,7 @@ module.exports = function dispatchRequest(config) {
 /*!*****************************************************!*\
   !*** ./node_modules/axios/lib/core/enhanceError.js ***!
   \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -1658,7 +1110,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
   error.response = response;
   error.isAxiosError = true;
 
-  error.toJSON = function() {
+  error.toJSON = function toJSON() {
     return {
       // Standard
       message: this.message,
@@ -1686,8 +1138,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 /*!****************************************************!*\
   !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1707,37 +1158,73 @@ module.exports = function mergeConfig(config1, config2) {
   config2 = config2 || {};
   var config = {};
 
-  utils.forEach(['url', 'method', 'params', 'data'], function valueFromConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    }
-  });
-
-  utils.forEach(['headers', 'auth', 'proxy'], function mergeDeepProperties(prop) {
-    if (utils.isObject(config2[prop])) {
-      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
-    } else if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (utils.isObject(config1[prop])) {
-      config[prop] = utils.deepMerge(config1[prop]);
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
-
-  utils.forEach([
+  var valueFromConfig2Keys = ['url', 'method', 'data'];
+  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy', 'params'];
+  var defaultToConfig2Keys = [
     'baseURL', 'transformRequest', 'transformResponse', 'paramsSerializer',
-    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
-    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'maxContentLength',
-    'validateStatus', 'maxRedirects', 'httpAgent', 'httpsAgent', 'cancelToken',
-    'socketPath'
-  ], function defaultToConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
+    'timeout', 'timeoutMessage', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
+    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'decompress',
+    'maxContentLength', 'maxBodyLength', 'maxRedirects', 'transport', 'httpAgent',
+    'httpsAgent', 'cancelToken', 'socketPath', 'responseEncoding'
+  ];
+  var directMergeKeys = ['validateStatus'];
+
+  function getMergedValue(target, source) {
+    if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
+      return utils.merge(target, source);
+    } else if (utils.isPlainObject(source)) {
+      return utils.merge({}, source);
+    } else if (utils.isArray(source)) {
+      return source.slice();
+    }
+    return source;
+  }
+
+  function mergeDeepProperties(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      config[prop] = getMergedValue(config1[prop], config2[prop]);
+    } else if (!utils.isUndefined(config1[prop])) {
+      config[prop] = getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      config[prop] = getMergedValue(undefined, config2[prop]);
     }
   });
+
+  utils.forEach(mergeDeepPropertiesKeys, mergeDeepProperties);
+
+  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      config[prop] = getMergedValue(undefined, config2[prop]);
+    } else if (!utils.isUndefined(config1[prop])) {
+      config[prop] = getMergedValue(undefined, config1[prop]);
+    }
+  });
+
+  utils.forEach(directMergeKeys, function merge(prop) {
+    if (prop in config2) {
+      config[prop] = getMergedValue(config1[prop], config2[prop]);
+    } else if (prop in config1) {
+      config[prop] = getMergedValue(undefined, config1[prop]);
+    }
+  });
+
+  var axiosKeys = valueFromConfig2Keys
+    .concat(mergeDeepPropertiesKeys)
+    .concat(defaultToConfig2Keys)
+    .concat(directMergeKeys);
+
+  var otherKeys = Object
+    .keys(config1)
+    .concat(Object.keys(config2))
+    .filter(function filterAxiosKeys(key) {
+      return axiosKeys.indexOf(key) === -1;
+    });
+
+  utils.forEach(otherKeys, mergeDeepProperties);
 
   return config;
 };
@@ -1749,8 +1236,7 @@ module.exports = function mergeConfig(config1, config2) {
 /*!***********************************************!*\
   !*** ./node_modules/axios/lib/core/settle.js ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1766,7 +1252,7 @@ var createError = __webpack_require__(/*! ./createError */ "./node_modules/axios
  */
 module.exports = function settle(resolve, reject, response) {
   var validateStatus = response.config.validateStatus;
-  if (!validateStatus || validateStatus(response.status)) {
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
     resolve(response);
   } else {
     reject(createError(
@@ -1786,8 +1272,7 @@ module.exports = function settle(resolve, reject, response) {
 /*!******************************************************!*\
   !*** ./node_modules/axios/lib/core/transformData.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1818,11 +1303,10 @@ module.exports = function transformData(data, headers, fns) {
 /*!********************************************!*\
   !*** ./node_modules/axios/lib/defaults.js ***!
   \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
+
 
 var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
 var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "./node_modules/axios/lib/helpers/normalizeHeaderName.js");
@@ -1839,13 +1323,12 @@ function setContentTypeIfUnset(headers, value) {
 
 function getDefaultAdapter() {
   var adapter;
-  // Only Node.JS has a process variable that is of [[Class]] process
-  if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(/*! ./adapters/http */ "./node_modules/axios/lib/adapters/xhr.js");
-  } else if (typeof XMLHttpRequest !== 'undefined') {
+  if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
     adapter = __webpack_require__(/*! ./adapters/xhr */ "./node_modules/axios/lib/adapters/xhr.js");
+  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(/*! ./adapters/http */ "./node_modules/axios/lib/adapters/xhr.js");
   }
   return adapter;
 }
@@ -1899,6 +1382,7 @@ var defaults = {
   xsrfHeaderName: 'X-XSRF-TOKEN',
 
   maxContentLength: -1,
+  maxBodyLength: -1,
 
   validateStatus: function validateStatus(status) {
     return status >= 200 && status < 300;
@@ -1921,7 +1405,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -1929,8 +1412,7 @@ module.exports = defaults;
 /*!************************************************!*\
   !*** ./node_modules/axios/lib/helpers/bind.js ***!
   \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -1952,8 +1434,7 @@ module.exports = function bind(fn, thisArg) {
 /*!****************************************************!*\
   !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -1962,7 +1443,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 
 function encode(val) {
   return encodeURIComponent(val).
-    replace(/%40/gi, '@').
     replace(/%3A/gi, ':').
     replace(/%24/g, '$').
     replace(/%2C/gi, ',').
@@ -2035,8 +1515,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 /*!*******************************************************!*\
   !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
   \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -2061,8 +1540,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 /*!***************************************************!*\
   !*** ./node_modules/axios/lib/helpers/cookies.js ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -2126,8 +1604,7 @@ module.exports = (
 /*!*********************************************************!*\
   !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -2148,12 +1625,33 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 
+/***/ "./node_modules/axios/lib/helpers/isAxiosError.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * Determines whether the payload is an error thrown by Axios
+ *
+ * @param {*} payload The value to test
+ * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+ */
+module.exports = function isAxiosError(payload) {
+  return (typeof payload === 'object') && (payload.isAxiosError === true);
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
 /*!***********************************************************!*\
   !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -2232,8 +1730,7 @@ module.exports = (
 /*!***************************************************************!*\
   !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -2256,8 +1753,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 /*!********************************************************!*\
   !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
   \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -2321,8 +1817,7 @@ module.exports = function parseHeaders(headers) {
 /*!**************************************************!*\
   !*** ./node_modules/axios/lib/helpers/spread.js ***!
   \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -2360,14 +1855,12 @@ module.exports = function spread(callback) {
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/utils.js ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/axios/node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -2383,6 +1876,27 @@ var toString = Object.prototype.toString;
  */
 function isArray(val) {
   return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is a Buffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Buffer, otherwise false
+ */
+function isBuffer(val) {
+  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
 }
 
 /**
@@ -2442,16 +1956,6 @@ function isNumber(val) {
 }
 
 /**
- * Determine if a value is undefined
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if the value is undefined, otherwise false
- */
-function isUndefined(val) {
-  return typeof val === 'undefined';
-}
-
-/**
  * Determine if a value is an Object
  *
  * @param {Object} val The value to test
@@ -2459,6 +1963,21 @@ function isUndefined(val) {
  */
 function isObject(val) {
   return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a plain Object
+ *
+ * @param {Object} val The value to test
+ * @return {boolean} True if value is a plain Object, otherwise false
+ */
+function isPlainObject(val) {
+  if (toString.call(val) !== '[object Object]') {
+    return false;
+  }
+
+  var prototype = Object.getPrototypeOf(val);
+  return prototype === null || prototype === Object.prototype;
 }
 
 /**
@@ -2617,34 +2136,12 @@ function forEach(obj, fn) {
 function merge(/* obj1, obj2, obj3, ... */) {
   var result = {};
   function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
+    if (isPlainObject(result[key]) && isPlainObject(val)) {
       result[key] = merge(result[key], val);
-    } else {
-      result[key] = val;
-    }
-  }
-
-  for (var i = 0, l = arguments.length; i < l; i++) {
-    forEach(arguments[i], assignValue);
-  }
-  return result;
-}
-
-/**
- * Function equal to merge with the difference being that no reference
- * to original objects is kept.
- *
- * @see merge
- * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
- */
-function deepMerge(/* obj1, obj2, obj3, ... */) {
-  var result = {};
-  function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
-      result[key] = deepMerge(result[key], val);
-    } else if (typeof val === 'object') {
-      result[key] = deepMerge({}, val);
+    } else if (isPlainObject(val)) {
+      result[key] = merge({}, val);
+    } else if (isArray(val)) {
+      result[key] = val.slice();
     } else {
       result[key] = val;
     }
@@ -2675,6 +2172,19 @@ function extend(a, b, thisArg) {
   return a;
 }
 
+/**
+ * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+ *
+ * @param {string} content with BOM
+ * @return {string} content value without BOM
+ */
+function stripBOM(content) {
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
+  return content;
+}
+
 module.exports = {
   isArray: isArray,
   isArrayBuffer: isArrayBuffer,
@@ -2684,6 +2194,7 @@ module.exports = {
   isString: isString,
   isNumber: isNumber,
   isObject: isObject,
+  isPlainObject: isPlainObject,
   isUndefined: isUndefined,
   isDate: isDate,
   isFile: isFile,
@@ -2694,227 +2205,528 @@ module.exports = {
   isStandardBrowserEnv: isStandardBrowserEnv,
   forEach: forEach,
   merge: merge,
-  deepMerge: deepMerge,
   extend: extend,
-  trim: trim
+  trim: trim,
+  stripBOM: stripBOM
 };
 
 
 /***/ }),
 
-/***/ "./node_modules/axios/node_modules/is-buffer/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/axios/node_modules/is-buffer/index.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./lib/app.js":
+/*!********************!*\
+  !*** ./lib/app.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FullscreenApplication": () => (/* binding */ FullscreenApplication)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
 
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+var PIXI = window.PIXI;
+
+var FullscreenApplication = /*#__PURE__*/function (_PIXI$Application) {
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__.default)(FullscreenApplication, _PIXI$Application);
+
+  var _super = _createSuper(FullscreenApplication);
+
+  function FullscreenApplication(everyTick, pixiApplicationOptions) {
+    var _this;
+
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, FullscreenApplication);
+
+    _this = _super.call(this, pixiApplicationOptions);
+
+    _this.everyTick = (everyTick || function () {}).bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__.default)(_this));
+
+    document.body.style.fontSize = 0;
+    document.body.style.margin = 0;
+    _this.renderer && document.body.appendChild(_this.renderer.view);
+    window.addEventListener("resize", _this.requestResize.bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__.default)(_this)));
+
+    _this.requestResize();
+
+    _this.renderLoop(performance.now());
+
+    return _this;
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(FullscreenApplication, [{
+    key: "renderLoop",
+    value: function renderLoop(time) {
+      requestAnimationFrame(this.renderLoop.bind(this));
+      this.everyTick(time);
+    }
+  }, {
+    key: "requestResize",
+    value: function requestResize() {
+      this.renderer && this.renderer.resize(innerWidth, innerHeight);
+    }
+  }]);
+
+  return FullscreenApplication;
+}(PIXI.Application);
+
 
 
 /***/ }),
 
-/***/ "./node_modules/process/browser.js":
-/*!*****************************************!*\
-  !*** ./node_modules/process/browser.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./lib/extract.js":
+/*!************************!*\
+  !*** ./lib/extract.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// shim for using process in browser
-var process = module.exports = {};
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TextureExtractor": () => (/* binding */ TextureExtractor)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
 
-var cachedSetTimeout;
-var cachedClearTimeout;
+var PIXI = window.PIXI;
 
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
+var TextureExtractor = /*#__PURE__*/function () {
+  function TextureExtractor(_ref) {
+    var tilewidth = _ref.tilewidth,
+        tileheight = _ref.tileheight,
+        texture = _ref.texture,
+        offset = _ref.offset,
+        count = _ref.count,
+        scaleMode = _ref.scaleMode;
+
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, TextureExtractor);
+
+    this.tilewidth = tilewidth;
+    this.tileheight = tileheight;
+    this.offset = offset || 0;
+    this.texture = texture;
+    this.textureCache = [];
+    this.scaleMode = scaleMode || PIXI.SCALE_MODES.NEAREST;
+    this.prepareTextures(count);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(TextureExtractor, [{
+    key: "width",
+    get: function get() {
+      return this.texture.width;
     }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
+  }, {
+    key: "height",
+    get: function get() {
+      return this.texture.height;
     }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
+  }, {
+    key: "prepareTextures",
+    value: function prepareTextures(count) {
+      var _this = this;
 
+      var size = count || this.width / this.tilewidth * (this.height / this.tileheight);
+      this.textureCache = new Array(size).fill(0).map(function (_, frame) {
+        return _this.prepareTexture(frame);
+      });
+    }
+  }, {
+    key: "prepareTexture",
+    value: function prepareTexture(frame) {
+      var cols = Math.floor(this.width / this.tilewidth);
+      var x = (frame - this.offset) % cols * this.tilewidth;
+      var y = Math.floor((frame - this.offset) / cols) * this.tileheight;
+      var rect = new PIXI.Rectangle(x, y, this.tilewidth, this.tileheight);
+      var texture = new PIXI.Texture(this.texture, rect);
+      texture.baseTexture.scaleMode = this.scaleMode;
+      texture.cacheAsBitmap = true;
+      return texture;
+    }
+  }, {
+    key: "getFrame",
+    value: function getFrame(frame) {
+      if (!this.textureCache[frame]) {
+        this.prepareTexture(frame);
+      }
 
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
+      return this.textureCache[frame];
     }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
+  }]);
+
+  return TextureExtractor;
+}();
 
 
 
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
+/***/ }),
 
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
+/***/ "./lib/tiled.js":
+/*!**********************!*\
+  !*** ./lib/tiled.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "tiled": () => (/* binding */ tiled)
+/* harmony export */ });
+var PIXI = window.PIXI;
+
+var TiledUtils = __webpack_require__(/*! tiled-utils */ "./node_modules/tiled-utils/es2015/index.js");
+
+var tiled = new TiledUtils(PIXI);
+
+
+/***/ }),
+
+/***/ "./lib/utils.js":
+/*!**********************!*\
+  !*** ./lib/utils.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "utils": () => (/* binding */ utils)
+/* harmony export */ });
+var PIXI = window.PIXI;
+var utils = {
+  getTexture: function getTexture(frame, tiles) {
+    if (tiles && typeof tiles.getFrame === "function") {
+      return tiles.getFrame(frame);
     } else {
-        queueIndex = -1;
+      console.warn("! tiles not set @ getTexture");
     }
-    if (queue.length) {
-        drainQueue();
-    }
-}
 
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
+    return PIXI.Texture.EMPTY;
+  },
+  createSprite: function createSprite(frame) {
+    var tilesize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 32;
+    var tiles = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var sprite;
 
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
+    if (tiles) {
+      if (!isNaN(frame) && isFinite(frame)) {
+        sprite = new PIXI.Sprite(utils.getTexture(~~frame, tiles));
+      } else if (frame) {
+        sprite = PIXI.Sprite.fromFrame(frame);
+      }
+    } else {
+      sprite = new PIXI.Sprite();
+    }
+
+    if (sprite) {
+      sprite.width = tilesize;
+      sprite.height = tilesize;
+
+      if (sprite.texture) {
+        sprite.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+      }
+
+      return sprite;
+    }
+  },
+  getModel: function getModel(source, url) {
+    var cursor = source;
+    var propList = url.split(".");
+
+    while (cursor && propList.length) {
+      cursor = cursor[propList.shift()];
+    }
+
+    return cursor;
+  },
+  contains: function contains(array, value) {
+    return value && array.some(function (string) {
+      return value.startsWith(string);
+    });
+  },
+  groupObjects: function groupObjects(array) {
+    var groupName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "group.name";
+    return array ? array.reduce(function (groups, item) {
+      var cursor = utils.getModel(item, groupName);
+
+      if (cursor) {
+        if (!groups[cursor]) {
+          groups[cursor] = [];
+        }
+
+        groups[cursor].push(item);
+      }
+
+      return groups;
+    }, {}) : {};
+  },
+  nameObject: function nameObject(target) {
+    var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var props = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ["name", "type"];
+    if (!target) return;
+    props.forEach(function (prop) {
+      if (source[prop] && !target[prop]) {
+        target[prop] = source[prop];
+      }
+    });
+  },
+  pushObject: function pushObject(source, target, props) {
+    if (target.indexOf(source) !== -1) return;
+
+    if (Array.isArray(source.objects)) {
+      source.objects.forEach(function (sprite) {
+        utils.nameObject(sprite, source, props);
+      });
+    }
+
+    target.push(source);
+  },
+  getBounds: function getBounds(array) {
+    if (Array.isArray(array) && array.length) {
+      var up = Infinity;
+      var left = Infinity;
+      var right = -Infinity;
+      var down = -Infinity;
+      var temp;
+      array.forEach(function (sprite) {
+        var w = sprite.width;
+        var h = sprite.height;
+
+        if ((temp = sprite.x) < left) {
+          left = temp;
+        }
+
+        if ((temp = sprite.y) < up) {
+          up = temp;
+        }
+
+        if ((temp = sprite.x + w) > right) {
+          right = temp;
+        }
+
+        if ((temp = sprite.y + h) > down) {
+          down = temp;
+        }
+      });
+      return {
+        up: up,
+        down: down,
+        left: left,
+        right: right
+      };
+    }
+
+    return {
+      up: 0,
+      down: 0,
+      left: 0,
+      right: 0
+    };
+  }
+};
+
+
+/***/ }),
+
+/***/ "./lib/world.js":
+/*!**********************!*\
+  !*** ./lib/world.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "World": () => (/* binding */ World)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+var PIXI = window.PIXI;
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    get = _require.get;
+
+var _require2 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
+    TextureExtractor = _require2.TextureExtractor;
+
+var _require3 = __webpack_require__(/*! ./tiled */ "./lib/tiled.js"),
+    tiled = _require3.tiled;
+
+var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
+    utils = _require4.utils;
+
+var World = /*#__PURE__*/function () {
+  function World(config) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__.default)(this, World);
+
+    if (config) {
+      this.tiles = new TextureExtractor(config);
+    } else {
+      console.warn("Creating tile-less world");
+    }
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__.default)(World, [{
+    key: "create",
+    value: function () {
+      var _create = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_4___default().mark(function _callee(json, tileset, tilesize) {
+        var group,
+            clear,
+            pickable,
+            _yield$get,
+            data,
+            world,
+            _args = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_4___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                group = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
+                clear = _args.length > 4 && _args[4] !== undefined ? _args[4] : [];
+                pickable = _args.length > 5 && _args[5] !== undefined ? _args[5] : [];
+                _context.next = 5;
+                return get(json);
+
+              case 5:
+                _yield$get = _context.sent;
+                data = _yield$get.data;
+                this.world = tiled.makeTiledWorld(data, tileset);
+                this.objects = this.createObjects(tilesize, group, clear, pickable);
+                this.ground = this.world.children.filter(function (_ref) {
+                  var type = _ref.type;
+                  return type === "tilelayer";
+                });
+                this.sprites = this.createSprites(tilesize, clear);
+                world = new PIXI.Container();
+                this.ground.length && world.addChild.apply(world, (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(this.ground));
+                this.sprites.length && world.addChild.apply(world, (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(this.sprites));
+                return _context.abrupt("return", world);
+
+              case 15:
+              case "end":
+                return _context.stop();
             }
+          }
+        }, _callee, this);
+      }));
+
+      function create(_x, _x2, _x3) {
+        return _create.apply(this, arguments);
+      }
+
+      return create;
+    }()
+  }, {
+    key: "createObjects",
+    value: function createObjects(tilesize) {
+      var _this = this;
+
+      var group = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var clear = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      var pickable = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
+      var objects = [];
+      var groups = utils.groupObjects(this.world.objects);
+      var groupRegExp = group.map(function (string) {
+        return new RegExp(string);
+      });
+      Object.keys(groups).filter(function (name) {
+        var markedForRemove = utils.contains(clear, name);
+        return !markedForRemove && !utils.contains(pickable, name);
+      }).forEach(function (name) {
+        console.log("\u2523\u2501 parse object: ".concat(name));
+        var next = groups[name];
+        var group = groupRegExp.find(function (regExp) {
+          return name.match(regExp);
+        });
+        var container;
+
+        if (group) {
+          container = new PIXI.Container();
+          utils.pushObject(container, objects);
+          utils.nameObject(container, {
+            name: name,
+            type: "layer"
+          });
+          console.log("\u2523\u2501 add layer: ".concat(name));
         }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
 
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
+        if (Array.isArray(next)) {
+          next.forEach(function (object) {
+            if (object.gid) {
+              var sprite = utils.createSprite(object.gid, tilesize, _this.tiles);
+
+              if (sprite) {
+                utils.nameObject(sprite, object, ["x", "y", "gid", "name"]);
+
+                if (group) {
+                  console.log("\u2523\u2501 add object ".concat(object.name, " (").concat(~~sprite.x, "/").concat(~~sprite.y, ") to layer: ").concat(name));
+                  container.addChild(sprite);
+                } else {
+                  utils.pushObject(sprite, objects);
+                }
+              }
+            }
+          });
         }
+      });
+      return objects;
     }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
+  }, {
+    key: "createSprites",
+    value: function createSprites() {
+      var tilesize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 32;
+      var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      return this.objects.filter(function (sprite) {
+        return !utils.contains(clear, sprite.name);
+      }).map(function (sprite) {
+        try {
+          var x = Math.round((sprite.x || 0) + (sprite.offsetx || 0));
+          var y = Math.round((sprite.y || 0) + (sprite.offsety || 0));
+          var objects = sprite.children.length ? sprite.children : [sprite];
+          var bounds = utils.getBounds(objects);
+          sprite.x = sprite.basex = bounds.left + x;
+          sprite.y = sprite.basey = bounds.down + y - tilesize;
+          objects.forEach(function (child) {
+            child.x -= bounds.left - child.width * 0.5;
+            child.y -= bounds.down - tilesize;
+            child.anchor.set(0.5, 1);
+          });
+          return sprite;
+        } catch (err) {
+          console.error(err.message, err.stack);
+        }
+      });
     }
-};
+  }]);
 
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
+  return World;
+}();
 
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
 
 
 /***/ }),
@@ -2923,8 +2735,7 @@ process.umask = function() { return 0; };
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -2943,6 +2754,24 @@ var runtime = (function (exports) {
   var iteratorSymbol = $Symbol.iterator || "@@iterator";
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
 
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
@@ -3014,16 +2843,19 @@ var runtime = (function (exports) {
     Generator.prototype = Object.create(IteratorPrototype);
   GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
   GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
 
   // Helper for defining the .next, .throw, and .return methods of the
   // Iterator interface in terms of a single ._invoke method.
   function defineIteratorMethods(prototype) {
     ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
+      define(prototype, method, function(arg) {
         return this._invoke(method, arg);
-      };
+      });
     });
   }
 
@@ -3042,9 +2874,7 @@ var runtime = (function (exports) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
       genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
     }
     genFun.prototype = Object.create(Gp);
     return genFun;
@@ -3058,7 +2888,7 @@ var runtime = (function (exports) {
     return { __await: arg };
   };
 
-  function AsyncIterator(generator) {
+  function AsyncIterator(generator, PromiseImpl) {
     function invoke(method, arg, resolve, reject) {
       var record = tryCatch(generator[method], generator, arg);
       if (record.type === "throw") {
@@ -3069,14 +2899,14 @@ var runtime = (function (exports) {
         if (value &&
             typeof value === "object" &&
             hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
             invoke("next", value, resolve, reject);
           }, function(err) {
             invoke("throw", err, resolve, reject);
           });
         }
 
-        return Promise.resolve(value).then(function(unwrapped) {
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
           // When a yielded Promise is resolved, its final value becomes
           // the .value of the Promise<{value,done}> result for the
           // current iteration.
@@ -3094,7 +2924,7 @@ var runtime = (function (exports) {
 
     function enqueue(method, arg) {
       function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
+        return new PromiseImpl(function(resolve, reject) {
           invoke(method, arg, resolve, reject);
         });
       }
@@ -3134,9 +2964,12 @@ var runtime = (function (exports) {
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList) {
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
     var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
     );
 
     return exports.isGeneratorFunction(outerFn)
@@ -3311,7 +3144,7 @@ var runtime = (function (exports) {
   // unified ._invoke helper method.
   defineIteratorMethods(Gp);
 
-  Gp[toStringTagSymbol] = "Generator";
+  define(Gp, toStringTagSymbol, "Generator");
 
   // A Generator should always return itself as the iterator object when the
   // @@iterator function is called on it. Some browsers' implementations of the
@@ -3635,7 +3468,7 @@ var runtime = (function (exports) {
   // as the regeneratorRuntime namespace. Otherwise create a new empty
   // object. Either way, the resulting object will be used to initialize
   // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : undefined
+   true ? module.exports : 0
 ));
 
 try {
@@ -3656,87 +3489,76 @@ try {
 
 /***/ }),
 
-/***/ "./node_modules/tiled-utils/index.js":
-/*!*******************************************!*\
-  !*** ./node_modules/tiled-utils/index.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/tiled-utils/es2015/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/tiled-utils/es2015/index.js ***!
+  \**************************************************/
+/***/ ((module) => {
 
 "use strict";
-
 
 /* global PIXI */
 
 module.exports = module.exports.default = class TileUtilities {
-  constructor (renderingEngine = PIXI) {
-    if (renderingEngine === undefined) throw new Error('Please assign a rendering engine in the constructor before using bump.js')
+  constructor(renderingEngine = PIXI) {
+    if (renderingEngine === undefined) throw new Error('Please assign a rendering engine in the constructor before using bump.js'); // Find out which rendering engine is being used (the default is Pixi)
 
-    // Find out which rendering engine is being used (the default is Pixi)
-    this.renderer = ''
+    this.renderer = ''; // If the `renderingEngine` is Pixi, set up Pixi object aliases
 
-    // If the `renderingEngine` is Pixi, set up Pixi object aliases
     if (renderingEngine.Container && renderingEngine.Sprite) {
-      this.renderingEngine = renderingEngine
-      this.renderer = 'pixi'
-      this.Container = this.renderingEngine.Container
-      this.TextureCache = this.renderingEngine.utils.TextureCache
-      this.Texture = this.renderingEngine.Texture
-      this.Sprite = this.renderingEngine.Sprite
-      this.Rectangle = this.renderingEngine.Rectangle
-      this.Graphics = this.renderingEngine.Graphics
-      this.loader = this.renderingEngine.loader
-      this.resources = this.renderingEngine.resources
+      this.renderingEngine = renderingEngine;
+      this.renderer = 'pixi';
+      this.Container = this.renderingEngine.Container;
+      this.TextureCache = this.renderingEngine.utils.TextureCache;
+      this.Texture = this.renderingEngine.Texture;
+      this.Sprite = this.renderingEngine.Sprite;
+      this.Rectangle = this.renderingEngine.Rectangle;
+      this.Graphics = this.renderingEngine.Graphics;
+      this.loader = this.renderingEngine.loader;
+      this.resources = this.renderingEngine.resources;
     }
-  }
+  } // Make a texture from a frame in another texture or image
 
-  // Make a texture from a frame in another texture or image
-  frame (source, x, y, width, height) {
- 
+
+  frame(source, x, y, width, height) {
     // for backend use (with pixi-shim)
     // return without frame retangle
     if (!source) {
-      return this.Texture.EMPTY
+      return this.Texture.EMPTY;
     }
 
-    let texture
-
-    // If the source is a string, it's either a texture in the
+    let texture; // If the source is a string, it's either a texture in the
     // cache or an image file
+
     if (typeof source === 'string') {
       if (this.TextureCache[source]) {
-        texture = new this.Texture(this.TextureCache[source])
+        texture = new this.Texture(this.TextureCache[source]);
       }
-    }
-
-    // If the `source` is a texture,  use it
+    } // If the `source` is a texture,  use it
     else if (source instanceof this.Texture) {
-      texture = new this.Texture(source)
-    }
+        texture = new this.Texture(source);
+      }
 
     if (texture) {
       // Make a rectangle the size of the sub-image
-      texture.frame = new this.Rectangle(x, y, width, height)
-      return texture
+      texture.frame = new this.Rectangle(x, y, width, height);
+      return texture;
     }
-  }
-
-  // #### getIndex
+  } // #### getIndex
   // The `getIndex` helper method
   // converts a sprite's x and y position to an array index number.
   // It returns a single index value that tells you the map array
   // index number that the sprite is in
-  getIndex (x, y, tilewidth, tileheight, mapWidthInTiles) {
-    const index = {}
 
-    // Convert pixel coordinates to map index coordinates
-    index.x = Math.floor(x / tilewidth)
-    index.y = Math.floor(y / tileheight)
 
-    // Return the index number
-    return index.x + (index.y * mapWidthInTiles)
+  getIndex(x, y, tilewidth, tileheight, mapWidthInTiles) {
+    const index = {}; // Convert pixel coordinates to map index coordinates
+
+    index.x = Math.floor(x / tilewidth);
+    index.y = Math.floor(y / tileheight); // Return the index number
+
+    return index.x + index.y * mapWidthInTiles;
   }
-
   /*
   #### getTile
   The `getTile` helper method
@@ -3747,28 +3569,27 @@ module.exports = module.exports.default = class TileUtilities {
   mapArray) This lets you use the returned object
   with the 2d geometric collision functions like `hitTestRectangle`
   or `rectangleCollision`
-
-  The `world` object requires these properties:
+   The `world` object requires these properties:
   `x`, `y`, `tilewidth`, `tileheight` and `widthInTiles`
   */
-  getTile (index, mapArray, world) {
-    const tile = {}
-    tile.gid = mapArray[index]
-    tile.width = world.tilewidth
-    tile.height = world.tileheight
-    tile.halfWidth = world.tilewidth / 2
-    tile.halfHeight = world.tileheight / 2
-    tile.x = ((index % world.widthInTiles) * world.tilewidth) + world.x
-    tile.y = ((Math.floor(index / world.widthInTiles)) * world.tileheight) + world.y
-    tile.gx = tile.x
-    tile.gy = tile.y
-    tile.centerX = tile.x + world.tilewidth / 2
-    tile.centery = tile.y + world.tileheight / 2
 
-    // Return the tile object
-    return tile
+
+  getTile(index, mapArray, world) {
+    const tile = {};
+    tile.gid = mapArray[index];
+    tile.width = world.tilewidth;
+    tile.height = world.tileheight;
+    tile.halfWidth = world.tilewidth / 2;
+    tile.halfHeight = world.tileheight / 2;
+    tile.x = index % world.widthInTiles * world.tilewidth + world.x;
+    tile.y = Math.floor(index / world.widthInTiles) * world.tileheight + world.y;
+    tile.gx = tile.x;
+    tile.gy = tile.y;
+    tile.centerX = tile.x + world.tilewidth / 2;
+    tile.centery = tile.y + world.tileheight / 2; // Return the tile object
+
+    return tile;
   }
-
   /*
   #### surroundingCells
   The `surroundingCells` helper method returns an array containing 9
@@ -3778,27 +3599,16 @@ module.exports = module.exports.default = class TileUtilities {
   and the width of the map array.
   */
 
-  surroundingCells (index, widthInTiles) {
-    return [
-      index - widthInTiles - 1,
-      index - widthInTiles,
-      index - widthInTiles + 1,
-      index - 1,
-      index,
-      index + 1,
-      index + widthInTiles - 1,
-      index + widthInTiles,
-      index + widthInTiles + 1
-    ]
-  }
 
-  // #### getPoints
+  surroundingCells(index, widthInTiles) {
+    return [index - widthInTiles - 1, index - widthInTiles, index - widthInTiles + 1, index - 1, index, index + 1, index + widthInTiles - 1, index + widthInTiles, index + widthInTiles + 1];
+  } // #### getPoints
+
   /*
   The `getPoints` method takes a sprite and returns
   an object that tells you what all its corner points are. The return
   object has four properties, each of which is an object with `x` and `y` properties:
-
-  - `topLeft`: `x` and `y` properties describing the top left corner
+   - `topLeft`: `x` and `y` properties describing the top left corner
   point.
   - `topRight`: `x` and `y` properties describing the top right corner
   point.
@@ -3806,8 +3616,7 @@ module.exports = module.exports.default = class TileUtilities {
   point.
   - `bottomRight`: `x` and `y` properties describing the bottom right corner
   point.
-
-  If the sprite has a `collisionArea` property that defines a
+   If the sprite has a `collisionArea` property that defines a
   smaller rectangular area inside the sprite, that collision
   area can be used instead for collisions instead of the sprite's dimensions. Here's
   How you could define a `collsionArea` on a sprite called `elf`:
@@ -3817,11 +3626,13 @@ module.exports = module.exports.default = class TileUtilities {
   Here's how you could use the `getPoints` method to find all the collision area's corner points.
   ```js
   let cornerPoints = tu.getPoints(elf.collisionArea);
-```
+  ```
   */
 
-  getPoints (s) {
-    const ca = s.collisionArea
+
+  getPoints(s) {
+    const ca = s.collisionArea;
+
     if (ca !== undefined) {
       return {
         topLeft: {
@@ -3840,8 +3651,9 @@ module.exports = module.exports.default = class TileUtilities {
           x: s.x + ca.x + ca.width,
           y: s.y + ca.y + ca.height
         }
-      }
+      };
     }
+
     return {
       topLeft: {
         x: s.x,
@@ -3859,10 +3671,9 @@ module.exports = module.exports.default = class TileUtilities {
         x: s.x + s.width - 1,
         y: s.y + s.height - 1
       }
-    }
-  }
+    };
+  } // ### hitTestTile
 
-  // ### hitTestTile
   /*
   `hitTestTile` checks for a
   collision between a sprite and a tile in any map array that you
@@ -3886,75 +3697,67 @@ module.exports = module.exports.default = class TileUtilities {
   ```
   */
 
-  hitTestTile (sprite, mapArray, gidToCheck, world, pointsToCheck) {
+
+  hitTestTile(sprite, mapArray, gidToCheck, world, pointsToCheck) {
     // The `checkPoints` helper function Loop through the sprite's corner points to
     // find out if they are inside an array cell that you're interested in.
     // Return `true` if they are
-    const checkPoints = (key) => {
+    const checkPoints = key => {
       // Get a reference to the current point to check.
       // (`topLeft`, `topRight`, `bottomLeft` or `bottomRight` )
-      const point = sprite.collisionPoints[key]
+      const point = sprite.collisionPoints[key]; // Find the point's index number in the map array
 
-      // Find the point's index number in the map array
-      collision.index = this.getIndex(
-        point.x, point.y,
-        world.tilewidth, world.tileheight, world.widthInTiles
-      )
-
-      // Find out what the gid value is in the map position
+      collision.index = this.getIndex(point.x, point.y, world.tilewidth, world.tileheight, world.widthInTiles); // Find out what the gid value is in the map position
       // that the point is currently over
-      collision.gid = mapArray[collision.index]
 
-      // If it matches the value of the gid that we're interested, in
+      collision.gid = mapArray[collision.index]; // If it matches the value of the gid that we're interested, in
       // then there's been a collision
+
       if (collision.gid === gidToCheck) {
-        return true
+        return true;
       }
-      return false
-    }
 
-    // Assign "some" as the default value for `pointsToCheck`
-    pointsToCheck = pointsToCheck || 'some'
+      return false;
+    }; // Assign "some" as the default value for `pointsToCheck`
 
-    // The collision object that will be returned by this function
-    let collision = {}
 
-    // Which points do you want to check?
+    pointsToCheck = pointsToCheck || 'some'; // The collision object that will be returned by this function
+
+    let collision = {}; // Which points do you want to check?
     // "every", "some" or "center"?
+
     switch (pointsToCheck) {
-    case 'center':
+      case 'center':
+        // `hit` will be true only if the center point is touching
+        sprite.collisionPoints = {
+          center: {
+            x: sprite.centerX,
+            y: sprite.centerY
+          }
+        };
+        collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints);
+        break;
 
-      // `hit` will be true only if the center point is touching
-      sprite.collisionPoints = {
-        center: {
-          x: sprite.centerX,
-          y: sprite.centerY
-        }
-      }
-      collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints)
-      break
-    case 'every':
+      case 'every':
+        // `hit` will be true if every point is touching
+        sprite.collisionPoints = this.getPoints(sprite);
+        collision.hit = Object.keys(sprite.collisionPoints).every(checkPoints);
+        break;
 
-      // `hit` will be true if every point is touching
-      sprite.collisionPoints = this.getPoints(sprite)
-      collision.hit = Object.keys(sprite.collisionPoints).every(checkPoints)
-      break
-    case 'some':
-
-      // `hit` will be true only if some points are touching
-      sprite.collisionPoints = this.getPoints(sprite)
-      collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints)
-      break
-    }
-
-    // Return the collision object.
+      case 'some':
+        // `hit` will be true only if some points are touching
+        sprite.collisionPoints = this.getPoints(sprite);
+        collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints);
+        break;
+    } // Return the collision object.
     // `collision.hit` will be true if a collision is detected.
     // `collision.index` tells you the map array index number where the
     // collision occured
-    return collision
-  }
 
-  // ### updateMap
+
+    return collision;
+  } // ### updateMap
+
   /*
   `updateMap` takes a map array and adds a sprite's grid index number (`gid`) to it.
   It finds the sprite's new index position, and retuns the new map array.
@@ -3966,79 +3769,60 @@ module.exports = module.exports.default = class TileUtilities {
   The sprite objects have to have have these properties:
   `centerX`, `centerY`, `index`, `gid` (The number in the array that represpents the sprite)
   Here's an example of how you could use `updateMap` in your game code like this:
-
-      blockLayer.data = updateMap(blockLayer.data, blockLayer.children, world);
-
-  The `blockLayer.data` array would now contain the new index position numbers of all the
+       blockLayer.data = updateMap(blockLayer.data, blockLayer.children, world);
+   The `blockLayer.data` array would now contain the new index position numbers of all the
   child sprites on that layer.
   */
 
-  updateMap (mapArray, spritesToUpdate, world) {
+
+  updateMap(mapArray, spritesToUpdate, world) {
     // First create a map a new array filled with zeros.
     // The new map array will be exactly the same size as the original
-    const newMapArray = mapArray.map((gid) => {
-      gid = 0
-      return gid
-    })
+    const newMapArray = mapArray.map(gid => {
+      gid = 0;
+      return gid;
+    }); // Is `spriteToUpdate` an array of sprites?
 
-    // Is `spriteToUpdate` an array of sprites?
     if (spritesToUpdate instanceof Array) {
       // Get the index number of each sprite in the `spritesToUpdate` array
       // and add the sprite's `gid` to the matching index on the map
-      const self = this
-      spritesToUpdate.forEach((sprite) => {
+      const self = this;
+      spritesToUpdate.forEach(sprite => {
         // Find the new index number
-        sprite.index = self.getIndex(
-          sprite.centerX, sprite.centerY,
-          world.tilewidth, world.tileheight, world.widthInTiles
-        )
+        sprite.index = self.getIndex(sprite.centerX, sprite.centerY, world.tilewidth, world.tileheight, world.widthInTiles); // Add the sprite's `gid` number to the correct index on the map
 
-        // Add the sprite's `gid` number to the correct index on the map
-        newMapArray[sprite.index] = sprite.gid
-      })
-    }
-
-    // Is `spritesToUpdate` just a single sprite?
+        newMapArray[sprite.index] = sprite.gid;
+      });
+    } // Is `spritesToUpdate` just a single sprite?
     else {
-      const sprite = spritesToUpdate
-      // Find the new index number
-      sprite.index = this.getIndex(
-        sprite.centerX, sprite.centerY,
-        world.tilewidth, world.tileheight, world.widthInTiles
-      )
+        const sprite = spritesToUpdate; // Find the new index number
 
-      // Add the sprite's `gid` number to the correct index on the map
-      newMapArray[sprite.index] = sprite.gid
-    }
+        sprite.index = this.getIndex(sprite.centerX, sprite.centerY, world.tilewidth, world.tileheight, world.widthInTiles); // Add the sprite's `gid` number to the correct index on the map
 
-    // Return the new map array to replace the previous one
-    return newMapArray
+        newMapArray[sprite.index] = sprite.gid;
+      } // Return the new map array to replace the previous one
+
+
+    return newMapArray;
   }
-
   /*
   ###makeTiledWorld
-
-  `makeTiledWorld` is a quick and easy way to display a game world designed in
+   `makeTiledWorld` is a quick and easy way to display a game world designed in
   Tiled Editor. Supply `makeTiledWorld` with 2 **string arguments**:
-
-  1. A JSON file generated by Tiled Editor.
+   1. A JSON file generated by Tiled Editor.
   2. A source image that represents the tile set you used to create the Tiled Editor world.
   ```js
   let world = makeTiledWorld("tiledEditorMapData.json", "tileset.png");
   ```
   (Note: `makeTiledWorld` looks for the JSON data file in Pixi's `loader.resources` object. So,
   make sure you've loaded the JSON file using Pixi's `loader`.)
-
-  `makeTiledWorld` will return a Pixi `Container` that contains all the things in your Tiled Editor
+   `makeTiledWorld` will return a Pixi `Container` that contains all the things in your Tiled Editor
   map as Pixi sprites.
-
-  All the image tiles you create in Tiled Editor are automatically converted into Pixi sprites
+   All the image tiles you create in Tiled Editor are automatically converted into Pixi sprites
   for you by `makeTiledWorld`. You can access all of them using two methods: `getObject` (for
   single sprites) and `getObjects` (with an "s") for multiple sprites. Let's find out how they work.
-
-  ####world.getObject
-
-  Tile Editor lets you assign a "name" properties any object.
+   ####world.getObject
+   Tile Editor lets you assign a "name" properties any object.
   You can access any sprite by this name using the `getObject` method. `getObject` searches for and
   returns a sprite in the `world` that has the same `name` property that you assigned
   in Tiled Editor. Here's how to use `getObject` to look for an object called "alien"
@@ -4048,14 +3832,11 @@ module.exports = module.exports.default = class TileUtilities {
   ```
   `alien` is now an ordinary Pixi sprite that you can control just like any other Pixi
   sprite in your games.
-
-  #### Creating sprites from generic objects
-
-  Tiled Editor lets you create generic objects. These are objects that don't have images associated
+   #### Creating sprites from generic objects
+   Tiled Editor lets you create generic objects. These are objects that don't have images associated
   with them. Generic objects are handy to use, because they let you create complex game objects inside
   Tiled Editor, as pure data. You can then use that data your game code to build complex game objects.
-
-  For example, imagine that you want to create a complex animated walking sprite called "elf".
+   For example, imagine that you want to create a complex animated walking sprite called "elf".
   First, create the elf object in Tiled Editor as a generic object, but don't assign any image tiles
   to it. Next, in your game code, create a new Pixi MovieClip called `elf` and give it any textures you want
   to use for its animation states.
@@ -4071,15 +3852,12 @@ module.exports = module.exports.default = class TileUtilities {
   ```
   This is a simple example, but you could make very complex data objects in Tiled Editor and
   use them to build complex sprites in the same way.
-
-  ####Accessing Tiled Editor layer groups
-
-  Tiled Editor lets you create **layer groups**. Each layer group you create
+   ####Accessing Tiled Editor layer groups
+   Tiled Editor lets you create **layer groups**. Each layer group you create
   in Tiled Editor is automatically converted by `makeTiledWorld` into a Pixi `Container`
   object. You can access those containers using `getObject` to extract the layer group
   container.
-
-  Here's how you could extract the layer group called "objects" and add the
+   Here's how you could extract the layer group called "objects" and add the
   `elf` sprite to it.
   ```js
   let objectsLayer = world.getObject("objects");
@@ -4097,18 +3875,15 @@ module.exports = module.exports.default = class TileUtilities {
   ```
   `itemsLayer` is now a Pixi container with a `children` array that contains all the sprites
   on that layer.
-
-  To be safe, clone this array to create a new version
+   To be safe, clone this array to create a new version
   that doesn't point to the original data file:
   ```js
   items = itemsLayer.children.slice(0);
   ```
   You can now manipulate the `items` array freely without worrying about changing
   the original array. This can possibly help prevent some weird bugs in a complex game.
-
-  ###Finding the "gid" values
-
-  Tiled Editor uses "gid" numbers to identify different kinds of things in the world.
+   ###Finding the "gid" values
+   Tiled Editor uses "gid" numbers to identify different kinds of things in the world.
   If you ever need to extract sprites with specific `gid` numbers in a
   layer that contains different kinds of things, you can do it like this:
   ```js
@@ -4118,10 +3893,8 @@ module.exports = module.exports.default = class TileUtilities {
   ```
   Every sprite created by `makeTiledWorld` has a `gid` property with a value that matches its
   Tiled Editor "gid" value.
-
-  ####Accessing a layer's "data" array
-
-  Tiled Editor's layers have a `data` property
+   ####Accessing a layer's "data" array
+   Tiled Editor's layers have a `data` property
   that is an array containing all the grid index numbers (`gid`) of
   the tiles in that array. Imagine that you've got a layer full of similar
   tiles representing the walls in a game. How do you access the array
@@ -4133,10 +3906,8 @@ module.exports = module.exports.default = class TileUtilities {
   `wallMapArray` is now an array of "gid" numbers referring to all the sprites on that
   layer. You can now use this data for collision detection, or doing any other kind
   of world building.
-
-  ###world.getObjects
-
-  There's another method called `getObjects` (with an "s"!) that lets you extract
+   ###world.getObjects
+   There's another method called `getObjects` (with an "s"!) that lets you extract
   an array of sprites from the Tiled Editor data. Imagine that you created three
   game objects in Tiled Editor called "marmot", "skull" and "heart". `makeTiledWorld`
   automatically turns them into sprites, and you can access
@@ -4146,194 +3917,149 @@ module.exports = module.exports.default = class TileUtilities {
   ```
   */
 
-  makeTiledWorld (jsonTiledMap, tileset) {
+
+  makeTiledWorld(jsonTiledMap, tileset) {
     // Create a group called `world` to contain all the layers, sprites
     // and objects from the `tiledMap`. The `world` object is going to be
     // returned to the main game program
-    const tiledMap = (typeof jsonTiledMap === 'string') ? this.resources[jsonTiledMap].data : jsonTiledMap
-    const world = new this.Container()
+    const tiledMap = typeof jsonTiledMap === 'string' ? this.resources[jsonTiledMap].data : jsonTiledMap;
+    const world = new this.Container();
+    world.tileheight = tiledMap.tileheight;
+    world.tilewidth = tiledMap.tilewidth; // Calculate the `width` and `height` of the world, in pixels
 
-    world.tileheight = tiledMap.tileheight
-    world.tilewidth = tiledMap.tilewidth
-
-    // Calculate the `width` and `height` of the world, in pixels
-    world.worldWidth = tiledMap.width * tiledMap.tilewidth
-    world.worldHeight = tiledMap.height * tiledMap.tileheight
-
-    // Get a reference to the world's height and width in
+    world.worldWidth = tiledMap.width * tiledMap.tilewidth;
+    world.worldHeight = tiledMap.height * tiledMap.tileheight; // Get a reference to the world's height and width in
     // tiles, in case you need to know this later (you will!)
-    world.widthInTiles = tiledMap.width
-    world.heightInTiles = tiledMap.height
 
-    // Create an `objects` array to store references to any
+    world.widthInTiles = tiledMap.width;
+    world.heightInTiles = tiledMap.height; // Create an `objects` array to store references to any
     // named objects in the map. Named objects all have
     // a `name` property that was assigned in Tiled Editor
-    world.objects = []
 
-    // The optional spacing (padding) around each tile
+    world.objects = []; // The optional spacing (padding) around each tile
     // This is to account for spacing around tiles
     // that's commonly used with texture atlas tilesets. Set the
     // `spacing` property when you create a new map in Tiled Editor
-    const spacing = tiledMap.tilesets[0].spacing
 
-    // Figure out how many columns there are on the tileset.
+    const spacing = tiledMap.tilesets[0].spacing; // Figure out how many columns there are on the tileset.
     // This is the width of the image, divided by the width
     // of each tile, plus any optional spacing thats around each tile
-    const numberOfTilesetColumns =
-      Math.floor(
-        tiledMap.tilesets[0].imagewidth / (tiledMap.tilewidth + spacing)
-      )
 
-    // Loop through all the map layers
-    tiledMap.layers.forEach((tiledLayer) => {
+    const numberOfTilesetColumns = Math.floor(tiledMap.tilesets[0].imagewidth / (tiledMap.tilewidth + spacing)); // Loop through all the map layers
+
+    tiledMap.layers.forEach(tiledLayer => {
       // Make a group for this layer and copy
       // all of the layer properties onto it.
-      const layerGroup = new this.Container()
-
-      Object.keys(tiledLayer).forEach((key) => {
+      const layerGroup = new this.Container();
+      Object.keys(tiledLayer).forEach(key => {
         // Add all the layer's properties to the group, except the
         // width and height (because the group will work those our for
         // itself based on its content).
         if (key !== 'width' && key !== 'height') {
-          layerGroup[key] = tiledLayer[key]
+          layerGroup[key] = tiledLayer[key];
         }
-      })
-
-      // Set the width and height of the layer to
+      }); // Set the width and height of the layer to
       // the `world`'s width and height
       // layerGroup.width = world.width;
       // layerGroup.height = world.height;
-
       // Translate `opacity` to `alpha`
-      layerGroup.alpha = tiledLayer.opacity
 
-      // Add the group to the `world`
-      world.addChild(layerGroup)
+      layerGroup.alpha = tiledLayer.opacity; // Add the group to the `world`
 
-      // Push the group into the world's `objects` array
+      world.addChild(layerGroup); // Push the group into the world's `objects` array
       // So you can access it later
-      world.objects.push(layerGroup)
 
-      // Is this current layer a `tilelayer`?
+      world.objects.push(layerGroup); // Is this current layer a `tilelayer`?
+
       if (tiledLayer.type === 'tilelayer') {
         // Loop through the `data` array of this layer
         tiledLayer.data.forEach((gid, index) => {
-          let tileSprite,
-            texture,
-            mapX,
-            mapY,
-            tilesetX,
-            tilesetY,
-            mapColumn,
-            mapRow,
-            tilesetColumn,
-            tilesetRow
+          let tileSprite, texture, mapX, mapY, tilesetX, tilesetY, mapColumn, mapRow, tilesetColumn, tilesetRow; // If the grid id number (`gid`) isn't zero, create a sprite
 
-          // If the grid id number (`gid`) isn't zero, create a sprite
           if (gid !== 0) {
             // Figure out the map column and row number that we're on, and then
             // calculate the grid cell's x and y pixel position.
-            mapColumn = index % world.widthInTiles
-            mapRow = Math.floor(index / world.widthInTiles)
-            mapX = mapColumn * world.tilewidth
-            mapY = mapRow * world.tileheight
-
-            // Figure out the column and row number that the tileset
+            mapColumn = index % world.widthInTiles;
+            mapRow = Math.floor(index / world.widthInTiles);
+            mapX = mapColumn * world.tilewidth;
+            mapY = mapRow * world.tileheight; // Figure out the column and row number that the tileset
             // image is on, and then use those values to calculate
             // the x and y pixel position of the image on the tileset
-            tilesetColumn = ((gid - 1) % numberOfTilesetColumns)
-            tilesetRow = Math.floor((gid - 1) / numberOfTilesetColumns)
-            tilesetX = tilesetColumn * world.tilewidth
-            tilesetY = tilesetRow * world.tileheight
 
-            // Compensate for any optional spacing (padding) around the tiles if
+            tilesetColumn = (gid - 1) % numberOfTilesetColumns;
+            tilesetRow = Math.floor((gid - 1) / numberOfTilesetColumns);
+            tilesetX = tilesetColumn * world.tilewidth;
+            tilesetY = tilesetRow * world.tileheight; // Compensate for any optional spacing (padding) around the tiles if
             // there is any. This bit of code accumlates the spacing offsets from the
             // left side of the tileset and adds them to the current tile's position
+
             if (spacing > 0) {
-              tilesetX += spacing + (spacing * ((gid - 1) % numberOfTilesetColumns))
-              tilesetY += spacing + (spacing * Math.floor((gid - 1) / numberOfTilesetColumns))
-            }
-
-            // Use the above values to create the sprite's image from
+              tilesetX += spacing + spacing * ((gid - 1) % numberOfTilesetColumns);
+              tilesetY += spacing + spacing * Math.floor((gid - 1) / numberOfTilesetColumns);
+            } // Use the above values to create the sprite's image from
             // the tileset image
-            texture = this.frame(
-              tileset, tilesetX, tilesetY,
-              world.tilewidth, world.tileheight
-            )
 
-            // I've dedcided that any tiles that have a `name` property are important
+
+            texture = this.frame(tileset, tilesetX, tilesetY, world.tilewidth, world.tileheight); // I've dedcided that any tiles that have a `name` property are important
             // and should be accessible in the `world.objects` array.
 
-            let tileproperties = tiledMap.tilesets[0].tileproperties || {}
-            let key = String(gid - 1)
-
-            // If the JSON `tileproperties` object has a sub-object that
+            let tileproperties = tiledMap.tilesets[0].tileproperties || {};
+            let key = String(gid - 1); // If the JSON `tileproperties` object has a sub-object that
             // matches the current tile, and that sub-object has a `name` property,
             // then create a sprite and assign the tile properties onto
             // the sprite
+
             if (tileproperties[key] && tileproperties[key].name) {
               // Make a sprite
-              tileSprite = new this.Sprite(texture)
-
-              // Copy all of the tile's properties onto the sprite
+              tileSprite = new this.Sprite(texture); // Copy all of the tile's properties onto the sprite
               // (This includes the `name` property)
-              Object.keys(tileproperties[key]).forEach((property) => {
+
+              Object.keys(tileproperties[key]).forEach(property => {
                 // console.log(tileproperties[key][property])
-                tileSprite[property] = tileproperties[key][property]
-              })
-
-              // Push the sprite into the world's `objects` array
+                tileSprite[property] = tileproperties[key][property];
+              }); // Push the sprite into the world's `objects` array
               // so that you can access it by `name` later
-              world.objects.push(tileSprite)
-            }
 
-            // If the tile doesn't have a `name` property, just use it to
+              world.objects.push(tileSprite);
+            } // If the tile doesn't have a `name` property, just use it to
             // create an ordinary sprite (it will only need one texture)
             else {
-              tileSprite = new this.Sprite(texture)
-            }
+                tileSprite = new this.Sprite(texture);
+              } // Position the sprite on the map
 
-            // Position the sprite on the map
-            tileSprite.x = mapX
-            tileSprite.y = mapY
 
-            // Make a record of the sprite's index number in the array
+            tileSprite.x = mapX;
+            tileSprite.y = mapY; // Make a record of the sprite's index number in the array
             // (We'll use this for collision detection later)
-            tileSprite.index = index
 
-            // Make a record of the sprite's `gid` on the tileset.
+            tileSprite.index = index; // Make a record of the sprite's `gid` on the tileset.
             // This will also be useful for collision detection later
-            tileSprite.gid = gid
 
-            // Add the sprite to the current layer group
-            layerGroup.addChild(tileSprite)
+            tileSprite.gid = gid; // Add the sprite to the current layer group
+
+            layerGroup.addChild(tileSprite);
           }
-        })
-      }
+        });
+      } // Is this layer an `objectgroup`?
 
-      // Is this layer an `objectgroup`?
+
       if (tiledLayer.type === 'objectgroup') {
-        tiledLayer.objects.forEach((object) => {
+        tiledLayer.objects.forEach(object => {
           // We're just going to capture the object's properties
           // so that we can decide what to do with it later
-
           // Get a reference to the layer group the object is in
-          object.group = layerGroup
-
-          // Because this is an object layer, it doesn't contain any
+          object.group = layerGroup; // Because this is an object layer, it doesn't contain any
           // sprites, just data object. That means it won't be able to
           // calucalte its own height and width. To help it out, give
           // the `layerGroup` the same `width` and `height` as the `world`
           // layerGroup.width = world.width;
           // layerGroup.height = world.height;
-
           // Push the object into the world's `objects` array
-          world.objects.push(object)
-        })
-      }
-    })
 
-    // Search functions
+          world.objects.push(object);
+        });
+      }
+    }); // Search functions
     // `world.getObject` and `world.getObjects`  search for and return
     // any sprites or objects in the `world.objects` array.
     // Any object that has a `name` propery in
@@ -4347,41 +4073,44 @@ module.exports = module.exports.default = class TileUtilities {
 
     world.getObject = objectName => {
       const searchForObject = () => {
-        let foundObject
-        world.objects.some((object) => {
+        let foundObject;
+        world.objects.some(object => {
           if (object.name && object.name === objectName) {
-            foundObject = object
-            return true
+            foundObject = object;
+            return true;
           }
-        })
-        if (foundObject) {
-          return foundObject
-        }
-        throw new Error(`There is no object with the property name: ${objectName}`)
-      }
+        });
 
-      // Return the search function
-      return searchForObject()
-    }
+        if (foundObject) {
+          return foundObject;
+        }
+
+        throw new Error(`There is no object with the property name: ${objectName}`);
+      }; // Return the search function
+
+
+      return searchForObject();
+    };
 
     world.getObjects = objectNames => {
-      const foundObjects = []
-      world.objects.forEach((object) => {
+      const foundObjects = [];
+      world.objects.forEach(object => {
         if (object.name && objectNames.indexOf(object.name) !== -1) {
-          foundObjects.push(object)
+          foundObjects.push(object);
         }
-      })
+      });
+
       if (foundObjects.length > 0) {
-        return foundObjects
+        return foundObjects;
       }
-      throw new Error('I could not find those objects')
-    }
 
-    // That's it, we're done!
+      throw new Error('I could not find those objects');
+    }; // That's it, we're done!
     // Finally, return the `world` object back to the game program
-    return world
-  }
 
+
+    return world;
+  }
   /* Isometric tile utilities */
 
   /*
@@ -4389,107 +4118,101 @@ module.exports = module.exports.default = class TileUtilities {
   And array `sort` function that depth-sorts sprites according to
   their `z` properties
   */
-  byDepth (a, b) {
+
+
+  byDepth(a, b) {
     // Calculate the depths of `a` and `b`
     // (add `1` to `a.z` and `b.x` to avoid multiplying by 0)
-    a.depth = (a.cartX + a.cartY) * (a.z + 1)
-    b.depth = (b.cartX + b.cartY) * (b.z + 1)
+    a.depth = (a.cartX + a.cartY) * (a.z + 1);
+    b.depth = (b.cartX + b.cartY) * (b.z + 1); // Move sprites with a lower depth to a higher position in the array
 
-    // Move sprites with a lower depth to a higher position in the array
     if (a.depth < b.depth) {
-      return -1
+      return -1;
     } else if (a.depth > b.depth) {
-      return 1
+      return 1;
     }
-    return 0
-  }
 
+    return 0;
+  }
   /*
   ### hitTestIsoTile
   Same API as `hitTestTile`, except that it works with isometric sprites.
   Make sure that your `world` object has properties called
   `cartTileWidth` and `cartTileHeight` that define the Cartesian with and
   height of your tile cells, in pixels.
+   */
 
-  */
 
-  hitTestIsoTile (sprite, mapArray, gidToCheck, world, pointsToCheck) {
+  hitTestIsoTile(sprite, mapArray, gidToCheck, world, pointsToCheck) {
     // The `checkPoints` helper function Loop through the sprite's corner points to
     // find out if they are inside an array cell that you're interested in.
     // Return `true` if they are
-    const checkPoints = (key) => {
+    const checkPoints = key => {
       // Get a reference to the current point to check.
       // (`topLeft`, `topRight`, `bottomLeft` or `bottomRight` )
-      const point = sprite.collisionPoints[key]
+      const point = sprite.collisionPoints[key]; // Find the point's index number in the map array
 
-      // Find the point's index number in the map array
-      collision.index = this.getIndex(
-        point.x, point.y,
-        world.cartTilewidth, world.cartTileheight, world.widthInTiles
-      )
-
-      // Find out what the gid value is in the map position
+      collision.index = this.getIndex(point.x, point.y, world.cartTilewidth, world.cartTileheight, world.widthInTiles); // Find out what the gid value is in the map position
       // that the point is currently over
-      collision.gid = mapArray[collision.index]
 
-      // If it matches the value of the gid that we're interested, in
+      collision.gid = mapArray[collision.index]; // If it matches the value of the gid that we're interested, in
       // then there's been a collision
+
       if (collision.gid === gidToCheck) {
-        return true
+        return true;
       }
-      return false
-    }
 
-    // Assign "some" as the default value for `pointsToCheck`
-    pointsToCheck = pointsToCheck || 'some'
+      return false;
+    }; // Assign "some" as the default value for `pointsToCheck`
 
-    // The collision object that will be returned by this function
-    let collision = {}
 
-    // Which points do you want to check?
+    pointsToCheck = pointsToCheck || 'some'; // The collision object that will be returned by this function
+
+    let collision = {}; // Which points do you want to check?
     // "every", "some" or "center"?
+
     switch (pointsToCheck) {
-    case 'center':
+      case 'center':
+        // `hit` will be true only if the center point is touching
+        sprite.collisionPoints = {
+          center: {
+            x: sprite.centerX,
+            y: sprite.centerY // x: s.cartX + ca.x + (ca.width / 2),
+            // y: s.cartY + ca.y + (ca.height / 2)
 
-      // `hit` will be true only if the center point is touching
-      sprite.collisionPoints = {
-        center: {
-          x: sprite.centerX,
-          y: sprite.centerY
-          // x: s.cartX + ca.x + (ca.width / 2),
-          // y: s.cartY + ca.y + (ca.height / 2)
-        }
-      }
-      collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints)
-      break
-    case 'every':
+          }
+        };
+        collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints);
+        break;
 
-      // `hit` will be true if every point is touching
-      sprite.collisionPoints = this.getIsoPoints(sprite)
-      collision.hit = Object.keys(sprite.collisionPoints).every(checkPoints)
-      break
-    case 'some':
+      case 'every':
+        // `hit` will be true if every point is touching
+        sprite.collisionPoints = this.getIsoPoints(sprite);
+        collision.hit = Object.keys(sprite.collisionPoints).every(checkPoints);
+        break;
 
-      // `hit` will be true only if some points are touching
-      sprite.collisionPoints = this.getIsoPoints(sprite)
-      collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints)
-      break
-    }
-
-    // Return the collision object.
+      case 'some':
+        // `hit` will be true only if some points are touching
+        sprite.collisionPoints = this.getIsoPoints(sprite);
+        collision.hit = Object.keys(sprite.collisionPoints).some(checkPoints);
+        break;
+    } // Return the collision object.
     // `collision.hit` will be true if a collision is detected.
     // `collision.index` tells you the map array index number where the
     // collision occured
-    return collision
-  }
 
+
+    return collision;
+  }
   /*
   ### getIsoPoints
   The isomertic version of `getPoints`
   */
 
-  getIsoPoints (s) {
-    const ca = s.collisionArea
+
+  getIsoPoints(s) {
+    const ca = s.collisionArea;
+
     if (ca !== undefined) {
       return {
         topLeft: {
@@ -4508,8 +4231,9 @@ module.exports = module.exports.default = class TileUtilities {
           x: s.cartX + ca.x + ca.width,
           y: s.cartY + ca.y + ca.height
         }
-      }
+      };
     }
+
     return {
       topLeft: {
         x: s.cartX,
@@ -4527,106 +4251,97 @@ module.exports = module.exports.default = class TileUtilities {
         x: s.cartX + s.cartWidth - 1,
         y: s.cartY + s.cartHeight - 1
       }
-    }
+    };
   }
-
   /*
   ### makeIsoPointer
   Used to add a isometric properties to any mouse/touch `pointer` object with
   `x` and `y` properties. Supply `makeIsoPointer` with the pointer object and
   the isometric `world` object
   */
-
   // Create some useful properties on the pointer
-  makeIsoPointer (pointer, world) {
-    Object.defineProperties(pointer, {
 
+
+  makeIsoPointer(pointer, world) {
+    Object.defineProperties(pointer, {
       // The isometric's world's Cartesian coordiantes
       cartX: {
-        get () {
-          const x =
-            (((2 * this.y + this.x) - (2 * world.y + world.x)) / 2) - (world.cartTilewidth / 2)
-
-          return x
+        get() {
+          const x = (2 * this.y + this.x - (2 * world.y + world.x)) / 2 - world.cartTilewidth / 2;
+          return x;
         },
+
         enumerable: true,
         configurable: true
       },
       cartY: {
-        get () {
-          const y =
-            (((2 * this.y - this.x) - (2 * world.y - world.x)) / 2) + (world.cartTileheight / 2)
-
-          return y
+        get() {
+          const y = (2 * this.y - this.x - (2 * world.y - world.x)) / 2 + world.cartTileheight / 2;
+          return y;
         },
+
         enumerable: true,
         configurable: true
       },
-
       // The tile's column and row in the array
       column: {
-        get () {
-          return Math.floor(this.cartX / world.cartTilewidth)
+        get() {
+          return Math.floor(this.cartX / world.cartTilewidth);
         },
+
         enumerable: true,
         configurable: true
       },
       row: {
-        get () {
-          return Math.floor(this.cartY / world.cartTileheight)
+        get() {
+          return Math.floor(this.cartY / world.cartTileheight);
         },
+
         enumerable: true,
         configurable: true
       },
-
       // The tile's index number in the array
       index: {
-        get () {
-          const index = {}
+        get() {
+          const index = {}; // Convert pixel coordinates to map index coordinates
 
-          // Convert pixel coordinates to map index coordinates
-          index.x = Math.floor(this.cartX / world.cartTilewidth)
-          index.y = Math.floor(this.cartY / world.cartTileheight)
+          index.x = Math.floor(this.cartX / world.cartTilewidth);
+          index.y = Math.floor(this.cartY / world.cartTileheight); // Return the index number
 
-          // Return the index number
-          return index.x + (index.y * world.widthInTiles)
+          return index.x + index.y * world.widthInTiles;
         },
+
         enumerable: true,
         configurable: true
       }
-    })
+    });
   }
-
   /*
   ### isoRectangle
   A function for creating a simple isometric diamond
   shaped rectangle using Pixi's graphics library
   */
 
-  isoRectangle (width, height, fillStyle) {
+
+  isoRectangle(width, height, fillStyle) {
     // Figure out the `halfHeight` value
-    const halfHeight = height / 2
+    const halfHeight = height / 2; // Draw the flattened and rotated square (diamond shape)
 
-    // Draw the flattened and rotated square (diamond shape)
-    const rectangle = new this.Graphics()
-    rectangle.beginFill(fillStyle)
-    rectangle.moveTo(0, 0)
-    rectangle.lineTo(width, halfHeight)
-    rectangle.lineTo(0, height)
-    rectangle.lineTo(-width, halfHeight)
-    rectangle.lineTo(0, 0)
-    rectangle.endFill()
+    const rectangle = new this.Graphics();
+    rectangle.beginFill(fillStyle);
+    rectangle.moveTo(0, 0);
+    rectangle.lineTo(width, halfHeight);
+    rectangle.lineTo(0, height);
+    rectangle.lineTo(-width, halfHeight);
+    rectangle.lineTo(0, 0);
+    rectangle.endFill(); // Generate a texture from the rectangle
 
-    // Generate a texture from the rectangle
-    const texture = rectangle.generateTexture()
+    const texture = rectangle.generateTexture(); // Use the texture to create a sprite
 
-    // Use the texture to create a sprite
-    const sprite = new this.Sprite(texture)
+    const sprite = new this.Sprite(texture); // Return it to the main program
 
-    // Return it to the main program
-    return sprite
+    return sprite;
   }
-
   /*
   ### addIsoProperties
   Add properties to a sprite to help work between Cartesian
@@ -4634,250 +4349,197 @@ module.exports = module.exports.default = class TileUtilities {
   `cartWidth` and `cartHeight`.
   */
 
-  addIsoProperties (sprite, x, y, width, height) {
-    // Cartisian (flat 2D) properties
-    sprite.cartX = x
-    sprite.cartY = y
-    sprite.cartWidth = width
-    sprite.cartHeight = height
 
-    // Add a getter/setter for the isometric properties
+  addIsoProperties(sprite, x, y, width, height) {
+    // Cartisian (flat 2D) properties
+    sprite.cartX = x;
+    sprite.cartY = y;
+    sprite.cartWidth = width;
+    sprite.cartHeight = height; // Add a getter/setter for the isometric properties
+
     Object.defineProperties(sprite, {
       isoX: {
-        get () {
-          return this.cartX - this.cartY
+        get() {
+          return this.cartX - this.cartY;
         },
+
         enumerable: true,
         configurable: true
       },
       isoY: {
-        get () {
-          return (this.cartX + this.cartY) / 2
+        get() {
+          return (this.cartX + this.cartY) / 2;
         },
+
         enumerable: true,
         configurable: true
       }
-    })
+    });
   }
-
   /*
   ### makeIsoTiledWorld
   Make an isometric world from TiledEditor map data. Uses the same API as `makeTiledWorld`
+   */
 
-  */
 
-  makeIsoTiledWorld (jsonTiledMap, tileset) {
+  makeIsoTiledWorld(jsonTiledMap, tileset) {
     // Create a group called `world` to contain all the layers, sprites
     // and objects from the `tiledMap`. The `world` object is going to be
     // returned to the main game program
-    const tiledMap = (typeof jsonTiledMap === 'string') ? this.resources[jsonTiledMap].data : jsonTiledMap
-
-    // A. You need to add three custom properties to your Tiled Editor
+    const tiledMap = typeof jsonTiledMap === 'string' ? this.resources[jsonTiledMap].data : jsonTiledMap; // A. You need to add three custom properties to your Tiled Editor
     // map: `cartTilewidth`,`cartTileheight` and `tileDepth`. They define the Cartesian
     // dimesions of the tiles (32x32x64).
     // Check to make sure that these custom properties exist
+
     if (!tiledMap.properties.cartTilewidth && !tiledMap.properties.cartTileheight && !tiledMap.properties.tileDepth) {
-      throw new Error(
-        'Set custom cartTilewidth, cartTileheight and tileDepth map properties in Tiled Editor'
-      )
-    }
+      throw new Error('Set custom cartTilewidth, cartTileheight and tileDepth map properties in Tiled Editor');
+    } // Create the `world` container
 
-    // Create the `world` container
-    const world = new this.Container()
 
-    // B. Set the `tileHeight` to the `tiledMap`'s `tileDepth` property
+    const world = new this.Container(); // B. Set the `tileHeight` to the `tiledMap`'s `tileDepth` property
     // so that it matches the pixel height of the sprite tile image
-    world.tileheight = parseInt(tiledMap.properties.tileDepth)
-    world.tilewidth = tiledMap.tilewidth
 
-    // C. Define the Cartesian dimesions of each tile
-    world.cartTileheight = parseInt(tiledMap.properties.cartTileheight)
-    world.cartTilewidth = parseInt(tiledMap.properties.cartTilewidth)
+    world.tileheight = parseInt(tiledMap.properties.tileDepth);
+    world.tilewidth = tiledMap.tilewidth; // C. Define the Cartesian dimesions of each tile
 
-    // D. Calculate the `width` and `height` of the world, in pixels
+    world.cartTileheight = parseInt(tiledMap.properties.cartTileheight);
+    world.cartTilewidth = parseInt(tiledMap.properties.cartTilewidth); // D. Calculate the `width` and `height` of the world, in pixels
     // using the `world.cartTileHeight` and `world.cartTilewidth`
     // values
-    world.worldWidth = tiledMap.width * world.cartTilewidth
-    world.worldHeight = tiledMap.height * world.cartTileheight
 
-    // Get a reference to the world's height and width in
+    world.worldWidth = tiledMap.width * world.cartTilewidth;
+    world.worldHeight = tiledMap.height * world.cartTileheight; // Get a reference to the world's height and width in
     // tiles, in case you need to know this later (you will!)
-    world.widthInTiles = tiledMap.width
-    world.heightInTiles = tiledMap.height
 
-    // Create an `objects` array to store references to any
+    world.widthInTiles = tiledMap.width;
+    world.heightInTiles = tiledMap.height; // Create an `objects` array to store references to any
     // named objects in the map. Named objects all have
     // a `name` property that was assigned in Tiled Editor
-    world.objects = []
 
-    // The optional spacing (padding) around each tile
+    world.objects = []; // The optional spacing (padding) around each tile
     // This is to account for spacing around tiles
     // that's commonly used with texture atlas tilesets. Set the
     // `spacing` property when you create a new map in Tiled Editor
-    const spacing = tiledMap.tilesets[0].spacing
 
-    // Figure out how many columns there are on the tileset.
+    const spacing = tiledMap.tilesets[0].spacing; // Figure out how many columns there are on the tileset.
     // This is the width of the image, divided by the width
     // of each tile, plus any optional spacing thats around each tile
-    const numberOfTilesetColumns =
-      Math.floor(
-        tiledMap.tilesets[0].imagewidth / (tiledMap.tilewidth + spacing)
-      )
 
-    // E. A `z` property to help track which depth level the sprites are on
-    let z = 0
+    const numberOfTilesetColumns = Math.floor(tiledMap.tilesets[0].imagewidth / (tiledMap.tilewidth + spacing)); // E. A `z` property to help track which depth level the sprites are on
 
-    // Loop through all the map layers
-    tiledMap.layers.forEach((tiledLayer) => {
+    let z = 0; // Loop through all the map layers
+
+    tiledMap.layers.forEach(tiledLayer => {
       // Make a group for this layer and copy
       // all of the layer properties onto it.
-      const layerGroup = new this.Container()
-
-      Object.keys(tiledLayer).forEach((key) => {
+      const layerGroup = new this.Container();
+      Object.keys(tiledLayer).forEach(key => {
         // Add all the layer's properties to the group, except the
         // width and height (because the group will work those our for
         // itself based on its content).
         if (key !== 'width' && key !== 'height') {
-          layerGroup[key] = tiledLayer[key]
+          layerGroup[key] = tiledLayer[key];
         }
-      })
+      }); // Translate `opacity` to `alpha`
 
-      // Translate `opacity` to `alpha`
-      layerGroup.alpha = tiledLayer.opacity
+      layerGroup.alpha = tiledLayer.opacity; // Add the group to the `world`
 
-      // Add the group to the `world`
-      world.addChild(layerGroup)
-
-      // Push the group into the world's `objects` array
+      world.addChild(layerGroup); // Push the group into the world's `objects` array
       // So you can access it later
-      world.objects.push(layerGroup)
 
-      // Is this current layer a `tilelayer`?
+      world.objects.push(layerGroup); // Is this current layer a `tilelayer`?
+
       if (tiledLayer.type === 'tilelayer') {
         // Loop through the `data` array of this layer
         tiledLayer.data.forEach((gid, index) => {
-          let tileSprite,
-            texture,
-            mapX,
-            mapY,
-            tilesetX,
-            tilesetY,
-            mapColumn,
-            mapRow,
-            tilesetColumn,
-            tilesetRow
+          let tileSprite, texture, mapX, mapY, tilesetX, tilesetY, mapColumn, mapRow, tilesetColumn, tilesetRow; // If the grid id number (`gid`) isn't zero, create a sprite
 
-          // If the grid id number (`gid`) isn't zero, create a sprite
           if (gid !== 0) {
             // Figure out the map column and row number that we're on, and then
             // calculate the grid cell's x and y pixel position.
-            mapColumn = index % world.widthInTiles
-            mapRow = Math.floor(index / world.widthInTiles)
-
-            // F. Use the Cartesian values to find the
+            mapColumn = index % world.widthInTiles;
+            mapRow = Math.floor(index / world.widthInTiles); // F. Use the Cartesian values to find the
             // `mapX` and `mapY` values
-            mapX = mapColumn * world.cartTilewidth
-            mapY = mapRow * world.cartTileheight
 
-            // Figure out the column and row number that the tileset
+            mapX = mapColumn * world.cartTilewidth;
+            mapY = mapRow * world.cartTileheight; // Figure out the column and row number that the tileset
             // image is on, and then use those values to calculate
             // the x and y pixel position of the image on the tileset
-            tilesetColumn = ((gid - 1) % numberOfTilesetColumns)
-            tilesetRow = Math.floor((gid - 1) / numberOfTilesetColumns)
-            tilesetX = tilesetColumn * world.tilewidth
-            tilesetY = tilesetRow * world.tileheight
 
-            // Compensate for any optional spacing (padding) around the tiles if
+            tilesetColumn = (gid - 1) % numberOfTilesetColumns;
+            tilesetRow = Math.floor((gid - 1) / numberOfTilesetColumns);
+            tilesetX = tilesetColumn * world.tilewidth;
+            tilesetY = tilesetRow * world.tileheight; // Compensate for any optional spacing (padding) around the tiles if
             // there is any. This bit of code accumlates the spacing offsets from the
             // left side of the tileset and adds them to the current tile's position
+
             if (spacing > 0) {
-              tilesetX += spacing + (spacing * ((gid - 1) % numberOfTilesetColumns))
-              tilesetY += spacing + (spacing * Math.floor((gid - 1) / numberOfTilesetColumns))
-            }
-
-            // Use the above values to create the sprite's image from
+              tilesetX += spacing + spacing * ((gid - 1) % numberOfTilesetColumns);
+              tilesetY += spacing + spacing * Math.floor((gid - 1) / numberOfTilesetColumns);
+            } // Use the above values to create the sprite's image from
             // the tileset image
-            texture = this.frame(
-              tileset, tilesetX, tilesetY,
-              world.tilewidth, world.tileheight
-            )
 
-            // I've dedcided that any tiles that have a `name` property are important
+
+            texture = this.frame(tileset, tilesetX, tilesetY, world.tilewidth, world.tileheight); // I've dedcided that any tiles that have a `name` property are important
             // and should be accessible in the `world.objects` array.
 
-            let tileproperties = tiledMap.tilesets[0].tileproperties || {}
-            let key = String(gid - 1)
-
-            // If the JSON `tileproperties` object has a sub-object that
+            let tileproperties = tiledMap.tilesets[0].tileproperties || {};
+            let key = String(gid - 1); // If the JSON `tileproperties` object has a sub-object that
             // matches the current tile, and that sub-object has a `name` property,
             // then create a sprite and assign the tile properties onto
             // the sprite
+
             if (tileproperties[key] && tileproperties[key].name) {
               // Make a sprite
-              tileSprite = new this.Sprite(texture)
-
-              // Copy all of the tile's properties onto the sprite
+              tileSprite = new this.Sprite(texture); // Copy all of the tile's properties onto the sprite
               // (This includes the `name` property)
-              Object.keys(tileproperties[key]).forEach((property) => {
+
+              Object.keys(tileproperties[key]).forEach(property => {
                 // console.log(tileproperties[key][property])
-                tileSprite[property] = tileproperties[key][property]
-              })
-
-              // Push the sprite into the world's `objects` array
+                tileSprite[property] = tileproperties[key][property];
+              }); // Push the sprite into the world's `objects` array
               // so that you can access it by `name` later
-              world.objects.push(tileSprite)
-            }
 
-            // If the tile doesn't have a `name` property, just use it to
+              world.objects.push(tileSprite);
+            } // If the tile doesn't have a `name` property, just use it to
             // create an ordinary sprite (it will only need one texture)
             else {
-              tileSprite = new this.Sprite(texture)
-            }
+                tileSprite = new this.Sprite(texture);
+              } // G. Add isometric properties to the sprite
 
-            // G. Add isometric properties to the sprite
-            this.addIsoProperties(
-              tileSprite, mapX, mapY,
-              world.cartTilewidth, world.cartTileheight
-            )
 
-            // H. Use the isometric position to add the sprite to the world
-            tileSprite.x = tileSprite.isoX
-            tileSprite.y = tileSprite.isoY
-            tileSprite.z = z
+            this.addIsoProperties(tileSprite, mapX, mapY, world.cartTilewidth, world.cartTileheight); // H. Use the isometric position to add the sprite to the world
 
-            // Make a record of the sprite's index number in the array
+            tileSprite.x = tileSprite.isoX;
+            tileSprite.y = tileSprite.isoY;
+            tileSprite.z = z; // Make a record of the sprite's index number in the array
             // (We'll use this for collision detection later)
-            tileSprite.index = index
 
-            // Make a record of the sprite's `gid` on the tileset.
+            tileSprite.index = index; // Make a record of the sprite's `gid` on the tileset.
             // This will also be useful for collision detection later
-            tileSprite.gid = gid
 
-            // Add the sprite to the current layer group
-            layerGroup.addChild(tileSprite)
+            tileSprite.gid = gid; // Add the sprite to the current layer group
+
+            layerGroup.addChild(tileSprite);
           }
-        })
-      }
+        });
+      } // Is this layer an `objectgroup`?
 
-      // Is this layer an `objectgroup`?
+
       if (tiledLayer.type === 'objectgroup') {
-        tiledLayer.objects.forEach((object) => {
+        tiledLayer.objects.forEach(object => {
           // We're just going to capture the object's properties
           // so that we can decide what to do with it later
-
           // Get a reference to the layer group the object is in
-          object.group = layerGroup
+          object.group = layerGroup; // Push the object into the world's `objects` array
 
-          // Push the object into the world's `objects` array
-          world.objects.push(object)
-        })
-      }
+          world.objects.push(object);
+        });
+      } // I. Add 1 to the z index (the first layer will have a z index of `1`)
 
-      // I. Add 1 to the z index (the first layer will have a z index of `1`)
-      z += 1
-    })
 
-    // Search functions
+      z += 1;
+    }); // Search functions
     // `world.getObject` and `world.getObjects`  search for and return
     // any sprites or objects in the `world.objects` array.
     // Any object that has a `name` propery in
@@ -4891,74 +4553,66 @@ module.exports = module.exports.default = class TileUtilities {
 
     world.getObject = objectName => {
       const searchForObject = () => {
-        let foundObject
-        world.objects.some((object) => {
+        let foundObject;
+        world.objects.some(object => {
           if (object.name && object.name === objectName) {
-            foundObject = object
-            return true
+            foundObject = object;
+            return true;
           }
-        })
-        if (foundObject) {
-          return foundObject
-        }
-        throw new Error(`There is no object with the property name: ${objectName}`)
-      }
+        });
 
-      // Return the search function
-      return searchForObject()
-    }
+        if (foundObject) {
+          return foundObject;
+        }
+
+        throw new Error(`There is no object with the property name: ${objectName}`);
+      }; // Return the search function
+
+
+      return searchForObject();
+    };
 
     world.getObjects = objectNames => {
-      const foundObjects = []
-      world.objects.forEach((object) => {
+      const foundObjects = [];
+      world.objects.forEach(object => {
         if (object.name && objectNames.indexOf(object.name) !== -1) {
-          foundObjects.push(object)
+          foundObjects.push(object);
         }
-      })
+      });
+
       if (foundObjects.length > 0) {
-        return foundObjects
+        return foundObjects;
       }
-      throw new Error('I could not find those objects')
-    }
 
-    // That's it, we're done!
+      throw new Error('I could not find those objects');
+    }; // That's it, we're done!
     // Finally, return the `world` object back to the game program
-    return world
+
+
+    return world;
   }
-
   /*
-//### The `shortestPath` function
-
-An A-Star search algorithm that returns an array of grid index numbers that
-represent the shortest path between two points on a map. Use it like this:
-
-let shortestPath = tu.shortestPath(
+  //### The `shortestPath` function
+  An A-Star search algorithm that returns an array of grid index numbers that
+  represent the shortest path between two points on a map. Use it like this:
+  let shortestPath = tu.shortestPath(
   startIndex,               //The start map index
   destinationIndex,         //The destination index
   mapArray,                 //The map array
   mapWidthInTiles,          //Map wdith, in tiles
   [1,2],                    //Obstacle gid array
   "manhattan"               //Heuristic to use: "manhatten", "euclidean" or "diagonal"
-);
+  );
+  */
 
-*/
 
-  shortestPath (
-    startIndex,
-    destinationIndex,
-    mapArray,
-    mapWidthInTiles,
-    obstacleGids = [],
-    heuristic = 'manhattan',
-    useDiagonalNodes = true
-  ) {
-  // The `nodes` function creates the array of node objects
+  shortestPath(startIndex, destinationIndex, mapArray, mapWidthInTiles, obstacleGids = [], heuristic = 'manhattan', useDiagonalNodes = true) {
+    // The `nodes` function creates the array of node objects
     const nodes = (mapArray, mapWidthInTiles) => mapArray.map((cell, index) => {
       // Figure out the row and column of this cell
-      const column = index % mapWidthInTiles
-      const row = Math.floor(index / mapWidthInTiles)
+      const column = index % mapWidthInTiles;
+      const row = Math.floor(index / mapWidthInTiles); // The node object
 
-      // The node object
       return {
         f: 0,
         g: 0,
@@ -4967,583 +4621,585 @@ let shortestPath = tu.shortestPath(
         column,
         row,
         index
-      }
-    })
+      };
+    }); // Initialize theShortestPath array
 
-    // Initialize theShortestPath array
-    const theShortestPath = []
 
-    // Initialize the node map
-    const nodeMap = nodes(mapArray, mapWidthInTiles)
+    const theShortestPath = []; // Initialize the node map
 
-    // Initialize the closed and open list arrays
-    const closedList = []
-    let openList = []
+    const nodeMap = nodes(mapArray, mapWidthInTiles); // Initialize the closed and open list arrays
 
-    // Declare the "costs" of travelling in straight or
+    const closedList = [];
+    let openList = []; // Declare the "costs" of travelling in straight or
     // diagonal lines
-    const straightCost = 10
-    const diagonalCost = 14
 
-    // Get the start node
-    const startNode = nodeMap[startIndex]
+    const straightCost = 10;
+    const diagonalCost = 14; // Get the start node
 
-    // Get the current center node. The first one will
+    const startNode = nodeMap[startIndex]; // Get the current center node. The first one will
     // match the path's start position
-    let centerNode = startNode
 
-    // Push the `centerNode` into the `openList`, because
+    let centerNode = startNode; // Push the `centerNode` into the `openList`, because
     // it's the first node that we're going to check
-    openList.push(centerNode)
 
-    // Get the current destination node. The first one will
+    openList.push(centerNode); // Get the current destination node. The first one will
     // match the path's end position
-    const destinationNode = nodeMap[destinationIndex]
 
-    // All the nodes that are surrounding the current map index number
+    const destinationNode = nodeMap[destinationIndex]; // All the nodes that are surrounding the current map index number
+
     const surroundingNodes = (index, mapArray, mapWidthInTiles, useDiagonalNodes) => {
-    // Find out what all the surrounding nodes are, including those that
-    // might be beyond the borders of the map
-      const allSurroundingNodes = [
-        nodeMap[index - mapWidthInTiles - 1],
-        nodeMap[index - mapWidthInTiles],
-        nodeMap[index - mapWidthInTiles + 1],
-        nodeMap[index - 1],
-        nodeMap[index + 1],
-        nodeMap[index + mapWidthInTiles - 1],
-        nodeMap[index + mapWidthInTiles],
-        nodeMap[index + mapWidthInTiles + 1]
-      ]
-
-      // Optionaly exlude the diagonal nodes, which is often perferable
+      // Find out what all the surrounding nodes are, including those that
+      // might be beyond the borders of the map
+      const allSurroundingNodes = [nodeMap[index - mapWidthInTiles - 1], nodeMap[index - mapWidthInTiles], nodeMap[index - mapWidthInTiles + 1], nodeMap[index - 1], nodeMap[index + 1], nodeMap[index + mapWidthInTiles - 1], nodeMap[index + mapWidthInTiles], nodeMap[index + mapWidthInTiles + 1]]; // Optionaly exlude the diagonal nodes, which is often perferable
       // for 2D maze games
-      const crossSurroundingNodes = [
-        nodeMap[index - mapWidthInTiles],
-        nodeMap[index - 1],
-        nodeMap[index + 1],
-        nodeMap[index + mapWidthInTiles]
-      ]
 
-      // Use either `allSurroundingNodes` or `crossSurroundingNodes` depending
+      const crossSurroundingNodes = [nodeMap[index - mapWidthInTiles], nodeMap[index - 1], nodeMap[index + 1], nodeMap[index + mapWidthInTiles]]; // Use either `allSurroundingNodes` or `crossSurroundingNodes` depending
       // on the the value of `useDiagonalNodes`
-      let nodesToCheck
-      if (useDiagonalNodes) {
-        nodesToCheck = allSurroundingNodes
-      } else {
-        nodesToCheck = crossSurroundingNodes
-      }
 
-      // Find the valid sourrounding nodes, which are ones inside
+      let nodesToCheck;
+
+      if (useDiagonalNodes) {
+        nodesToCheck = allSurroundingNodes;
+      } else {
+        nodesToCheck = crossSurroundingNodes;
+      } // Find the valid sourrounding nodes, which are ones inside
       // the map border that don't incldue obstacles. Change `allSurroundingNodes`
       // to `crossSurroundingNodes` to prevent the path from choosing diagonal routes
-      const validSurroundingNodes = nodesToCheck.filter((node) => {
-      // The node will be beyond the top and bottom edges of the
-      // map if it is `undefined`
-        const nodeIsWithinTopAndBottomBounds = node !== undefined
 
-        // Only return nodes that are within the top and bottom map bounds
+
+      const validSurroundingNodes = nodesToCheck.filter(node => {
+        // The node will be beyond the top and bottom edges of the
+        // map if it is `undefined`
+        const nodeIsWithinTopAndBottomBounds = node !== undefined; // Only return nodes that are within the top and bottom map bounds
+
         if (nodeIsWithinTopAndBottomBounds) {
-        // Some Boolean values that tell us whether the current map index is on
-        // the left or right border of the map, and whether any of the nodes
-        // surrounding that index extend beyond the left and right borders
-          const indexIsOnLeftBorder = index % mapWidthInTiles === 0
-          const indexIsOnRightBorder = (index + 1) % mapWidthInTiles === 0
-          const nodeIsBeyondLeftBorder = node.column % (mapWidthInTiles - 1) === 0 && node.column !== 0
-          const nodeIsBeyondRightBorder = node.column % mapWidthInTiles === 0
-
-          // Find out whether of not the node contains an obstacle by looping
+          // Some Boolean values that tell us whether the current map index is on
+          // the left or right border of the map, and whether any of the nodes
+          // surrounding that index extend beyond the left and right borders
+          const indexIsOnLeftBorder = index % mapWidthInTiles === 0;
+          const indexIsOnRightBorder = (index + 1) % mapWidthInTiles === 0;
+          const nodeIsBeyondLeftBorder = node.column % (mapWidthInTiles - 1) === 0 && node.column !== 0;
+          const nodeIsBeyondRightBorder = node.column % mapWidthInTiles === 0; // Find out whether of not the node contains an obstacle by looping
           // through the obstacle gids and and returning `true` if it
           // finds any at this node's location
-          const nodeContainsAnObstacle = obstacleGids.some(obstacle => mapArray[node.index] === obstacle)
 
-          // If the index is on the left border and any nodes surrounding it are beyond the
+          const nodeContainsAnObstacle = obstacleGids.some(obstacle => mapArray[node.index] === obstacle); // If the index is on the left border and any nodes surrounding it are beyond the
           // left border, don't return that node
-          if (indexIsOnLeftBorder) {
-          // console.log("left border")
-            return !nodeIsBeyondLeftBorder
-          }
 
-          // If the index is on the right border and any nodes surrounding it are beyond the
+          if (indexIsOnLeftBorder) {
+            // console.log("left border")
+            return !nodeIsBeyondLeftBorder;
+          } // If the index is on the right border and any nodes surrounding it are beyond the
           // right border, don't return that node
           else if (indexIsOnRightBorder) {
-          // console.log("right border")
-            return !nodeIsBeyondRightBorder
-          }
-
-          // Return `true` if the node doesn't contain any obstacles
-          else if (nodeContainsAnObstacle) {
-            return false
-          }
-
-          // The index must be inside the area defined by the left and right borders,
+              // console.log("right border")
+              return !nodeIsBeyondRightBorder;
+            } // Return `true` if the node doesn't contain any obstacles
+            else if (nodeContainsAnObstacle) {
+                return false;
+              } // The index must be inside the area defined by the left and right borders,
           // so return the node
-
           // console.log("map interior")
-          return true
+
+
+          return true;
         }
-      })
-
-      // console.log(validSurroundingNodes)
+      }); // console.log(validSurroundingNodes)
       // Return the array of `validSurroundingNodes`
-      return validSurroundingNodes
-    }
 
-    // Diagnostic
+      return validSurroundingNodes;
+    }; // Diagnostic
     // console.log(nodeMap);
     // console.log(centerNode);
     // console.log(destinationNode);
     // console.log(wallMapArray);
     // console.log(surroundingNodes(86, mapArray, mapWidthInTiles));
-
     // Heuristic methods
     // 1. Manhattan
+
+
     const manhattan = (testNode, destinationNode) => {
-      const h = Math.abs(testNode.row - destinationNode.row) * straightCost + Math.abs(testNode.column - destinationNode.column) * straightCost
-      return h
-    }
+      const h = Math.abs(testNode.row - destinationNode.row) * straightCost + Math.abs(testNode.column - destinationNode.column) * straightCost;
+      return h;
+    }; // 2. Euclidean
 
-    // 2. Euclidean
+
     const euclidean = (testNode, destinationNode) => {
-      let vx = destinationNode.column - testNode.column
-      let vy = destinationNode.row - testNode.row
-      let h = Math.floor(Math.sqrt(vx * vx + vy * vy) * straightCost)
-      return h
-    }
+      let vx = destinationNode.column - testNode.column;
+      let vy = destinationNode.row - testNode.row;
+      let h = Math.floor(Math.sqrt(vx * vx + vy * vy) * straightCost);
+      return h;
+    }; // 3. Diagonal
 
-    // 3. Diagonal
+
     const diagonal = (testNode, destinationNode) => {
-      let vx = Math.abs(destinationNode.column - testNode.column)
-      let vy = Math.abs(destinationNode.row - testNode.row)
-      let h = 0
+      let vx = Math.abs(destinationNode.column - testNode.column);
+      let vy = Math.abs(destinationNode.row - testNode.row);
+      let h = 0;
 
       if (vx > vy) {
-        h = Math.floor(diagonalCost * vy + straightCost * (vx - vy))
+        h = Math.floor(diagonalCost * vy + straightCost * (vx - vy));
       } else {
-        h = Math.floor(diagonalCost * vx + straightCost * (vy - vx))
+        h = Math.floor(diagonalCost * vx + straightCost * (vy - vx));
       }
-      return h
-    }
 
-    // Loop through all the nodes until the current `centerNode` matches the
+      return h;
+    }; // Loop through all the nodes until the current `centerNode` matches the
     // `destinationNode`. When they they're the same we know we've reached the
     // end of the path
+
+
     while (centerNode !== destinationNode) {
-    // Find all the nodes surrounding the current `centerNode`
-      const surroundingTestNodes = surroundingNodes(centerNode.index, mapArray, mapWidthInTiles, useDiagonalNodes)
-
-      // Loop through all the `surroundingTestNodes` using a classic `for` loop
+      // Find all the nodes surrounding the current `centerNode`
+      const surroundingTestNodes = surroundingNodes(centerNode.index, mapArray, mapWidthInTiles, useDiagonalNodes); // Loop through all the `surroundingTestNodes` using a classic `for` loop
       // (A `for` loop gives us a marginal performance boost)
+
       for (let i = 0; i < surroundingTestNodes.length; i++) {
-      // Get a reference to the current test node
-        const testNode = surroundingTestNodes[i]
-
-        // Find out whether the node is on a straight axis or
+        // Get a reference to the current test node
+        const testNode = surroundingTestNodes[i]; // Find out whether the node is on a straight axis or
         // a diagonal axis, and assign the appropriate cost
-
         // A. Declare the cost variable
-        let cost = 0
 
-        // B. Do they occupy the same row or column?
+        let cost = 0; // B. Do they occupy the same row or column?
+
         if (centerNode.row === testNode.row || centerNode.column === testNode.column) {
-        // If they do, assign a cost of "10"
-          cost = straightCost
+          // If they do, assign a cost of "10"
+          cost = straightCost;
         } else {
-        // Otherwise, assign a cost of "14"
-          cost = diagonalCost
-        }
-
-        // C. Calculate the costs (g, h and f)
+          // Otherwise, assign a cost of "14"
+          cost = diagonalCost;
+        } // C. Calculate the costs (g, h and f)
         // The node's current cost
-        const g = centerNode.g + cost
 
-        // The cost of travelling from this node to the
+
+        const g = centerNode.g + cost; // The cost of travelling from this node to the
         // destination node (the heuristic)
-        let h
+
+        let h;
+
         switch (heuristic) {
-        case 'manhattan':
-          h = manhattan(testNode, destinationNode)
-          break
+          case 'manhattan':
+            h = manhattan(testNode, destinationNode);
+            break;
 
-        case 'euclidean':
-          h = euclidean(testNode, destinationNode)
-          break
+          case 'euclidean':
+            h = euclidean(testNode, destinationNode);
+            break;
 
-        case 'diagonal':
-          h = diagonal(testNode, destinationNode)
-          break
+          case 'diagonal':
+            h = diagonal(testNode, destinationNode);
+            break;
 
-        default:
-          throw new Error('Oops! It looks like you misspelled the name of the heuristic')
-        }
+          default:
+            throw new Error('Oops! It looks like you misspelled the name of the heuristic');
+        } // The final cost
 
-        // The final cost
-        const f = g + h
 
-        // Find out if the testNode is in either
+        const f = g + h; // Find out if the testNode is in either
         // the openList or closedList array
-        const isOnOpenList = openList.some(node => testNode === node)
-        const isOnClosedList = closedList.some(node => testNode === node)
 
-        // If it's on either of these lists, we can check
+        const isOnOpenList = openList.some(node => testNode === node);
+        const isOnClosedList = closedList.some(node => testNode === node); // If it's on either of these lists, we can check
         // whether this route is a lower-cost alternative
         // to the previous cost calculation. The new G cost
         // will make the difference to the final F cost
+
         if (isOnOpenList || isOnClosedList) {
           if (testNode.f > f) {
-            testNode.f = f
-            testNode.g = g
-            testNode.h = h
+            testNode.f = f;
+            testNode.g = g;
+            testNode.h = h; // Only change the parent if the new cost is lower
 
-            // Only change the parent if the new cost is lower
-            testNode.parent = centerNode
+            testNode.parent = centerNode;
           }
-        }
-
-        // Otherwise, add the testNode to the open list
+        } // Otherwise, add the testNode to the open list
         else {
-          testNode.f = f
-          testNode.g = g
-          testNode.h = h
-          testNode.parent = centerNode
-          openList.push(testNode)
-        }
+            testNode.f = f;
+            testNode.g = g;
+            testNode.h = h;
+            testNode.parent = centerNode;
+            openList.push(testNode);
+          } // The `for` loop ends here
 
-      // The `for` loop ends here
-      }
+      } // Push the current centerNode into the closed list
 
-      // Push the current centerNode into the closed list
-      closedList.push(centerNode)
 
-      // Quit the loop if there's nothing on the open list.
+      closedList.push(centerNode); // Quit the loop if there's nothing on the open list.
       // This means that there is no path to the destination or the
       // destination is invalid, like a wall tile
+
       if (openList.length === 0) {
-        return theShortestPath
-      }
+        return theShortestPath;
+      } // Sort the open list according to final cost
 
-      // Sort the open list according to final cost
-      openList = openList.sort((a, b) => a.f - b.f)
 
-      // Set the node with the lowest final cost as the new centerNode
-      centerNode = openList.shift()
+      openList = openList.sort((a, b) => a.f - b.f); // Set the node with the lowest final cost as the new centerNode
 
-    // The `while` loop ends here
-    }
+      centerNode = openList.shift(); // The `while` loop ends here
+    } // Now that we have all the candidates, let's find the shortest path!
 
-    // Now that we have all the candidates, let's find the shortest path!
+
     if (openList.length !== 0) {
-    // Start with the destination node
-      let testNode = destinationNode
-      theShortestPath.push(testNode)
-
-      // Work backwards through the node parents
+      // Start with the destination node
+      let testNode = destinationNode;
+      theShortestPath.push(testNode); // Work backwards through the node parents
       // until the start node is found
+
       while (testNode !== startNode) {
-      // Step through the parents of each node,
-      // starting with the destination node and ending with the start node
-        testNode = testNode.parent
+        // Step through the parents of each node,
+        // starting with the destination node and ending with the start node
+        testNode = testNode.parent; // Add the node to the beginning of the array
 
-        // Add the node to the beginning of the array
-        theShortestPath.unshift(testNode)
-
-      // ...and then loop again to the next node's parent till you
-      // reach the end of the path
+        theShortestPath.unshift(testNode); // ...and then loop again to the next node's parent till you
+        // reach the end of the path
       }
-    }
-
-    // Return an array of nodes that link together to form
+    } // Return an array of nodes that link together to form
     // the shortest path
-    return theShortestPath
-  }
 
+
+    return theShortestPath;
+  }
   /*
   ### tileBasedLineOfSight
-
-  Use the `tileBasedLineOfSight` function to find out whether two sprites
+   Use the `tileBasedLineOfSight` function to find out whether two sprites
   are visible to each other inside a tile based maze environment.
+   */
 
-  */
 
-  tileBasedLineOfSight (
-    spriteOne, // The first sprite, with `centerX` and `centerY` properties
-    spriteTwo, // The second sprite, with `centerX` and `centerY` properties
-    mapArray, // The tile map array
-    world, // The `world` object that contains the `tilewidth
-    //`tileheight` and `widthInTiles` properties
-    emptyGid = 0, // The Gid that represents and empty tile, usually `0`
-    segment = 32, // The distance between collision points
-    angles = [] // An array of angles to which you want to
-    // restrict the line of sight
+  tileBasedLineOfSight(spriteOne, // The first sprite, with `centerX` and `centerY` properties
+  spriteTwo, // The second sprite, with `centerX` and `centerY` properties
+  mapArray, // The tile map array
+  world, // The `world` object that contains the `tilewidth
+  //`tileheight` and `widthInTiles` properties
+  emptyGid = 0, // The Gid that represents and empty tile, usually `0`
+  segment = 32, // The distance between collision points
+  angles = [] // An array of angles to which you want to
+  // restrict the line of sight
   ) {
     // Plot a vector between spriteTwo and spriteOne
-    let vx = spriteTwo.centerX - spriteOne.centerX
-    let vy = spriteTwo.centerY - spriteOne.centerY
+    let vx = spriteTwo.centerX - spriteOne.centerX;
+    let vy = spriteTwo.centerY - spriteOne.centerY; // Find the vector's magnitude (its length in pixels)
 
-    // Find the vector's magnitude (its length in pixels)
-    const magnitude = Math.sqrt(vx * vx + vy * vy)
+    const magnitude = Math.sqrt(vx * vx + vy * vy); // How many points will we need to test?
 
-    // How many points will we need to test?
-    const numberOfPoints = magnitude / segment
-
-    // Create an array of x/y points that
+    const numberOfPoints = magnitude / segment; // Create an array of x/y points that
     // extends from `spriteOne` to `spriteTwo`
+
     const points = () => {
       // Initialize an array that is going to store all our points
       // along the vector
-      const arrayOfPoints = []
-
-      // Create a point object for each segment of the vector and
+      const arrayOfPoints = []; // Create a point object for each segment of the vector and
       // store its x/y position as well as its index number on
       // the map array
+
       for (let i = 1; i <= numberOfPoints; i++) {
         // Calculate the new magnitude for this iteration of the loop
-        const newMagnitude = segment * i
+        const newMagnitude = segment * i; // Find the unit vector
 
-        // Find the unit vector
-        let dx = vx / magnitude
-        let dy = vy / magnitude
-
-        // Use the unit vector and newMagnitude to figure out the x/y
+        let dx = vx / magnitude;
+        let dy = vy / magnitude; // Use the unit vector and newMagnitude to figure out the x/y
         // position of the next point in this loop iteration
-        let x = spriteOne.centerX + dx * newMagnitude
-        let y = spriteOne.centerY + dy * newMagnitude
 
-        // Find the map index number that this x and y point corresponds to
-        const index = this.getIndex(
-          x, y,
-          world.tilewidth,
-          world.tileheight,
-          world.widthInTiles
-        )
+        let x = spriteOne.centerX + dx * newMagnitude;
+        let y = spriteOne.centerY + dy * newMagnitude; // Find the map index number that this x and y point corresponds to
 
-        // Push the point into the `arrayOfPoints`
+        const index = this.getIndex(x, y, world.tilewidth, world.tileheight, world.widthInTiles); // Push the point into the `arrayOfPoints`
+
         arrayOfPoints.push({
-          x, y, index
-        })
-      }
+          x,
+          y,
+          index
+        });
+      } // Return the array
 
-      // Return the array
-      return arrayOfPoints
-    }
 
-    // The tile-based collision test.
+      return arrayOfPoints;
+    }; // The tile-based collision test.
     // The `noObstacles` function will return `true` if all the tile
     // index numbers along the vector are `0`, which means they contain
     // no walls. If any of them aren't 0, then the function returns
     // `false` which means there's a wall in the way
-    const noObstacles = points().every(point => mapArray[point.index] === emptyGid)
 
-    // Restrict the line of sight to right angles only (we don't want to
+
+    const noObstacles = points().every(point => mapArray[point.index] === emptyGid); // Restrict the line of sight to right angles only (we don't want to
     // use diagonals)
+
     const validAngle = () => {
       // Find the angle of the vector between the two sprites
-      const angle = Math.atan2(vy, vx) * 180 / Math.PI
-
-      // If the angle matches one of the valid angles, return
+      const angle = Math.atan2(vy, vx) * 180 / Math.PI; // If the angle matches one of the valid angles, return
       // `true`, otherwise return `false`
+
       if (angles.length !== 0) {
-        return angles.some(x => x === angle)
+        return angles.some(x => x === angle);
       }
-      return true
-    }
 
-    // Return `true` if there are no obstacles and the line of sight
+      return true;
+    }; // Return `true` if there are no obstacles and the line of sight
     // is at a 90 degree angle
-    if (noObstacles === true && validAngle() === true) {
-      return true
-    }
-    return false
-  }
 
+
+    if (noObstacles === true && validAngle() === true) {
+      return true;
+    }
+
+    return false;
+  }
   /*
   surroundingCrossCells
   ---------------------
-
-  Returns an array of index numbers matching the cells that are orthogonally
+   Returns an array of index numbers matching the cells that are orthogonally
   adjacent to the center `index` cell
+   */
 
-  */
 
-  surroundingCrossCells (index, widthInTiles) {
-    return [
-      index - widthInTiles,
-      index - 1,
-      index + 1,
-      index + widthInTiles
-    ]
+  surroundingCrossCells(index, widthInTiles) {
+    return [index - widthInTiles, index - 1, index + 1, index + widthInTiles];
   }
-
   /*
   surroundingDiagonalCells
   ---------------------
-
-  Returns an array of index numbers matching the cells that touch the
+   Returns an array of index numbers matching the cells that touch the
   4 corners of the center the center `index` cell
+   */
 
-  */
 
-  surroundingDiagonalCells (index, widthInTiles) {
-    return [
-      index - widthInTiles - 1,
-      index - widthInTiles + 1,
-      index + widthInTiles - 1,
-      index + widthInTiles + 1
-    ]
+  surroundingDiagonalCells(index, widthInTiles) {
+    return [index - widthInTiles - 1, index - widthInTiles + 1, index + widthInTiles - 1, index + widthInTiles + 1];
   }
-
   /*
   validDirections
   ---------------
-
-  Returns an array with the values "up", "down", "left" or "right"
+   Returns an array with the values "up", "down", "left" or "right"
   that represent all the valid directions in which a sprite can move
   The `validGid` is the grid index number for the "walkable" part of the world
   (such as, possibly, `0`.)
   */
 
-  validDirections (sprite, mapArray, validGid, world) {
+
+  validDirections(sprite, mapArray, validGid, world) {
     // Get the sprite's current map index position number
-    const index = this.getIndex(
-      sprite.x,
-      sprite.y,
-      world.tilewidth,
-      world.tileheight,
-      world.widthInTiles
-    )
-
-    // An array containing the index numbers of tile cells
+    const index = this.getIndex(sprite.x, sprite.y, world.tilewidth, world.tileheight, world.widthInTiles); // An array containing the index numbers of tile cells
     // above, below and to the left and right of the sprite
-    const surroundingCrossCells = (index, widthInTiles) => [
-      index - widthInTiles,
-      index - 1,
-      index + 1,
-      index + widthInTiles
-    ]
 
-    // Get the index position numbers of the 4 cells to the top, right, left
+    const surroundingCrossCells = (index, widthInTiles) => [index - widthInTiles, index - 1, index + 1, index + widthInTiles]; // Get the index position numbers of the 4 cells to the top, right, left
     // and bottom of the sprite
-    const surroundingIndexNumbers = surroundingCrossCells(index, world.widthInTiles)
 
-    // Find all the tile gid numbers that match the surrounding index numbers
-    const surroundingTileGids = surroundingIndexNumbers.map(index => mapArray[index])
 
-    // `directionList` is an array of 4 string values that can be either
+    const surroundingIndexNumbers = surroundingCrossCells(index, world.widthInTiles); // Find all the tile gid numbers that match the surrounding index numbers
+
+    const surroundingTileGids = surroundingIndexNumbers.map(index => mapArray[index]); // `directionList` is an array of 4 string values that can be either
     // "up", "left", "right", "down" or "none", depending on
     // whether there is a cell with a valid gid that matches that direction.
+
     const directionList = surroundingTileGids.map((gid, i) => {
       // The possible directions
-      const possibleDirections = ['up', 'left', 'right', 'down']
-
-      // If the direction is valid, choose the matching string
+      const possibleDirections = ['up', 'left', 'right', 'down']; // If the direction is valid, choose the matching string
       // identifier for that direction. Otherwise, return "none"
+
       if (gid === validGid) {
-        return possibleDirections[i]
+        return possibleDirections[i];
       }
-      return 'none'
-    })
 
-    // We don't need "none" in the list of directions
+      return 'none';
+    }); // We don't need "none" in the list of directions
     // (it's just a placeholder), so let's filter it out
-    const filteredDirectionList = directionList.filter(direction => direction !== 'none')
 
-    // Return the filtered list of valid directions
-    return filteredDirectionList
+    const filteredDirectionList = directionList.filter(direction => direction !== 'none'); // Return the filtered list of valid directions
+
+    return filteredDirectionList;
   }
-
   /*
   canChangeDirection
   ------------------
-
-  Returns `true` or `false` depending on whether a sprite in at a map
+   Returns `true` or `false` depending on whether a sprite in at a map
   array location in which it able to change its direction
   */
 
-  canChangeDirection (validDirections = []) {
+
+  canChangeDirection(validDirections = []) {
     // Is the sprite in a dead-end (cul de sac.) This will be true if there's only
     // one element in the `validDirections` array
-    const inCulDeSac = validDirections.length === 1
-
-    // Is the sprite trapped? This will be true if there are no elements in
+    const inCulDeSac = validDirections.length === 1; // Is the sprite trapped? This will be true if there are no elements in
     // the `validDirections` array
-    const trapped = validDirections.length === 0
 
-    // Is the sprite in a passage? This will be `true` if the the sprite
+    const trapped = validDirections.length === 0; // Is the sprite in a passage? This will be `true` if the the sprite
     // is at a location that contain the values
     // “left” or “right” and “up” or “down”
-    let up = validDirections.find(x => x === 'up')
-    let down = validDirections.find(x => x === 'down')
-    let left = validDirections.find(x => x === 'left')
-    let right = validDirections.find(x => x === 'right')
-    let atIntersection = (up || down) && (left || right)
 
-    // Return `true` if the sprite can change direction or
+    let up = validDirections.find(x => x === 'up');
+    let down = validDirections.find(x => x === 'down');
+    let left = validDirections.find(x => x === 'left');
+    let right = validDirections.find(x => x === 'right');
+    let atIntersection = (up || down) && (left || right); // Return `true` if the sprite can change direction or
     // `false` if it can't
-    return trapped || atIntersection || inCulDeSac
-  }
 
+    return trapped || atIntersection || inCulDeSac;
+  }
   /*
   randomDirection
   ---------------
-
-  Randomly returns the values "up", "down", "left" or "right" based on
+   Randomly returns the values "up", "down", "left" or "right" based on
   valid directions supplied. If the are no valid directions, it returns "trapped"
+   */
 
-  */
 
-  randomDirection (sprite, validDirections = []) {
+  randomDirection(sprite, validDirections = []) {
     // The `randomInt` helper function returns a random integer between a minimum
     // and maximum value
-    const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+    const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min; // Is the sprite trapped?
 
-    // Is the sprite trapped?
-    const trapped = validDirections.length === 0
 
-    // If the sprite isn't trapped, randomly choose one of the valid
+    const trapped = validDirections.length === 0; // If the sprite isn't trapped, randomly choose one of the valid
     // directions. Otherwise, return the string "trapped"
-    if (!trapped) {
-      return validDirections[randomInt(0, validDirections.length - 1)]
-    }
-    return 'trapped'
-  }
 
+    if (!trapped) {
+      return validDirections[randomInt(0, validDirections.length - 1)];
+    }
+
+    return 'trapped';
+  }
   /*
   closestDirection
   ----------------
-
-  Tells you the closes direction to `spriteTwo` from `spriteOne` based on
+   Tells you the closes direction to `spriteTwo` from `spriteOne` based on
   supplied validDirections. The function returns any of these
   4 values: "up", "down", "left" or "right"
+   */
 
-  */
 
-  closestDirection (spriteOne, spriteTwo) {
+  closestDirection(spriteOne, spriteTwo) {
     // A helper function to find the closest direction
-
     // Plot a vector between spriteTwo and spriteOne
-    let vx = spriteTwo.centerX - spriteOne.centerX
-    let vy = spriteTwo.centerY - spriteOne.centerY
+    let vx = spriteTwo.centerX - spriteOne.centerX;
+    let vy = spriteTwo.centerY - spriteOne.centerY; // If the distance is greater on the X axis...
 
-    // If the distance is greater on the X axis...
     if (Math.abs(vx) >= Math.abs(vy)) {
       // Try left and right
       if (vx <= 0) {
-        return 'left'
+        return 'left';
       }
-      return 'right'
-    }
 
-    // If the distance is greater on the Y axis...
-
+      return 'right';
+    } // If the distance is greater on the Y axis...
     // Try up and down
-    if (vy <= 0) {
-      return 'up'
-    }
-    return 'down'
-  }
-}
 
+
+    if (vy <= 0) {
+      return 'up';
+    }
+
+    return 'down';
+  }
+
+};
 
 /***/ })
 
-/******/ });
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!**********************!*\
+  !*** ./lib/index.js ***!
+  \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FullscreenApplication": () => (/* binding */ FullscreenApplication),
+/* harmony export */   "World": () => (/* binding */ World),
+/* harmony export */   "TextureExtractor": () => (/* binding */ TextureExtractor),
+/* harmony export */   "utils": () => (/* binding */ utils)
+/* harmony export */ });
+var _require = __webpack_require__(/*! ./app */ "./lib/app.js"),
+    FullscreenApplication = _require.FullscreenApplication;
+
+var _require2 = __webpack_require__(/*! ./world */ "./lib/world.js"),
+    World = _require2.World;
+
+var _require3 = __webpack_require__(/*! ./extract */ "./lib/extract.js"),
+    TextureExtractor = _require3.TextureExtractor;
+
+var _require4 = __webpack_require__(/*! ./utils */ "./lib/utils.js"),
+    utils = _require4.utils;
+
+
+/* global window */
+
+window.PIXI.Tiled = {
+  FullscreenApplication: FullscreenApplication,
+  World: World,
+  TextureExtractor: TextureExtractor,
+  utils: utils
+};
+})();
+
+/******/ })()
+;
 //# sourceMappingURL=index.js.map

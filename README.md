@@ -8,56 +8,46 @@ state: poor but whole
 
 ## Some information from author
 
-* Before you import you have to have window.PIXI defined
+- Before you import you have to have window.PIXI defined
 
-* When you import this library you get PIXI.Tiled helper
+- When you import this library you get PIXI.Tiled helper
 
 ## Whats inside the helper
 
-* FullscreenApplication
+- FullscreenApplication
 
 which extends PIXI.Application and adds autoresize
 and canvas of full width and height of window
 
-* World
+- World
 
 ```javascript
-  const app = new PIXI.Tiled.FullscreenApplication(tick, {
-      roundPixels: true
-  })
-  const json = 'https://www.vikingsvillage.io/game/assets/json/island_small_21.json'
-  const tileset = 'https://www.vikingsvillage.io/game/assets/img/Viking3.png'
-  const tilesize = 42
-  const group = ['Domek', 'Kibel', 'Bees', 'Thor', 'Meat']
-  const clear = ['Spawn']
+// Image (c) Copyright 2016-2021 Andrzej Bieniek do not use
 
-  PIXI.loader.add('resource', tileset).load((loader, { resource }) => {
-      app.world = new PIXI.Tiled.World({
-          tilewidth: tilesize,
-          tileheight: tilesize,
-          offset: 1,
-          texture: resource.texture
-      })
-      app.world.create(json, tileset, tilesize, group, clear).then((world) => {
-          app.stage.addChild(world)
-      })
-  })
+const app = new PIXI.Tiled.FullscreenApplication();
+const json =
+  "https://gist.githubusercontent.com/Prozi/4269805e2421b3e4bf563bf4bf7b3c5d/raw/c2076cd4ceef83a5c4645a5f1d6374d632cc0319/Vikings_map-21.json";
+const tileset = "https://pietal.dev/game/vikings/Vikings_spritesheet-3.png";
+const tilesize = 42;
+const group = ["Domek", "Kibel", "Bees", "Thor", "Meat"];
+const clear = ["Spawn"];
 
-  function tick(time) {
-      this.stage.position.set(
-          -this.stage.width / 2 + innerWidth / 2,
-          -this.stage.height / 2 + innerHeight / 2
-      )
-  }
+app.world = new PIXI.Tiled.World();
+
+app.world.create(json, tileset, tilesize, group, clear).then((world) => {
+  app.stage.addChild(world);
+
+  console.log(`world has ${app.stage.children[0].children.length} children`);
+});
 ```
 
 see live: <https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35>
 
-* TextureExtractor
+- TextureExtractor
 
 Useful if you want to slice a spritesheet
 
-* utils
+- utils
 
 Some internally used utils that might or not be useful (just exported them because of reasons)
 

@@ -41,13 +41,8 @@
         "path": "./node_modules/docma-template-zebra", // set to "zebra" (this path is for this repo only)
         "options": {
             "title": {
-                "label": "Docma",
+                "label": "pixi-tiled-utils",
                 "href": "."
-            },
-            "logo": {
-                // URL String or { dark: String, light: String }
-                "dark": "img/docma-logo.png",
-                "light": "img/docma-logo.png"
             },
             "sidebar": {
                 "enabled": true,

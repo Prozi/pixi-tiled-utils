@@ -1,6 +1,6 @@
 {
   "name": "pixi-tiled-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "PIXI.js Tiled utilities",
   "main": "lib/index.js",
   "browser": "es2015/index.js",
@@ -17,7 +17,6 @@
   "author": "Jacek Pietal <prozi85@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
     "tiled-utils": "^4.0.4"
   },
   "devDependencies": {
@@ -34,5 +33,18 @@
     "pixi-shim": "^2.3.1",
     "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0"
+  },
+  "keywords": [
+    "pixi.js",
+    "tiles",
+    "tilemap",
+    "tiled",
+    "js",
+    "javascript",
+    "game engine"
+  ],
+  "resolutions": {
+    "clean-css": "^4.1.11",
+    "ecstatic": "^4.1.3"
   }
 }

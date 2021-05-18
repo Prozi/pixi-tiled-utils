@@ -21,23 +21,48 @@ and canvas of full width and height of window
 
 - World
 
-```javascript
-// Image (c) Copyright 2016-2021 Andrzej Bieniek do not use
-
-const app = new PIXI.Tiled.FullscreenApplication();
-const json =
-  "https://gist.githubusercontent.com/Prozi/4269805e2421b3e4bf563bf4bf7b3c5d/raw/c2076cd4ceef83a5c4645a5f1d6374d632cc0319/Vikings_map-21.json";
-const tileset = "https://pietal.dev/game/vikings/Vikings_spritesheet-3.png";
-const tilesize = 42;
-const group = ["Domek", "Kibel", "Bees", "Thor", "Meat"];
-const clear = ["Spawn"];
+```js
+const PIXI = require("pixi.js");
+const tu = require("pixi-tiled-utils");
+const app = new tu.FullscreenApplication();
+const json = {
+  // json you get from Tiled application
+  backgroundcolor: "#656667",
+  height: 4,
+  layers: [],
+  nextobjectid: 1,
+  orientation: "orthogonal",
+  properties: [
+    {
+      name: "mapProperty1",
+      type: "string",
+      value: "one",
+    },
+    {
+      name: "mapProperty2",
+      type: "string",
+      value: "two",
+    },
+  ],
+  renderorder: "right-down",
+  tileheight: 32,
+  tilesets: [
+    {
+      // at least one tileset is required for tiled-utils
+    },
+  ],
+  tilewidth: 32,
+  version: 1,
+  tiledversion: "1.0.3",
+  width: 4,
+};
+const tileset = new PIXI.Sprite();
 
 app.world = new PIXI.Tiled.World();
-
-app.world.create(json, tileset, tilesize, group, clear).then((world) => {
+app.world.create(json, tileset).then((world) => {
   app.stage.addChild(world);
 
-  console.log(`world has ${app.stage.children[0].children.length} children`);
+  console.log(`world has ${app.stage.children.length} children`);
 });
 ```
 

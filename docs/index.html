@@ -1,112 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">Home | pixi-tiled-utils</title>
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
-  <script src="script/prettify/prettify.js"></script>
-  <script src="script/manual.js"></script>
-<meta name="description" content="PIXI.js Tiled utilities"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="pixi-tiled-utils"><meta property="twitter:description" content="PIXI.js Tiled utilities"></head>
-<body class="layout-container" data-ice="rootContainer">
+    <title>Docma Documentation</title>
+    <base href="./">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="generator" content="Docma - https://onury.io/docma">
 
-<header>
-  <a href="./">Home</a>
-  
-  <a href="identifiers.html">Reference</a>
-  <a href="source.html">Source</a>
-  
-  <div class="search-box">
-  <span>
-    <img src="./image/search.png">
-    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
-  </span>
-    <ul class="search-result"></ul>
-  </div>
-</header>
+    <link rel="stylesheet" type="text/css" href="css/docma.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-<nav class="navigation" data-ice="nav"><div>
-  <ul>
-    
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/app.js~FullscreenApplication.html">FullscreenApplication</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/extract.js~TextureExtractor.html">TextureExtractor</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/world.js~World.html">World</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tiled">tiled</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-utils">utils</a></span></span></li>
-</ul>
-</div>
-</nav>
+    <script src="//use.fontawesome.com/releases/v5.5.0/js/all.js" defer=""></script>
+    <script src="js/docma-web.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/tippy.all.min.js"></script>
+    <script src="js/app.min.js"></script>
+</head>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="pixi-js-tiled-utilities">PIXI.js Tiled utilities</h1><h2 id="documentation">Documentation</h2><p>state: poor but whole</p>
-<p><a href="https://prozi.github.io/pixi-tiled-utils">https://prozi.github.io/pixi-tiled-utils</a></p>
-<h2 id="some-information-from-author">Some information from author</h2><ul>
-<li><p>Before you import you have to have window.PIXI defined</p>
-</li>
-<li><p>When you import this library you get PIXI.Tiled helper</p>
-</li>
-</ul>
-<h2 id="whats-inside-the-helper">Whats inside the helper</h2><ul>
-<li>FullscreenApplication</li>
-</ul>
-<p>which extends PIXI.Application and adds autoresize
-and canvas of full width and height of window</p>
-<ul>
-<li>World</li>
-</ul>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">  const app = new PIXI.Tiled.FullscreenApplication(tick, {
-      roundPixels: true
-  })
-  const json = &apos;https://www.vikingsvillage.io/game/assets/json/island_small_21.json&apos;
-  const tileset = &apos;https://www.vikingsvillage.io/game/assets/img/Viking3.png&apos;
-  const tilesize = 42
-  const group = [&apos;Domek&apos;, &apos;Kibel&apos;, &apos;Bees&apos;, &apos;Thor&apos;, &apos;Meat&apos;]
-  const clear = [&apos;Spawn&apos;]
+<body>
+    <div id="docma-main"></div>
 
-  PIXI.loader.add(&apos;resource&apos;, tileset).load((loader, { resource }) =&gt; {
-      app.world = new PIXI.Tiled.World({
-          tilewidth: tilesize,
-          tileheight: tilesize,
-          offset: 1,
-          texture: resource.texture
-      })
-      app.world.create(json, tileset, tilesize, group, clear).then((world) =&gt; {
-          app.stage.addChild(world)
-      })
-  })
 
-  function tick(time) {
-      this.stage.position.set(
-          -this.stage.width / 2 + innerWidth / 2,
-          -this.stage.height / 2 + innerHeight / 2
-      )
-  }</code>
-</code></pre>
-<p>see live: <a href="https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35">https://codepan.net/gist/9cb3058fd8c27d346bdcc97f440a3c35</a></p>
-<ul>
-<li>TextureExtractor</li>
-</ul>
-<p>Useful if you want to slice a spritesheet</p>
-<ul>
-<li>utils</li>
-</ul>
-<p>Some internally used utils that might or not be useful (just exported them because of reasons)</p>
-<hr>
-<p>(c) 2019 Jacek Pietal, License: MIT</p>
-<p>by players for players</p>
-</div>
-</div>
 
-<footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
-</footer>
 
-<script src="script/search_index.js"></script>
-<script src="script/search.js"></script>
-<script src="script/pretty-print.js"></script>
-<script src="script/inherited-summary.js"></script>
-<script src="script/test-summary.js"></script>
-<script src="script/inner-link.js"></script>
-<script src="script/patch-for-local.js"></script>
 </body>
 </html>

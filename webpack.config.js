@@ -2,7 +2,7 @@ module.exports = {
   target: "web",
   entry: "./lib/index.js",
   output: {
-    path: require("path").resolve(__dirname),
+    path: require("path").resolve(__dirname, "es2015"),
     filename: "index.js",
   },
   mode: "development",

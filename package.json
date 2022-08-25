@@ -1,13 +1,13 @@
 {
   "name": "pixi-tiled-utils",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "PIXI.js Tiled utilities",
   "main": "lib/index.js",
   "browser": "es2015/index.js",
   "module": "lib/index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "test": "node -r esm -r pixi-shim test/test.js",
+    "test": "node test/test.js",
     "docs": "yarn docma"
   },
   "repository": {
@@ -17,22 +17,22 @@
   "author": "Jacek Pietal <prozi85@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "tiled-utils": "^4.0.4"
+    "tiled-utils": "^4.1.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/runtime": "^7.14.0",
-    "@jacekpietal/docma": "^3.3.3",
-    "babel-loader": "^8.2.2",
+    "@babel/core": "^7.18.13",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/runtime": "^7.18.9",
+    "@jacekpietal/docma": "^3.3.4",
+    "babel-loader": "^8.2.5",
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
     "esm": "^3.2.25",
-    "http-server": "^0.12.3",
-    "pixi-shim": "^2.3.1",
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0"
+    "pixi-shim": "^2.4.0",
+    "pixi.js-legacy": "^6.5.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "keywords": [
     "pixi.js",

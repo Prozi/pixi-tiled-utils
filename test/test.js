@@ -1,5 +1,5 @@
 const PIXI = require("pixi-shim");
-const tu = require("../lib/index.js");
+const tu = require("../lib");
 const app = new tu.FullscreenApplication();
 const json = {
   // json you get from Tiled application

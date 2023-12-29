@@ -17,7 +17,7 @@
   "author": "Jacek Pietal <prozi85@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "tiled-utils": "^4.1.4"
+    "tiled-utils": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
